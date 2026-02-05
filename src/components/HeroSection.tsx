@@ -70,7 +70,7 @@ export default function HeroSection() {
             <img
               src="/memdex-logo.png"
               alt="THE MEMDEX - Automated Portfolio"
-              className="relative w-[280px] sm:w-[400px] md:w-[490px] lg:w-[630px] h-auto logo-breathe drop-shadow-[0_0_30px_rgba(74,158,255,0.3)]"
+              className="relative w-[340px] sm:w-[400px] md:w-[490px] lg:w-[630px] h-auto logo-breathe drop-shadow-[0_0_30px_rgba(74,158,255,0.3)]"
             />
           </div>
         </div>
