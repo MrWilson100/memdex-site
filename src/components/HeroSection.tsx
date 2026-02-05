@@ -2,7 +2,7 @@
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-screen pt-20 overflow-hidden">
+    <section className="relative min-h-[85vh] sm:min-h-screen pt-28 sm:pt-32 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
@@ -59,7 +59,7 @@ export default function HeroSection() {
       <div className="absolute top-1/4 right-1/4 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-[var(--accent)]/10 rounded-full blur-[80px] sm:blur-[120px]" />
       <div className="absolute bottom-1/4 right-1/3 w-[150px] sm:w-[300px] h-[150px] sm:h-[300px] bg-[var(--primary-light)]/15 rounded-full blur-[60px] sm:blur-[100px]" />
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between min-h-[calc(85vh-80px)] sm:min-h-[calc(100vh-80px)]">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between min-h-[calc(85vh-112px)] sm:min-h-[calc(100vh-128px)]">
         {/* Left - Logo with background */}
         <div className="flex-1 flex items-center justify-center lg:justify-start py-4 sm:py-12 lg:py-0 reveal-left">
           <div className="relative sm:-translate-x-[5%]">
