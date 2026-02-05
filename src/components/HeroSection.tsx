@@ -62,7 +62,7 @@ export default function HeroSection() {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between min-h-[calc(100vh-80px)]">
         {/* Left - Logo with background */}
         <div className="flex-1 flex items-center justify-center lg:justify-start py-8 sm:py-12 lg:py-0 reveal-left">
-          <div className="relative -translate-x-[5%]">
+          <div className="relative sm:-translate-x-[5%]">
             {/* Glow overlay - stronger on desktop where there's no background image */}
             <div className="absolute inset-0 bg-[var(--accent)]/10 sm:bg-[var(--accent)]/25 blur-[40px] sm:blur-[100px] rounded-full" />
             <div className="absolute inset-0 hidden sm:block bg-[var(--primary-light)]/30 blur-[60px] rounded-full" />
