@@ -6,6 +6,17 @@ export default function HeroSection() {
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
+      {/* Mobile-only full-width background image */}
+      <div className="absolute inset-0 sm:hidden">
+        <img
+          src="/hero-logo-bg.png"
+          alt=""
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Bottom fade to blend into gradient below */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/50 to-transparent" />
+      </div>
+
       {/* Hero background image behind logo - hidden on mobile for cleaner look */}
       <div className="absolute -left-[5.5%] top-0 w-[65.5%] h-full hidden sm:block">
         <img
@@ -51,16 +62,10 @@ export default function HeroSection() {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between min-h-[calc(100vh-80px)]">
         {/* Left - Logo with background */}
         <div className="flex-1 flex items-center justify-center lg:justify-start py-8 sm:py-12 lg:py-0 reveal-left">
-          <div className="relative">
-            {/* Background image behind logo */}
-            <img
-              src="/hero-logo-bg.png"
-              alt=""
-              className="absolute inset-0 w-[340px] sm:w-[480px] md:w-[580px] lg:w-[750px] h-auto -translate-x-[10%] -translate-y-[5%] object-contain opacity-90"
-            />
-
-            {/* Subtle glow overlay */}
-            <div className="absolute inset-0 bg-[var(--accent)]/10 blur-[40px] sm:blur-[60px] rounded-full" />
+          <div className="relative -translate-x-[5%]">
+            {/* Glow overlay - stronger on desktop where there's no background image */}
+            <div className="absolute inset-0 bg-[var(--accent)]/10 sm:bg-[var(--accent)]/25 blur-[40px] sm:blur-[100px] rounded-full" />
+            <div className="absolute inset-0 hidden sm:block bg-[var(--primary-light)]/30 blur-[60px] rounded-full" />
 
             <img
               src="/memdex-logo.png"
