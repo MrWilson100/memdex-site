@@ -77,7 +77,7 @@ export default function AppShowcase() {
         {/* Phone showcase image */}
         <div className="reveal-scale flex items-center justify-center">
           <img
-            src="/phone-showcase.png"
+            src="/phone-showcase.png?v=2"
             alt="MemDex App Interface"
             className="w-auto h-[400px] sm:h-[500px] lg:h-[600px] object-contain drop-shadow-[0_0_40px_rgba(74,158,255,0.3)]"
           />
