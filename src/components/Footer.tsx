@@ -129,6 +129,8 @@ export default function Footer() {
             alt=""
             className="w-full h-full object-cover object-center"
           />
+          {/* Top gradient overlay - blends blue section into grid */}
+          <div className="absolute top-0 left-0 right-0 h-40 sm:h-56 bg-gradient-to-b from-[var(--primary-dark)] via-[var(--primary-dark)]/50 to-transparent" />
         </div>
 
         {/* Horizon glow */}
