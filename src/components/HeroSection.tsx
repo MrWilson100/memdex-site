@@ -17,55 +17,23 @@ export default function HeroSection() {
         <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[var(--background)] to-transparent" />
       </div>
 
-      {/* Hero background image behind logo - hidden on mobile for cleaner look */}
-      <div className="absolute -left-[5.5%] top-0 w-[65.5%] h-full hidden sm:block">
+      {/* Desktop background image - centered and vibrant */}
+      <div className="absolute inset-0 hidden sm:block">
         <img
           src="/hero-bg.png"
           alt=""
-          className="absolute inset-0 w-full h-full object-cover object-left"
+          className="w-full h-full object-cover object-center brightness-110 contrast-105"
         />
-        {/* Gradient fade to blend into background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[var(--background)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)]/50 via-transparent to-[var(--background)]/50" />
+        {/* Bottom fade only - keeps image vibrant while blending at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[var(--background)] to-transparent" />
       </div>
-
-      {/* Particles effect on right - hidden on mobile for better performance */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full hidden sm:block">
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full"
-              style={{
-                width: `${2 + Math.random() * 3}px`,
-                height: `${2 + Math.random() * 3}px`,
-                background: i % 3 === 0 ? 'var(--accent)' : 'var(--silver)',
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `pulse ${3 + Math.random() * 3}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 3}s`,
-                boxShadow: i % 3 === 0 ? '0 0 10px var(--accent-glow)' : 'none',
-              }}
-            />
-          ))}
-        </div>
-        {/* Horizontal accent glow lines */}
-        <div className="absolute right-0 top-[30%] w-full h-px bg-gradient-to-l from-[var(--accent)]/30 to-transparent" />
-        <div className="absolute right-0 top-[50%] w-full h-px bg-gradient-to-l from-[var(--accent)]/20 to-transparent" />
-        <div className="absolute right-0 top-[70%] w-full h-px bg-gradient-to-l from-[var(--accent)]/30 to-transparent" />
-      </div>
-
-      {/* Ambient glow orbs - smaller on mobile */}
-      <div className="absolute top-1/4 right-1/4 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-[var(--accent)]/10 rounded-full blur-[80px] sm:blur-[120px]" />
-      <div className="absolute bottom-1/4 right-1/3 w-[150px] sm:w-[300px] h-[150px] sm:h-[300px] bg-[var(--primary-light)]/15 rounded-full blur-[60px] sm:blur-[100px]" />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between min-h-[calc(85vh-112px)] sm:min-h-[calc(100vh-128px)]">
         {/* Left - Logo with background */}
         <div className="flex-1 flex items-center justify-center lg:justify-start py-4 sm:py-12 lg:py-0 reveal-left">
-          <div className="relative sm:-translate-x-[5%]">
-            {/* Glow overlay - stronger on desktop where there's no background image */}
-            <div className="absolute inset-0 bg-[var(--accent)]/10 sm:bg-[var(--accent)]/25 blur-[40px] sm:blur-[100px] rounded-full" />
-            <div className="absolute inset-0 hidden sm:block bg-[var(--primary-light)]/30 blur-[60px] rounded-full" />
+          <div className="relative">
+            {/* Subtle glow overlay */}
+            <div className="absolute inset-0 bg-[var(--accent)]/10 blur-[40px] sm:blur-[60px] rounded-full" />
 
             <img
               src="/memdex-logo.png"
