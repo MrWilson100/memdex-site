@@ -109,6 +109,9 @@ export default function Footer() {
         {/* Dark gradient background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)] to-[var(--background-deep)]" />
 
+        {/* Top gradient blend - transitions from blue section above to dark grid */}
+        <div className="absolute top-0 left-0 right-0 h-32 sm:h-48 bg-gradient-to-b from-[var(--primary-dark)] via-[var(--background)] to-transparent z-[5]" />
+
         {/* Large MAP text - behind the grid */}
         <div className="absolute inset-0 flex items-end justify-center pb-0 z-0">
           <h2
