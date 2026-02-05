@@ -9,7 +9,7 @@ export default function HeroSection() {
       {/* Mobile-only full-width background image */}
       <div className="absolute inset-0 sm:hidden">
         <img
-          src="/hero-logo-bg.png"
+          src="/hero-mobile-bg.png"
           alt=""
           className="w-full h-full object-cover object-center"
         />
