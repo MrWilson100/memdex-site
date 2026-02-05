@@ -49,12 +49,18 @@ export default function HeroSection() {
       <div className="absolute bottom-1/4 right-1/3 w-[150px] sm:w-[300px] h-[150px] sm:h-[300px] bg-[var(--primary-light)]/15 rounded-full blur-[60px] sm:blur-[100px]" />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-between min-h-[calc(100vh-80px)]">
-        {/* Left - Logo */}
+        {/* Left - Logo with background */}
         <div className="flex-1 flex items-center justify-center lg:justify-start py-8 sm:py-12 lg:py-0 reveal-left">
           <div className="relative">
-            {/* Outer glow - more prominent, smaller on mobile */}
-            <div className="absolute inset-0 bg-[var(--accent)]/25 blur-[60px] sm:blur-[100px] rounded-full" />
-            <div className="absolute inset-0 bg-[var(--primary-light)]/30 blur-[40px] sm:blur-[60px] rounded-full" />
+            {/* Background image behind logo */}
+            <img
+              src="/hero-logo-bg.png"
+              alt=""
+              className="absolute inset-0 w-[340px] sm:w-[480px] md:w-[580px] lg:w-[750px] h-auto -translate-x-[10%] -translate-y-[5%] object-contain opacity-90"
+            />
+
+            {/* Subtle glow overlay */}
+            <div className="absolute inset-0 bg-[var(--accent)]/10 blur-[40px] sm:blur-[60px] rounded-full" />
 
             <img
               src="/memdex-logo.png"
