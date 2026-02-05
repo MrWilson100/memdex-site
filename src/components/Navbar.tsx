@@ -39,40 +39,42 @@ export default function Navbar() {
         src="https://www.livecoinwatch.com/static/lcw-widget.js"
         strategy="afterInteractive"
       />
-      {/* Floating glass navbar container */}
+      {/* Navbar container with logo and menu outside glass */}
       <div className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 pt-3 sm:pt-4">
-        <nav
-          className="relative mx-auto max-w-7xl rounded-[24px] overflow-hidden"
-          style={{
-            background: 'rgba(10, 20, 35, 0.55)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            border: '1px solid rgba(4, 137, 205, 0.35)',
-            boxShadow: '0 12px 30px rgba(0, 0, 0, 0.45), 0 0 20px rgba(74, 158, 255, 0.1)',
-          }}
-        >
-          {/* Top edge highlight */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(74,158,255,0.5)] to-transparent" />
-
-          <div className="flex items-center justify-between px-3 sm:px-5 py-0.5">
-          {/* Logo */}
-          <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="flex items-center justify-between mx-auto max-w-7xl gap-3 sm:gap-4">
+          {/* Logo - outside glass on left */}
+          <div className="flex-shrink-0">
             <img
               src="/memdex-logo.png"
               alt="MEMDEX Logo"
-              className="h-7 sm:h-8 w-auto"
+              className="h-8 sm:h-10 w-auto drop-shadow-[0_0_10px_rgba(74,158,255,0.3)]"
             />
           </div>
 
-          {/* LiveCoinWatch Crypto Ticker - scaled down on mobile */}
-          <div className="flex-1 mx-2 sm:mx-4 lg:mx-8 overflow-hidden ticker-container">
-            <div
-              ref={widgetRef}
-              className="livecoinwatch-widget-5"
-            ></div>
-          </div>
+          {/* Glass slab with ticker only */}
+          <nav
+            className="relative flex-1 rounded-[20px] overflow-hidden"
+            style={{
+              background: 'rgba(10, 20, 35, 0.55)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(4, 137, 205, 0.35)',
+              boxShadow: '0 12px 30px rgba(0, 0, 0, 0.45), 0 0 20px rgba(74, 158, 255, 0.1)',
+            }}
+          >
+            {/* Top edge highlight */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(74,158,255,0.5)] to-transparent" />
 
-          {/* Right side icon - Menu button */}
+            {/* LiveCoinWatch Crypto Ticker */}
+            <div className="px-4 sm:px-6 py-1 overflow-hidden ticker-container">
+              <div
+                ref={widgetRef}
+                className="livecoinwatch-widget-5"
+              ></div>
+            </div>
+          </nav>
+
+          {/* Menu button - outside glass on right */}
           <div className="flex-shrink-0 relative menu-container">
             <button
               className="grid-icon-btn"
@@ -104,7 +106,6 @@ export default function Navbar() {
             )}
           </div>
         </div>
-        </nav>
       </div>
     </>
   );
