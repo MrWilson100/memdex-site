@@ -2,7 +2,7 @@
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-screen pt-20 overflow-hidden hero-section-mobile">
+    <section className="relative min-h-[85vh] sm:min-h-screen pt-20 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
@@ -70,27 +70,27 @@ export default function HeroSection() {
             <img
               src="/memdex-logo.png"
               alt="THE MEMDEX - Automated Portfolio"
-              className="relative w-[375px] sm:w-[400px] md:w-[490px] lg:w-[630px] h-auto logo-breathe drop-shadow-[0_0_30px_rgba(74,158,255,0.3)] hero-logo-mobile"
+              className="relative w-[375px] sm:w-[400px] md:w-[490px] lg:w-[630px] h-auto logo-breathe drop-shadow-[0_0_30px_rgba(74,158,255,0.3)]"
             />
           </div>
         </div>
 
         {/* Right - Content */}
         <div className="flex-1 text-center lg:text-left py-2 sm:py-12 lg:py-0 lg:pl-12">
-          <h1 className="reveal font-[var(--font-memdex)] text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-4 sm:mb-8 tracking-tight text-glow hero-title-mobile">
+          <h1 className="reveal font-[var(--font-memdex)] text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-4 sm:mb-8 tracking-tight text-glow">
             Automate Your Portfolio<br />
             with <span className="text-[var(--accent-bright)]">Cutting-Edge</span><br />
             Technology
           </h1>
 
-          <p className="reveal text-[var(--silver-light)] text-sm sm:text-base lg:text-lg mb-6 sm:mb-10 tracking-wide hero-tagline-mobile" style={{ transitionDelay: '0.1s' }}>
+          <p className="reveal text-[var(--silver-light)] text-sm sm:text-base lg:text-lg mb-6 sm:mb-10 tracking-wide" style={{ transitionDelay: '0.1s' }}>
             <span className="text-[var(--accent)]">AI-Assisted</span>&nbsp;&nbsp;|&nbsp;&nbsp;Decentralized<br className="sm:hidden" />
             <span className="hidden sm:inline lg:hidden">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
             <span className="hidden lg:inline">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
             Multi-Sector&nbsp;&nbsp;|&nbsp;&nbsp;<span className="text-[var(--accent)]">Cross-Chain</span>
           </p>
 
-          <div className="reveal hero-button-mobile" style={{ transitionDelay: '0.2s' }}>
+          <div className="reveal" style={{ transitionDelay: '0.2s' }}>
             <button className="btn-primary">
               The Whole Market, All at Once
             </button>
