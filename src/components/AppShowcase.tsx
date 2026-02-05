@@ -2,7 +2,7 @@
 
 export default function AppShowcase() {
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden">
+    <section className="relative pt-8 pb-20 lg:pt-12 lg:pb-28 -mt-16 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
@@ -63,12 +63,15 @@ export default function AppShowcase() {
         <div className="perspective-grid w-full h-full" />
       </div>
 
-      {/* Vertical lines behind phone */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full flex gap-8">
+      {/* Vertical lines behind phone - fade in from top, fade out at bottom */}
+      <div className="absolute left-1/2 -translate-x-1/2 -top-32 h-[calc(100%+8rem)] flex gap-8">
         {[...Array(7)].map((_, i) => (
           <div
             key={i}
-            className="w-px h-full bg-gradient-to-b from-[var(--silver)]/30 via-[var(--silver)]/15 to-transparent"
+            className="w-px h-full"
+            style={{
+              background: 'linear-gradient(to bottom, transparent 0%, rgba(184,197,208,0.3) 15%, rgba(184,197,208,0.15) 50%, transparent 100%)'
+            }}
           />
         ))}
       </div>
