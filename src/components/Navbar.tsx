@@ -54,13 +54,13 @@ export default function Navbar() {
           {/* Top edge highlight */}
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(74,158,255,0.5)] to-transparent" />
 
-          <div className="flex items-center justify-between px-4 sm:px-6 py-2">
+          <div className="flex items-center justify-between px-4 sm:px-6 py-1">
           {/* Logo */}
           <div className="flex items-center gap-3 flex-shrink-0">
             <img
               src="/memdex-logo.png"
               alt="MEMDEX Logo"
-              className="h-10 sm:h-12 w-auto"
+              className="h-8 sm:h-10 w-auto"
             />
           </div>
 
