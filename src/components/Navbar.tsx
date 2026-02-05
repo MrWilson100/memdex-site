@@ -42,7 +42,7 @@ export default function Navbar() {
       {/* Floating glass navbar container */}
       <div className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 pt-3 sm:pt-4">
         <nav
-          className="relative mx-auto max-w-7xl rounded-[16px] overflow-hidden"
+          className="relative mx-auto max-w-7xl rounded-[24px] overflow-hidden"
           style={{
             background: 'rgba(10, 20, 35, 0.55)',
             backdropFilter: 'blur(16px)',
@@ -54,7 +54,7 @@ export default function Navbar() {
           {/* Top edge highlight */}
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(74,158,255,0.5)] to-transparent" />
 
-          <div className="flex items-center justify-between px-4 sm:px-6 py-3">
+          <div className="flex items-center justify-between px-4 sm:px-6 py-2">
           {/* Logo */}
           <div className="flex items-center gap-3 flex-shrink-0">
             <img
