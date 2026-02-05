@@ -2,41 +2,45 @@
 
 export default function IntroSection() {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-28 lg:py-36 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
           src="/console-plate-bg.png"
           alt=""
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-60"
         />
         {/* Overlay to blend with site colors */}
-        <div className="absolute inset-0 bg-[#0a1628]/60" />
+        <div className="absolute inset-0 bg-[var(--background)]/70" />
       </div>
 
-      {/* Subtle glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#4d8bff]/5 rounded-full blur-[100px]" />
+      {/* Ambient glow lights */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[var(--accent)]/15 rounded-full blur-[120px]" />
+      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-[var(--primary-light)]/20 rounded-full blur-[100px]" />
 
       <div className="relative z-10 container mx-auto px-6 text-center">
         {/* Title */}
         <h2
-          className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4"
+          className="reveal text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 tracking-tight text-glow"
           style={{ fontFamily: "var(--font-memdex)" }}
         >
-          The MemDex Automated Portfolio
+          The <span className="text-[var(--accent-bright)]">MemDex</span> Automated Portfolio
         </h2>
+
+        {/* Glowing divider */}
+        <div className="reveal w-32 h-0.5 mx-auto mb-6 bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent" style={{ transitionDelay: '0.1s', boxShadow: '0 0 15px rgba(74, 158, 255, 0.4)' }} />
 
         {/* Subtitle */}
         <p
-          className="text-2xl lg:text-3xl text-[#4d8bff] mb-8"
-          style={{ fontFamily: "var(--font-memdex)" }}
+          className="reveal text-xl lg:text-2xl text-[var(--silver-light)] mb-10"
+          style={{ fontFamily: "var(--font-memdex)", transitionDelay: '0.15s' }}
         >
-          The Whole Market. All At Once.
+          The Whole Market. <span className="text-[var(--accent)]">All At Once.</span>
         </p>
 
         {/* Description */}
-        <div className="max-w-4xl mx-auto">
-          <p className="text-[#a0c4ff] text-lg lg:text-xl leading-relaxed mb-8">
+        <div className="max-w-3xl mx-auto">
+          <p className="reveal text-[var(--silver-light)] text-lg lg:text-xl leading-relaxed mb-10" style={{ transitionDelay: '0.2s' }}>
             The MemDex Automated Portfolio is a fully automated, cross-chain digital asset portfolio
             powered by a custom rules-based algorithm and AI research layer. Built on NEAR Protocol,
             MemDex continuously curates and rebalances a portfolio of 100 digital assets across major
@@ -44,7 +48,7 @@ export default function IntroSection() {
           </p>
 
           {/* Feature pills */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="reveal-stagger flex flex-wrap justify-center gap-3 mb-12">
             {[
               "100 Assets",
               "Algorithmic Rebalancing",
@@ -54,7 +58,7 @@ export default function IntroSection() {
             ].map((feature, index) => (
               <span
                 key={index}
-                className="px-4 py-2 bg-[#1a3a6e]/50 border border-[#4d8bff]/30 rounded-full text-white text-sm"
+                className="px-5 py-2.5 bg-[var(--primary)]/40 border border-[var(--accent)]/30 rounded-md text-white text-sm tracking-wide hover:border-[var(--accent)]/60 hover:bg-[var(--primary)]/60 transition-all duration-300 cursor-default"
               >
                 {feature}
               </span>
@@ -62,7 +66,9 @@ export default function IntroSection() {
           </div>
 
           {/* CTA Button */}
-          <button className="btn-primary text-base">Full Overview</button>
+          <div className="reveal" style={{ transitionDelay: '0.4s' }}>
+            <button className="btn-primary">Full Overview</button>
+          </div>
         </div>
       </div>
     </section>

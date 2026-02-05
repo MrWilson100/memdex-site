@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ScrollRevealProvider from "@/components/ScrollRevealProvider";
 
 const memdexHero = localFont({
   src: "../fonts/MemDexHero.ttf",
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${memdexHero.variable} antialiased`}>
+        <ScrollRevealProvider />
         {children}
       </body>
     </html>

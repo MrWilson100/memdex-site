@@ -2,31 +2,31 @@
 
 export default function SolutionSection() {
   return (
-    <section className="relative pt-10 pb-20 overflow-hidden">
+    <section className="relative py-28 lg:py-36 overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0d1a2d] via-[#0a1628] to-[#081422]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)] via-[var(--primary-dark)] to-[var(--background-deep)]" />
 
-      {/* Subtle glow effects */}
-      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-[#4d8bff]/10 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/4 right-0 w-[300px] h-[300px] bg-[#4d8bff]/10 rounded-full blur-[100px]" />
+      {/* Vibrant ambient lights */}
+      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-[var(--accent)]/20 rounded-full blur-[150px]" />
+      <div className="absolute bottom-1/4 right-0 w-[300px] h-[300px] bg-[var(--primary-light)]/25 rounded-full blur-[120px]" />
 
-      <div className="relative z-10 container mx-auto px-6 pt-8">
+      <div className="relative z-10 container mx-auto px-6">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <h2
-            className="text-4xl lg:text-5xl font-bold text-white mb-4"
+            className="reveal text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight text-glow"
             style={{ fontFamily: "var(--font-memdex)" }}
           >
-            The MemDex Solution
+            The <span className="text-[var(--accent-bright)]">MemDex</span> Solution
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#4d8bff] to-transparent mx-auto" />
+          <div className="reveal w-32 h-0.5 mx-auto bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent" style={{ transitionDelay: '0.1s', boxShadow: '0 0 15px rgba(74, 158, 255, 0.4)' }} />
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {/* The Problem */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-[#4d8bff] mb-6">The Challenge</h3>
-            <div className="space-y-4 text-[#a0c4ff] text-base lg:text-lg leading-relaxed">
+          {/* The Challenge */}
+          <div className="reveal-left mb-16">
+            <h3 className="text-xl lg:text-2xl font-semibold text-[var(--accent)] mb-6 tracking-wide">The Challenge</h3>
+            <div className="space-y-5 text-[var(--silver-light)] text-base lg:text-lg leading-relaxed">
               <p>
                 Anyone who has spent any meaningful time in the digital asset space is certainly aware
                 of how quickly the thrill of excitement can turn into a tumultuous, existential crisis
@@ -46,10 +46,13 @@ export default function SolutionSection() {
             </div>
           </div>
 
-          {/* The Solution */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-[#4d8bff] mb-6">Our Approach</h3>
-            <div className="space-y-4 text-[#a0c4ff] text-base lg:text-lg leading-relaxed">
+          {/* Glowing divider */}
+          <div className="reveal w-full h-px my-16 bg-gradient-to-r from-transparent via-[var(--accent)]/40 to-transparent" />
+
+          {/* Our Approach */}
+          <div className="reveal-right mb-16">
+            <h3 className="text-xl lg:text-2xl font-semibold text-[var(--accent)] mb-6 tracking-wide">Our Approach</h3>
+            <div className="space-y-5 text-[var(--silver-light)] text-base lg:text-lg leading-relaxed">
               <p>
                 MemDex is designed to operate within this reality. The MemDex Automated Portfolio
                 manages a diversified set of digital assets continuously, handling monitoring and
@@ -67,8 +70,8 @@ export default function SolutionSection() {
             </div>
           </div>
 
-          {/* Key benefits visual */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Key benefits */}
+          <div className="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
             {[
               {
                 icon: "24/7",
@@ -88,11 +91,11 @@ export default function SolutionSection() {
             ].map((benefit, index) => (
               <div
                 key={index}
-                className="feature-card p-6 text-center"
+                className="feature-card p-8 text-center"
               >
-                <div className="text-4xl font-bold text-[#4d8bff] mb-3">{benefit.icon}</div>
-                <h4 className="text-white font-semibold text-lg mb-2">{benefit.title}</h4>
-                <p className="text-[#a0c4ff] text-sm">{benefit.desc}</p>
+                <div className="text-3xl font-bold text-[var(--accent-bright)] mb-4 tracking-tight">{benefit.icon}</div>
+                <h4 className="text-white font-semibold text-lg mb-3">{benefit.title}</h4>
+                <p className="text-[var(--silver-light)] text-sm leading-relaxed">{benefit.desc}</p>
               </div>
             ))}
           </div>

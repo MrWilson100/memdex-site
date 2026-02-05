@@ -2,19 +2,25 @@
 
 export default function AppShowcase() {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-28 lg:py-36 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
           src="/digital-bg.jpg"
           alt=""
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-70"
         />
         {/* Overlay to blend with site colors */}
-        <div className="absolute inset-0 bg-[#0a1628]/70" />
+        <div className="absolute inset-0 bg-[var(--background)]/70" />
         {/* Right side gradient to hide grey box in image */}
-        <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#0a1628] to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[var(--background)] to-transparent" />
       </div>
+
+      {/* Top blend */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[var(--background)] to-transparent z-[1]" />
+
+      {/* Bottom blend */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--background)] to-transparent z-[1]" />
 
       {/* Wavy lines background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -22,7 +28,7 @@ export default function AppShowcase() {
           <defs>
             <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#1a3a6e" stopOpacity="0" />
-              <stop offset="50%" stopColor="#1a3a6e" stopOpacity="0.5" />
+              <stop offset="50%" stopColor="#1a3a6e" stopOpacity="0.3" />
               <stop offset="100%" stopColor="#1a3a6e" stopOpacity="0" />
             </linearGradient>
           </defs>
@@ -62,14 +68,14 @@ export default function AppShowcase() {
         {[...Array(7)].map((_, i) => (
           <div
             key={i}
-            className="w-px h-full bg-gradient-to-b from-[#4d8bff]/40 via-[#4d8bff]/20 to-transparent"
+            className="w-px h-full bg-gradient-to-b from-[var(--silver)]/30 via-[var(--silver)]/15 to-transparent"
           />
         ))}
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
         {/* Phone mockups */}
-        <div className="flex items-center justify-center relative">
+        <div className="reveal-scale flex items-center justify-center relative">
           {/* Left phone (partially visible) */}
           <div className="phone-mockup w-[220px] h-[450px] lg:w-[280px] lg:h-[570px] p-3 -mr-16 transform -rotate-3 opacity-70 hidden md:block">
             <div className="w-full h-full bg-[#0d2147] rounded-[32px] overflow-hidden relative">

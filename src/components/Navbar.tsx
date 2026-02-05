@@ -39,7 +39,7 @@ export default function Navbar() {
         src="https://www.livecoinwatch.com/static/lcw-widget.js"
         strategy="afterInteractive"
       />
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/90 backdrop-blur-md border-b border-[#1a3a6e]/30">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)]/90 backdrop-blur-md border-b border-[var(--silver)]/10">
         <div className="flex items-center justify-between px-6 py-3">
           {/* Logo */}
           <div className="flex items-center gap-3 flex-shrink-0">
