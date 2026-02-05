@@ -66,7 +66,7 @@ export default function Navbar() {
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(74,158,255,0.5)] to-transparent" />
 
             {/* LiveCoinWatch Crypto Ticker */}
-            <div className="px-4 sm:px-6 py-2 overflow-hidden ticker-container">
+            <div className="px-4 sm:px-6 py-4 overflow-hidden ticker-container">
               <div
                 ref={widgetRef}
                 className="livecoinwatch-widget-5"
