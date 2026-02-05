@@ -11,10 +11,10 @@ export default function HeroSection() {
         <img
           src="/hero-mobile-bg.png"
           alt=""
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center brightness-110 contrast-105"
         />
-        {/* Bottom fade to blend into gradient below */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/50 to-transparent" />
+        {/* Bottom fade only - keeps image vibrant while blending at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[var(--background)] to-transparent" />
       </div>
 
       {/* Hero background image behind logo - hidden on mobile for cleaner look */}
