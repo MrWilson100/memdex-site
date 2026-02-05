@@ -778,3 +778,99 @@ h1, h2, h3, h4, h5, h6 {
 .parallax-element {
   transition: transform 0.1s linear;
 }
+
+/* ========================================
+   MOBILE-SPECIFIC STYLES
+   Only affects screens smaller than 640px
+   Desktop experience remains unchanged
+   ======================================== */
+
+@media (max-width: 639px) {
+  /* Reduced section spacing on mobile */
+  .section-spacing {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .section-spacing-lg {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  /* Smaller section blend overlays on mobile */
+  .section-blend-top::before,
+  .section-blend-bottom::after {
+    height: 60px;
+  }
+
+  /* Smaller buttons on mobile */
+  .btn-primary {
+    padding: 12px 24px;
+    font-size: 13px;
+  }
+
+  /* Reduce reveal animation distance on mobile for smoother feel */
+  .reveal {
+    transform: translateY(20px);
+  }
+
+  .reveal-stagger > * {
+    transform: translateY(15px);
+  }
+
+  .reveal-left {
+    transform: translateX(-30px);
+  }
+
+  .reveal-right {
+    transform: translateX(30px);
+  }
+
+  /* Reduce glow intensity on mobile for performance */
+  .glow {
+    box-shadow: 0 0 20px rgba(74, 158, 255, 0.15);
+  }
+
+  .glow-strong {
+    box-shadow: 0 0 30px rgba(74, 158, 255, 0.2);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 15px rgba(74, 158, 255, 0.3);
+  }
+
+  .text-glow-bright {
+    text-shadow: 0 0 20px rgba(74, 158, 255, 0.4);
+  }
+
+  /* Feature cards - smaller padding on mobile */
+  .feature-card {
+    backdrop-filter: blur(5px);
+  }
+
+  /* Phone mockup adjustments */
+  .phone-mockup {
+    border-radius: 30px;
+    box-shadow:
+      0 15px 40px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(74, 158, 255, 0.1);
+  }
+
+  /* Menu dropdown full width on mobile */
+  .menu-dropdown {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: 0;
+    min-width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  /* Divider adjustments */
+  .divider-glow {
+    height: 1px;
+    box-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
+  }
+}

@@ -105,14 +105,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom section with large MAP text and grid */}
-      <div className="relative h-[400px] lg:h-[500px] overflow-hidden">
+      <div className="relative h-[280px] sm:h-[400px] lg:h-[500px] overflow-hidden">
         {/* Dark gradient background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)] to-[var(--background-deep)]" />
 
         {/* Large MAP text - behind the grid */}
         <div className="absolute inset-0 flex items-end justify-center pb-0 z-0">
           <h2
-            className="text-[150px] lg:text-[300px] font-bold text-white/10 leading-none tracking-wider"
+            className="text-[80px] sm:text-[150px] lg:text-[300px] font-bold text-white/10 leading-none tracking-wider"
             style={{ fontFamily: "var(--font-memdex)" }}
           >
             MAP
@@ -133,9 +133,9 @@ export default function Footer() {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-32 h-32 bg-white/20 blur-3xl z-20" />
 
         {/* Title text - below the blue line */}
-        <div className="absolute top-[35%] left-0 right-0 text-center z-20">
+        <div className="absolute top-[35%] left-0 right-0 text-center z-20 px-4">
           <p
-            className="text-white/70 text-lg lg:text-xl tracking-widest uppercase"
+            className="text-white/70 text-sm sm:text-lg lg:text-xl tracking-widest uppercase"
             style={{ fontFamily: "var(--font-memdex)" }}
           >
             The Memdex Automated Portfolio

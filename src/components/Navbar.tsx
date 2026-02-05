@@ -40,18 +40,21 @@ export default function Navbar() {
         strategy="afterInteractive"
       />
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)]/90 backdrop-blur-md border-b border-[var(--silver)]/10">
-        <div className="flex items-center justify-between px-6 py-3">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3">
           {/* Logo */}
           <div className="flex items-center gap-3 flex-shrink-0">
             <img
               src="/memdex-logo.png"
               alt="MEMDEX Logo"
-              className="h-12 w-auto"
+              className="h-10 sm:h-12 w-auto"
             />
           </div>
 
-          {/* LiveCoinWatch Crypto Ticker */}
-          <div className="flex-1 mx-8 overflow-hidden">
+          {/* Spacer for mobile - pushes menu button to right when ticker hidden */}
+          <div className="flex-1 sm:hidden" />
+
+          {/* LiveCoinWatch Crypto Ticker - hidden on mobile */}
+          <div className="hidden sm:block flex-1 mx-4 lg:mx-8 overflow-hidden">
             <div
               ref={widgetRef}
               className="livecoinwatch-widget-5"

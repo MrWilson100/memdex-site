@@ -6,9 +6,9 @@ export default function SolutionSection() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)] via-[var(--primary-dark)] to-[var(--background-deep)]" />
 
-      {/* Vibrant ambient lights */}
-      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-[var(--accent)]/20 rounded-full blur-[150px]" />
-      <div className="absolute bottom-1/4 right-0 w-[300px] h-[300px] bg-[var(--primary-light)]/25 rounded-full blur-[120px]" />
+      {/* Vibrant ambient lights - smaller on mobile */}
+      <div className="absolute top-1/4 left-0 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-[var(--accent)]/20 rounded-full blur-[80px] sm:blur-[150px]" />
+      <div className="absolute bottom-1/4 right-0 w-[150px] sm:w-[300px] h-[150px] sm:h-[300px] bg-[var(--primary-light)]/25 rounded-full blur-[60px] sm:blur-[120px]" />
 
       <div className="relative z-10 container mx-auto px-6">
         {/* Section header */}

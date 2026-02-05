@@ -135,12 +135,12 @@ export default function AppShowcase() {
           </div>
 
           {/* Center phone (main) */}
-          <div className="phone-mockup w-[280px] h-[570px] lg:w-[320px] lg:h-[650px] p-3 relative z-20 transform scale-100">
-            <div className="w-full h-full bg-[#0d2147] rounded-[36px] overflow-hidden relative">
+          <div className="phone-mockup w-[240px] h-[490px] sm:w-[280px] sm:h-[570px] lg:w-[320px] lg:h-[650px] p-2 sm:p-3 relative z-20 transform scale-100">
+            <div className="w-full h-full bg-[#0d2147] rounded-[28px] sm:rounded-[36px] overflow-hidden relative">
               {/* Status bar */}
-              <div className="flex justify-between items-center px-6 py-3 text-white text-xs">
+              <div className="flex justify-between items-center px-4 sm:px-6 py-2 sm:py-3 text-white text-[10px] sm:text-xs">
                 <span>9:41</span>
-                <div className="w-24 h-6 bg-black rounded-full" /> {/* Notch */}
+                <div className="w-16 sm:w-24 h-5 sm:h-6 bg-black rounded-full" /> {/* Notch */}
                 <div className="flex gap-1">
                   <span>📶</span>
                   <span>🔋</span>
@@ -148,15 +148,15 @@ export default function AppShowcase() {
               </div>
 
               {/* Header with glow */}
-              <div className="relative px-4 pt-4 pb-8 text-center">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-[#4d8bff]/20 rounded-full blur-3xl" />
-                <h2 className="text-[#4d8bff] text-xl font-bold relative z-10">The MemDex 100</h2>
-                <p className="text-[#a0c4ff] text-xs mt-1 relative z-10">The Whole Market All at Once</p>
-                <p className="text-white text-4xl font-bold mt-4 relative z-10">$11,111</p>
-                <p className="text-[#a0c4ff] text-xs mt-1 relative z-10">Available Balance (USD)</p>
+              <div className="relative px-3 sm:px-4 pt-2 sm:pt-4 pb-4 sm:pb-8 text-center">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-32 h-24 sm:h-32 bg-[#4d8bff]/20 rounded-full blur-3xl" />
+                <h2 className="text-[#4d8bff] text-base sm:text-xl font-bold relative z-10">The MemDex 100</h2>
+                <p className="text-[#a0c4ff] text-[10px] sm:text-xs mt-1 relative z-10">The Whole Market All at Once</p>
+                <p className="text-white text-2xl sm:text-4xl font-bold mt-2 sm:mt-4 relative z-10">$11,111</p>
+                <p className="text-[#a0c4ff] text-[10px] sm:text-xs mt-1 relative z-10">Available Balance (USD)</p>
 
                 {/* Mini chart */}
-                <div className="mt-4 h-16 relative z-10">
+                <div className="mt-2 sm:mt-4 h-12 sm:h-16 relative z-10">
                   <svg className="w-full h-full" viewBox="0 0 200 60">
                     <defs>
                       <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -178,11 +178,11 @@ export default function AppShowcase() {
                 </div>
 
                 {/* Time filters */}
-                <div className="flex justify-center gap-2 mt-2">
+                <div className="flex justify-center gap-1 sm:gap-2 mt-1 sm:mt-2">
                   {["1H", "1D", "1W", "1M", "1Y"].map((time, i) => (
                     <button
                       key={time}
-                      className={`px-3 py-1 rounded-full text-xs ${
+                      className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs ${
                         i === 2 ? "bg-blue-600 text-white" : "text-[#a0c4ff]"
                       }`}
                     >
@@ -193,60 +193,60 @@ export default function AppShowcase() {
               </div>
 
               {/* Asset list */}
-              <div className="px-4 mt-2">
-                <div className="flex justify-between text-[#a0c4ff] text-xs mb-2 px-2">
+              <div className="px-3 sm:px-4 mt-1 sm:mt-2">
+                <div className="flex justify-between text-[#a0c4ff] text-[10px] sm:text-xs mb-1 sm:mb-2 px-1 sm:px-2">
                   <span>Asset</span>
                   <span>Price</span>
                   <span>Holdings</span>
                 </div>
 
                 {/* Blue Chips */}
-                <div className="bg-[#1a3a6e]/30 rounded-xl p-3 mb-2 border border-[#4d8bff]/20">
+                <div className="bg-[#1a3a6e]/30 rounded-lg sm:rounded-xl p-2 sm:p-3 mb-1 sm:mb-2 border border-[#4d8bff]/20">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-10 h-10 bg-[#0d2147] rounded-lg flex items-center justify-center border border-[#4d8bff]/30">
-                        <span className="text-[#4d8bff] text-lg">N</span>
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <div className="w-7 h-7 sm:w-10 sm:h-10 bg-[#0d2147] rounded-md sm:rounded-lg flex items-center justify-center border border-[#4d8bff]/30">
+                        <span className="text-[#4d8bff] text-sm sm:text-lg">N</span>
                       </div>
                       <div>
-                        <p className="text-white text-sm">$11.11</p>
-                        <p className="text-[#a0c4ff] text-xs">Blue Chips</p>
+                        <p className="text-white text-[10px] sm:text-sm">$11.11</p>
+                        <p className="text-[#a0c4ff] text-[8px] sm:text-xs">Blue Chips</p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-white font-bold">$111</p>
-                      <div className="flex gap-1 mt-1">
-                        <div className="w-2 h-2 bg-blue-500 rounded-sm" />
-                        <div className="w-2 h-2 bg-blue-500 rounded-sm" />
-                        <div className="w-2 h-2 bg-blue-400/50 rounded-sm" />
+                      <p className="text-white font-bold text-xs sm:text-base">$111</p>
+                      <div className="flex gap-0.5 sm:gap-1 mt-0.5 sm:mt-1">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-sm" />
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-sm" />
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400/50 rounded-sm" />
                       </div>
                     </div>
-                    <svg className="w-12 h-8 text-green-400" viewBox="0 0 50 20">
+                    <svg className="w-8 h-6 sm:w-12 sm:h-8 text-green-400" viewBox="0 0 50 20">
                       <path d="M0,15 L10,12 L20,14 L30,8 L40,10 L50,5" fill="none" stroke="currentColor" strokeWidth="2" />
                     </svg>
                   </div>
                 </div>
 
                 {/* MemeCoins */}
-                <div className="bg-[#1a3a6e]/30 rounded-xl p-3 border border-green-500/30">
+                <div className="bg-[#1a3a6e]/30 rounded-lg sm:rounded-xl p-2 sm:p-3 border border-green-500/30">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-10 h-10 bg-[#0d2147] rounded-lg flex items-center justify-center border border-[#4d8bff]/30 overflow-hidden">
-                        <span className="text-[10px] text-[#4d8bff]">MEMDEX100</span>
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <div className="w-7 h-7 sm:w-10 sm:h-10 bg-[#0d2147] rounded-md sm:rounded-lg flex items-center justify-center border border-[#4d8bff]/30 overflow-hidden">
+                        <span className="text-[6px] sm:text-[10px] text-[#4d8bff]">MEMDEX100</span>
                       </div>
                       <div>
-                        <p className="text-white text-sm">$1.11</p>
-                        <p className="text-[#a0c4ff] text-xs">MemeCoins</p>
+                        <p className="text-white text-[10px] sm:text-sm">$1.11</p>
+                        <p className="text-[#a0c4ff] text-[8px] sm:text-xs">MemeCoins</p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-white font-bold">$111</p>
-                      <div className="flex gap-1 mt-1">
-                        <div className="w-2 h-2 bg-yellow-500 rounded-sm" />
-                        <div className="w-2 h-2 bg-orange-500 rounded-sm" />
-                        <div className="w-2 h-2 bg-green-500 rounded-sm" />
+                      <p className="text-white font-bold text-xs sm:text-base">$111</p>
+                      <div className="flex gap-0.5 sm:gap-1 mt-0.5 sm:mt-1">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-sm" />
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-orange-500 rounded-sm" />
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-sm" />
                       </div>
                     </div>
-                    <svg className="w-12 h-8 text-green-400" viewBox="0 0 50 20">
+                    <svg className="w-8 h-6 sm:w-12 sm:h-8 text-green-400" viewBox="0 0 50 20">
                       <path d="M0,18 L10,15 L20,12 L30,14 L40,8 L50,5" fill="none" stroke="currentColor" strokeWidth="2" />
                     </svg>
                   </div>
@@ -254,23 +254,23 @@ export default function AppShowcase() {
               </div>
 
               {/* Bottom navigation */}
-              <div className="absolute bottom-6 left-4 right-4 flex justify-around items-center">
-                <div className="w-11 h-11 rounded-full bg-blue-600 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <div className="absolute bottom-3 sm:bottom-6 left-2 sm:left-4 right-2 sm:right-4 flex justify-around items-center">
+                <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-blue-600 flex items-center justify-center">
+                  <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                   </svg>
                 </div>
-                <div className="w-11 h-11 rounded-full bg-blue-600 flex items-center justify-center">
-                  <span className="text-white">⏱️</span>
+                <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-blue-600 flex items-center justify-center">
+                  <span className="text-white text-xs sm:text-base">⏱️</span>
                 </div>
-                <div className="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center border-4 border-[#0d2147]">
-                  <span className="text-white text-xl">⇅</span>
+                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-blue-600 flex items-center justify-center border-2 sm:border-4 border-[#0d2147]">
+                  <span className="text-white text-sm sm:text-xl">⇅</span>
                 </div>
-                <div className="w-11 h-11 rounded-full bg-blue-600 flex items-center justify-center">
-                  <span className="text-white">AI</span>
+                <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-blue-600 flex items-center justify-center">
+                  <span className="text-white text-[10px] sm:text-base">AI</span>
                 </div>
-                <div className="w-11 h-11 rounded-full bg-blue-600 flex items-center justify-center">
-                  <span className="text-white">⚙️</span>
+                <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-blue-600 flex items-center justify-center">
+                  <span className="text-white text-xs sm:text-base">⚙️</span>
                 </div>
               </div>
             </div>

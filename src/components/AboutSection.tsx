@@ -17,9 +17,9 @@ export default function AboutSection() {
       {/* Top blend */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[var(--background)] to-transparent z-[1]" />
 
-      {/* Subtle radial glow effect */}
-      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--primary)]/20 rounded-full blur-[150px]" />
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[var(--primary-dark)]/30 rounded-full blur-[100px]" />
+      {/* Subtle radial glow effect - smaller on mobile */}
+      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[var(--primary)]/20 rounded-full blur-[80px] sm:blur-[150px]" />
+      <div className="absolute bottom-0 right-1/4 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-[var(--primary-dark)]/30 rounded-full blur-[60px] sm:blur-[100px]" />
 
       <div className="relative z-10 container mx-auto px-6 pt-8">
         {/* Section header */}

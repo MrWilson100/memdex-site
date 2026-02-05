@@ -9,9 +9,9 @@ export default function NEARSection() {
       {/* Top blend */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[var(--background)] to-transparent z-[1]" />
 
-      {/* NEAR-themed accent glow - brighter */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00EC97]/20 rounded-full blur-[150px]" />
-      <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] bg-[var(--accent)]/15 rounded-full blur-[120px]" />
+      {/* NEAR-themed accent glow - brighter, smaller on mobile */}
+      <div className="absolute top-0 right-0 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-[#00EC97]/20 rounded-full blur-[80px] sm:blur-[150px]" />
+      <div className="absolute bottom-1/4 left-1/4 w-[150px] sm:w-[300px] h-[150px] sm:h-[300px] bg-[var(--accent)]/15 rounded-full blur-[60px] sm:blur-[120px]" />
 
       <div className="relative z-10 container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -24,7 +24,7 @@ export default function NEARSection() {
               <img
                 src="/near-logo.png"
                 alt="NEAR Protocol"
-                className="relative w-[350px] lg:w-[500px] h-auto rounded-3xl"
+                className="relative w-[260px] sm:w-[350px] lg:w-[500px] h-auto rounded-2xl sm:rounded-3xl"
               />
             </div>
           </div>

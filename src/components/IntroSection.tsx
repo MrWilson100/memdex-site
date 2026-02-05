@@ -14,9 +14,9 @@ export default function IntroSection() {
         <div className="absolute inset-0 bg-[var(--background)]/70" />
       </div>
 
-      {/* Ambient glow lights */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[var(--accent)]/15 rounded-full blur-[120px]" />
-      <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-[var(--primary-light)]/20 rounded-full blur-[100px]" />
+      {/* Ambient glow lights - smaller on mobile for performance */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[800px] h-[200px] sm:h-[400px] bg-[var(--accent)]/15 rounded-full blur-[80px] sm:blur-[120px]" />
+      <div className="absolute top-1/4 right-1/4 w-[150px] sm:w-[300px] h-[150px] sm:h-[300px] bg-[var(--primary-light)]/20 rounded-full blur-[60px] sm:blur-[100px]" />
 
       <div className="relative z-10 container mx-auto px-6 text-center">
         {/* Title */}
