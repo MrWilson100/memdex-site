@@ -873,4 +873,12 @@ h1, h2, h3, h4, h5, h6 {
     height: 1px;
     box-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
   }
+
+  /* Scale down crypto ticker on mobile */
+  .ticker-container {
+    transform: scale(0.75);
+    transform-origin: center center;
+    margin-left: -8px;
+    margin-right: -8px;
+  }
 }

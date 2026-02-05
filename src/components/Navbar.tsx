@@ -50,11 +50,8 @@ export default function Navbar() {
             />
           </div>
 
-          {/* Spacer for mobile - pushes menu button to right when ticker hidden */}
-          <div className="flex-1 sm:hidden" />
-
-          {/* LiveCoinWatch Crypto Ticker - hidden on mobile */}
-          <div className="hidden sm:block flex-1 mx-4 lg:mx-8 overflow-hidden">
+          {/* LiveCoinWatch Crypto Ticker - scaled down on mobile */}
+          <div className="flex-1 mx-2 sm:mx-4 lg:mx-8 overflow-hidden ticker-container">
             <div
               ref={widgetRef}
               className="livecoinwatch-widget-5"
