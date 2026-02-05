@@ -14,7 +14,7 @@ export default function Navbar() {
       widgetRef.current.setAttribute("lcw-color-tx", "#ffffff");
       widgetRef.current.setAttribute("lcw-marquee-1", "coins");
       widgetRef.current.setAttribute("lcw-marquee-2", "coins");
-      widgetRef.current.setAttribute("lcw-marquee-items", "20");
+      widgetRef.current.setAttribute("lcw-marquee-items", "10");
     }
   }, []);
 
@@ -51,7 +51,7 @@ export default function Navbar() {
             />
           </div>
 
-          {/* Glass slab with ticker only */}
+          {/* Glass slab with ticker */}
           <nav
             className="relative flex-1 rounded-[20px] overflow-hidden"
             style={{
@@ -66,7 +66,7 @@ export default function Navbar() {
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(74,158,255,0.5)] to-transparent" />
 
             {/* LiveCoinWatch Crypto Ticker */}
-            <div className="px-4 sm:px-6 py-4 overflow-hidden ticker-container">
+            <div className="px-4 sm:px-6 py-3 overflow-hidden ticker-container">
               <div
                 ref={widgetRef}
                 className="livecoinwatch-widget-5"
