@@ -38,9 +38,6 @@ const features = [
 export default function FeaturesGrid() {
   return (
     <section className="relative py-28 lg:py-36 mt-8 lg:mt-12">
-      {/* Top divider */}
-      <div className="absolute top-0 left-0 right-0 divider-glow z-[2]" />
-
       {/* Background image */}
       <div className="absolute inset-0">
         <img

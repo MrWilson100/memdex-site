@@ -2,7 +2,7 @@
 
 export default function AboutSection() {
   return (
-    <section className="relative py-28 lg:py-36 overflow-hidden">
+    <section className="relative pt-8 pb-14 lg:pt-10 lg:pb-20 -mt-16 lg:-mt-24 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img

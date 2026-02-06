@@ -17,8 +17,8 @@ export default function Home() {
       <IntroSection />
       <NEARSection />
       <AppShowcase />
-      <FeaturesGrid />
       <SolutionSection />
+      <FeaturesGrid />
       <AboutSection />
       <RiskDisclosure />
       <Footer />

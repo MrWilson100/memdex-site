@@ -2,7 +2,7 @@
 
 export default function SolutionSection() {
   return (
-    <section className="relative py-28 lg:py-36 overflow-hidden">
+    <section className="relative pt-8 pb-14 lg:pt-10 lg:pb-20 -mt-4 lg:-mt-8 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)] via-[var(--primary-dark)] to-[var(--background-deep)]" />
 

@@ -77,7 +77,7 @@ export default function HeroSection() {
             <div className="relative">
               {/* Left connecting line - from left column to center */}
               <div
-                className={`hidden lg:block absolute right-full h-[2px] bg-gradient-to-r from-[#5AC8E8] to-[#4A9EFF]/30 hero-line-left ${isVisible ? 'animate' : ''}`}
+                className={`hidden lg:block absolute right-full h-[2px] bg-gradient-to-r from-[#4A9EFF]/30 to-[#5AC8E8] hero-line-left ${isVisible ? 'animate' : ''}`}
                 style={{
                   width: '120px',
                   top: '50%',
@@ -93,7 +93,7 @@ export default function HeroSection() {
                   width: '120px',
                   top: '50%',
                   transform: 'translateY(-50%)',
-                  marginLeft: '38px',
+                  marginLeft: '28px',
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
               />
