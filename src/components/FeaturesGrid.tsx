@@ -4,7 +4,7 @@ const features = [
   {
     number: "01",
     category: "AUTOMATED TRADING",
-    title: "Let AI Trade for You",
+    title: "Hands Off Approach",
     description:
       "Your portfolio executes trades in real time, continuously reallocating capital into the most efficient assets available — no micromanaging required.",
     image: "/feature-bars.png",
