@@ -57,7 +57,7 @@ export default function HeroSection() {
           {/* LEFT COLUMN - Leverage Our Technology */}
           <div className="hero-column hero-column-left pt-4 sm:pt-6 lg:pt-8">
             <h2
-              className={`reveal-blur font-[var(--font-memdex)] text-sm sm:text-base lg:text-lg font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
+              className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: '0s' }}
             >
               Leverage Our<br />
@@ -79,7 +79,7 @@ export default function HeroSection() {
               <div
                 className={`hidden lg:block absolute right-full h-[2px] bg-gradient-to-r from-[#4A9EFF]/30 to-[#5AC8E8] hero-line-left ${isVisible ? 'animate' : ''}`}
                 style={{
-                  width: '120px',
+                  width: '140px',
                   top: '50%',
                   transform: 'translateY(-50%)',
                   marginRight: '30px',
@@ -90,7 +90,7 @@ export default function HeroSection() {
               <div
                 className={`hidden lg:block absolute left-full h-[2px] bg-gradient-to-r from-[#5AC8E8] to-[#4A9EFF]/30 hero-line-right ${isVisible ? 'animate' : ''}`}
                 style={{
-                  width: '120px',
+                  width: '140px',
                   top: '50%',
                   transform: 'translateY(-50%)',
                   marginLeft: '28px',
@@ -98,7 +98,7 @@ export default function HeroSection() {
                 }}
               />
               <h1
-                className={`reveal-blur-static font-[var(--font-memdex)] text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold leading-[1.1] tracking-tight ${isVisible ? 'in-view' : ''}`}
+                className={`reveal-blur-static font-[var(--font-memdex)] text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.1] tracking-tight ${isVisible ? 'in-view' : ''}`}
                 style={{
                   transitionDelay: '1.6s',
                   background: 'linear-gradient(135deg, #D0D8E0 0%, #E8EEF5 30%, #FFFFFF 50%, #E0E8F0 70%, #C8D4E0 100%)',
@@ -124,7 +124,7 @@ export default function HeroSection() {
                 <img
                   src="/memdex-logo.png"
                   alt="THE MEMDEX - Automated Portfolio"
-                  className="relative w-[200px] sm:w-[260px] md:w-[320px] lg:w-[380px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
+                  className="relative w-[230px] sm:w-[300px] md:w-[370px] lg:w-[440px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
                 />
               </div>
             </div>
@@ -143,7 +143,7 @@ export default function HeroSection() {
           {/* RIGHT COLUMN - Watch Memdex Work */}
           <div className="hero-column hero-column-right pt-4 sm:pt-6 lg:pt-8">
             <h2
-              className={`reveal-blur font-[var(--font-memdex)] text-sm sm:text-base lg:text-lg font-bold text-white tracking-tight text-glow lg:text-left lg:self-end lg:translate-x-4 ${isVisible ? 'in-view' : ''}`}
+              className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow lg:text-left lg:self-end lg:translate-x-4 ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: '3.4s' }}
             >
               Watch Memdex<br />

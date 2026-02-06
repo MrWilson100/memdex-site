@@ -96,7 +96,7 @@ export default function PieChartAnimated() {
   const circumference = 2 * Math.PI * radius;
 
   return (
-    <div className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40">
+    <div className="relative w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44">
       {/* Glow background */}
       <div className="absolute inset-0 bg-[#4A9EFF]/12 blur-[25px] rounded-full" />
 
@@ -157,7 +157,7 @@ export default function PieChartAnimated() {
 
       {/* Month indicator */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-[10px] sm:text-xs font-medium text-[var(--silver)] tracking-wider uppercase">
+        <span className="text-xs sm:text-sm font-medium text-[var(--silver)] tracking-wider uppercase">
           {months[monthIndex]}
         </span>
       </div>

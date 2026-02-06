@@ -2,7 +2,7 @@
 
 export default function TechGraphic() {
   return (
-    <div className="relative w-36 h-36 sm:w-44 sm:h-44 lg:w-52 lg:h-52">
+    <div className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56">
 
       <svg
         viewBox="0 0 200 200"
