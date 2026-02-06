@@ -79,7 +79,7 @@ export default function FeaturesGrid() {
   }, []);
 
   return (
-    <section className="relative py-28 lg:pt-36 lg:pb-16 mt-8 lg:mt-12">
+    <section className="relative py-28 lg:pt-20 lg:pb-16 mt-8 lg:mt-12">
       {/* Background image */}
       <div className="absolute inset-0">
         <img

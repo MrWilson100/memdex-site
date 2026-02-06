@@ -8,6 +8,7 @@ export default function SolutionSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const blob1Ref = useRef<HTMLDivElement>(null);
   const blob2Ref = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (window.matchMedia("(max-width: 639px)").matches) return;
@@ -25,6 +26,7 @@ export default function SolutionSection() {
             const offset = ((wh - rect.top) / (wh + rect.height) - 0.5) * 2;
             if (blob1Ref.current) blob1Ref.current.style.transform = `translateY(${offset * 120}px)`;
             if (blob2Ref.current) blob2Ref.current.style.transform = `translateY(${offset * -90}px)`;
+            if (gridRef.current) gridRef.current.style.transform = `perspective(800px) rotateX(${offset * 4}deg) rotateY(${offset * 2}deg)`;
           }
           ticking = false;
         });
@@ -38,9 +40,32 @@ export default function SolutionSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative pt-8 pb-14 lg:pt-10 lg:pb-20 -mt-4 lg:-mt-8 overflow-hidden">
+    <>
+    {/* Grid bridge to connect with section above */}
+    <div
+      className="relative hidden sm:block h-80 lg:h-96 -mb-80 lg:-mb-96 pointer-events-none z-0"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(74, 158, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(74, 158, 255, 0.04) 1px, transparent 1px)",
+        backgroundSize: "60px 60px",
+      }}
+    />
+    <section ref={sectionRef} className="relative pt-8 pb-24 lg:pt-10 lg:pb-32 -mt-4 lg:-mt-8 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)] via-[var(--primary-dark)] to-[var(--background-deep)]" />
+
+      {/* Perspective grid overlay */}
+      <div
+        ref={gridRef}
+        className="absolute inset-0 hidden sm:block pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(74, 158, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(74, 158, 255, 0.04) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+          transformOrigin: "center center",
+          willChange: "transform",
+        }}
+      />
 
       {/* Vibrant ambient lights - smaller on mobile, parallax on desktop */}
       <div ref={blob1Ref} className="absolute top-1/4 left-0 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-[var(--accent)]/20 rounded-full blur-[80px] sm:blur-[150px]" />
@@ -135,5 +160,6 @@ export default function SolutionSection() {
       {/* Bottom divider */}
       <div className="absolute bottom-0 left-0 right-0 divider-glow" />
     </section>
+    </>
   );
 }
