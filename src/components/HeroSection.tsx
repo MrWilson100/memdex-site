@@ -35,7 +35,7 @@ export default function HeroSection() {
         <img
           src="/hero-mobile-bg.png"
           alt=""
-          className="w-full h-full object-cover object-center contrast-110 saturate-105"
+          className="w-full h-full object-contain object-center contrast-110 saturate-105"
         />
         <div className="absolute inset-0 bg-[var(--background)]/40" />
         <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-[var(--background)] to-transparent" />
@@ -46,7 +46,7 @@ export default function HeroSection() {
         <img
           src="/hero-bg.png"
           alt=""
-          className="w-full h-full object-cover object-center contrast-110 saturate-105"
+          className="w-full h-full object-contain object-center contrast-110 saturate-105"
         />
         <div className="absolute inset-0 bg-[var(--background)]/40" />
         <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-[var(--background)] to-transparent" />
