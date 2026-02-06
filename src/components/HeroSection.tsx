@@ -35,10 +35,9 @@ export default function HeroSection() {
         <img
           src="/hero-mobile-bg.png"
           alt=""
-          className="w-full h-full object-contain object-center contrast-110 saturate-105"
+          className="w-full h-full object-fill contrast-110 saturate-105"
         />
         <div className="absolute inset-0 bg-[var(--background)]/40" />
-        <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-[var(--background)] to-transparent" />
       </div>
 
       {/* Desktop background image */}
@@ -46,14 +45,13 @@ export default function HeroSection() {
         <img
           src="/hero-bg.png"
           alt=""
-          className="w-full h-full object-contain object-center contrast-110 saturate-105"
+          className="w-full h-full object-fill contrast-110 saturate-105"
         />
         <div className="absolute inset-0 bg-[var(--background)]/40" />
-        <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-[var(--background)] to-transparent" />
       </div>
 
       {/* Main content - Three column grid */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 min-h-[calc(85vh-112px)] sm:min-h-[calc(100vh-128px)] flex items-center -translate-x-1 lg:-translate-x-2">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 min-h-[calc(85vh-112px)] sm:min-h-[calc(100vh-128px)] flex items-center translate-x-0">
         <div className="hero-grid w-full py-8 lg:py-0">
 
           {/* LEFT COLUMN - Leverage Our Technology */}
@@ -162,9 +160,6 @@ export default function HeroSection() {
 
         </div>
       </div>
-
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[var(--background)] to-transparent" />
 
       {/* Glowing divider line */}
       <div className="absolute bottom-0 left-0 right-0 divider-glow" />
