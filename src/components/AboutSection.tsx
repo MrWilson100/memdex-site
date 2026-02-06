@@ -1,8 +1,42 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+
 export default function AboutSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const blob1Ref = useRef<HTMLDivElement>(null);
+  const blob2Ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(max-width: 639px)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const section = sectionRef.current;
+          if (!section) { ticking = false; return; }
+          const rect = section.getBoundingClientRect();
+          const wh = window.innerHeight;
+          if (rect.bottom > 0 && rect.top < wh) {
+            const offset = ((wh - rect.top) / (wh + rect.height) - 0.5) * 2;
+            if (blob1Ref.current) blob1Ref.current.style.transform = `translate(-50%, calc(-50% + ${offset * 140}px))`;
+            if (blob2Ref.current) blob2Ref.current.style.transform = `translateY(${offset * -100}px)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="relative pt-8 pb-14 lg:pt-10 lg:pb-20 -mt-16 lg:-mt-24 overflow-hidden">
+    <section ref={sectionRef} className="relative pt-8 pb-14 lg:pt-10 lg:pb-20 -mt-16 lg:-mt-8 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
@@ -17,9 +51,9 @@ export default function AboutSection() {
       {/* Top blend */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[var(--background)] to-transparent z-[1]" />
 
-      {/* Subtle radial glow effect - smaller on mobile */}
-      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[var(--primary)]/20 rounded-full blur-[80px] sm:blur-[150px]" />
-      <div className="absolute bottom-0 right-1/4 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-[var(--primary-dark)]/30 rounded-full blur-[60px] sm:blur-[100px]" />
+      {/* Subtle radial glow effect - smaller on mobile, parallax on desktop */}
+      <div ref={blob1Ref} className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[var(--primary)]/20 rounded-full blur-[80px] sm:blur-[150px]" />
+      <div ref={blob2Ref} className="absolute bottom-0 right-1/4 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-[var(--primary-dark)]/30 rounded-full blur-[60px] sm:blur-[100px]" />
 
       <div className="relative z-10 container mx-auto px-6 pt-8">
         {/* Section header */}
