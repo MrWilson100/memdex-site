@@ -133,8 +133,8 @@ export default function HeroSection() {
 
             {/* Button below logo */}
             <div
-              className={`reveal-blur mt-4 mb-16 sm:mb-20 lg:mb-24 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: '4.6s' }}
+              className={`reveal mt-4 mb-16 sm:mb-20 lg:mb-24 ${isVisible ? 'in-view' : ''}`}
+              style={{ transitionDelay: '4.6s', transitionDuration: '1.8s' }}
             >
               <button className="btn-primary">
                 The Whole Market, All at Once
