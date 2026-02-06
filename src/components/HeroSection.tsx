@@ -65,7 +65,7 @@ export default function HeroSection() {
             </h2>
 
             <div
-              className={`reveal-blur lg:self-start lg:-translate-x-10 ${isVisible ? 'in-view' : ''}`}
+              className={`reveal-blur lg:self-start lg:-translate-x-6 ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: '0.5s' }}
             >
               <TechGraphic />
@@ -151,7 +151,7 @@ export default function HeroSection() {
             </h2>
 
             <div
-              className={`reveal-blur flex flex-col items-center lg:items-end lg:translate-x-10 lg:translate-y-4 gap-4 ${isVisible ? 'in-view' : ''}`}
+              className={`reveal-blur flex flex-col items-center lg:items-end lg:translate-x-6 lg:translate-y-4 gap-4 ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: '4.0s' }}
             >
               <PieChartAnimated />

@@ -15,9 +15,9 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <IntroSection />
+      <NEARSection />
       <AppShowcase />
       <FeaturesGrid />
-      <NEARSection />
       <SolutionSection />
       <AboutSection />
       <RiskDisclosure />

@@ -40,7 +40,7 @@ export default function Footer() {
               <div className="flex gap-4">
                 {/* Email */}
                 <a
-                  href="mailto:contact@memdex.com"
+                  href="mailto:contact@thememdex100.com"
                   className="w-10 h-10 rounded-full border border-[var(--silver)]/30 flex items-center justify-center text-white hover:bg-[var(--silver)]/10 transition-colors"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,7 +49,9 @@ export default function Footer() {
                 </a>
                 {/* Telegram */}
                 <a
-                  href="#"
+                  href="https://t.me/memdexfoundation"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-[var(--silver)]/30 flex items-center justify-center text-white hover:bg-[var(--silver)]/10 transition-colors"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -58,7 +60,9 @@ export default function Footer() {
                 </a>
                 {/* Instagram */}
                 <a
-                  href="#"
+                  href="https://www.instagram.com/thememdex100"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-[var(--silver)]/30 flex items-center justify-center text-white hover:bg-[var(--silver)]/10 transition-colors"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,7 +73,9 @@ export default function Footer() {
                 </a>
                 {/* X (Twitter) */}
                 <a
-                  href="#"
+                  href="https://x.com/memdexsociety"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-[var(--silver)]/30 flex items-center justify-center text-white hover:bg-[var(--silver)]/10 transition-colors"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

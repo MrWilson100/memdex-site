@@ -1,6 +1,11 @@
 "use client";
 
+import { useState } from "react";
+import RiskDisclosureModal from "./RiskDisclosureModal";
+
 export default function RiskDisclosure() {
+  const [riskModalOpen, setRiskModalOpen] = useState(false);
+
   return (
     <section className="relative py-28 lg:py-36 overflow-hidden">
       {/* Background image */}
@@ -39,12 +44,14 @@ export default function RiskDisclosure() {
               Investing in cryptocurrencies involves substantial risk. Please consider your investment objectives and risk tolerance carefully before participating.
             </p>
 
-            <button className="btn-primary">
+            <button className="btn-primary" onClick={() => setRiskModalOpen(true)}>
               Read More
             </button>
           </div>
         </div>
       </div>
+
+      <RiskDisclosureModal isOpen={riskModalOpen} onClose={() => setRiskModalOpen(false)} />
     </section>
   );
 }
