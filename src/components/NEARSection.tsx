@@ -3,6 +3,9 @@
 export default function NEARSection() {
   return (
     <section className="relative py-28 lg:py-36 overflow-hidden">
+      {/* Top divider */}
+      <div className="absolute top-0 left-0 right-0 divider-glow z-[2]" />
+
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)] to-[var(--background-deep)]" />
 
@@ -81,6 +84,9 @@ export default function NEARSection() {
           </div>
         </div>
       </div>
+
+      {/* Bottom divider */}
+      <div className="absolute bottom-0 left-0 right-0 divider-glow" />
     </section>
   );
 }

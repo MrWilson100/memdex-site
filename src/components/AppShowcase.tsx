@@ -2,7 +2,7 @@
 
 export default function AppShowcase() {
   return (
-    <section className="relative pt-8 pb-20 lg:pt-12 lg:pb-28 -mt-16 overflow-hidden">
+    <section className="relative pt-24 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
@@ -95,6 +95,9 @@ export default function AppShowcase() {
           />
         </div>
       </div>
+
+      {/* Bottom divider */}
+      <div className="absolute bottom-0 left-0 right-0 divider-glow" />
     </section>
   );
 }

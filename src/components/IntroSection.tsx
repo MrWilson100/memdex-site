@@ -78,6 +78,9 @@ export default function IntroSection() {
       </div>
 
       <OverviewModal isOpen={overviewOpen} onClose={() => setOverviewOpen(false)} />
+
+      {/* Bottom divider */}
+      <div className="absolute bottom-0 left-0 right-0 divider-glow" />
     </section>
   );
 }

@@ -134,7 +134,7 @@ export default function Footer() {
         </div>
 
         {/* Horizon glow */}
-        <div className="absolute top-1/4 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[var(--silver)] to-transparent opacity-60 z-20" />
+        <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--silver)] to-transparent opacity-40 z-20" />
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-32 h-32 bg-white/20 blur-3xl z-20" />
 
         {/* Title text - below the blue line */}

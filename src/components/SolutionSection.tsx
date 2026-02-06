@@ -101,6 +101,9 @@ export default function SolutionSection() {
           </div>
         </div>
       </div>
+
+      {/* Bottom divider */}
+      <div className="absolute bottom-0 left-0 right-0 divider-glow" />
     </section>
   );
 }

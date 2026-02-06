@@ -1056,14 +1056,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .divider-glow {
-  height: 2px;
+  height: 1px;
   background: linear-gradient(
     90deg,
     transparent 0%,
     var(--accent) 50%,
     transparent 100%
   );
-  box-shadow: 0 0 20px rgba(74, 158, 255, 0.5);
+  opacity: 0.4;
+  box-shadow: 0 0 8px rgba(74, 158, 255, 0.3);
 }
 
 /* ========================================
