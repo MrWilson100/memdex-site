@@ -77,8 +77,17 @@ export default function AppShowcase() {
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
+        {/* DataWave background behind phone */}
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center z-0">
+          <img
+            src="/datawave-bg.png"
+            alt=""
+            className="w-full max-w-[1400px] h-auto object-contain opacity-80"
+          />
+        </div>
+
         {/* Phone showcase image */}
-        <div className="reveal-scale flex items-center justify-center">
+        <div className="reveal-scale flex items-center justify-center relative z-10">
           <img
             src="/phone-showcase.png?v=2"
             alt="MemDex App Interface"

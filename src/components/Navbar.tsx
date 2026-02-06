@@ -40,20 +40,30 @@ export default function Navbar() {
         strategy="afterInteractive"
       />
       {/* Navbar container with logo and menu outside glass */}
-      <div className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 pt-3 sm:pt-4">
-        <div className="flex items-center justify-between mx-auto max-w-7xl gap-3 sm:gap-4">
+      <div
+        className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 pt-3 sm:pt-4"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(/nav-bar-top-bg.jpg)',
+          backgroundSize: 'cover, cover',
+          backgroundPosition: 'center, center',
+          backgroundRepeat: 'no-repeat, no-repeat',
+          paddingBottom: '16px',
+          backgroundColor: '#040e1e',
+        }}
+      >
+        <div className="flex items-center justify-between mx-auto max-w-7xl gap-10 sm:gap-16">
           {/* Logo - outside glass on left */}
           <div className="flex-shrink-0">
             <img
               src="/memdex-logo.png"
               alt="MEMDEX Logo"
-              className="h-8 sm:h-10 w-auto drop-shadow-[0_0_10px_rgba(74,158,255,0.3)]"
+              className="h-10 sm:h-14 w-auto drop-shadow-[0_0_10px_rgba(74,158,255,0.3)]"
             />
           </div>
 
           {/* Glass slab with ticker */}
           <nav
-            className="relative flex-1 rounded-[20px] overflow-hidden"
+            className="relative flex-1 rounded-full overflow-hidden"
             style={{
               background: 'rgba(10, 20, 35, 0.55)',
               backdropFilter: 'blur(16px)',
@@ -66,7 +76,7 @@ export default function Navbar() {
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(74,158,255,0.5)] to-transparent" />
 
             {/* LiveCoinWatch Crypto Ticker */}
-            <div className="px-4 sm:px-6 py-3 overflow-hidden ticker-container">
+            <div className="px-4 sm:px-6 -my-1 overflow-hidden ticker-container">
               <div
                 ref={widgetRef}
                 className="livecoinwatch-widget-5"

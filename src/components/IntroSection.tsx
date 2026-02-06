@@ -1,6 +1,11 @@
 "use client";
 
+import { useState } from "react";
+import OverviewModal from "./OverviewModal";
+
 export default function IntroSection() {
+  const [overviewOpen, setOverviewOpen] = useState(false);
+
   return (
     <section className="relative py-28 lg:py-36 overflow-hidden">
       {/* Background image */}
@@ -67,10 +72,12 @@ export default function IntroSection() {
 
           {/* CTA Button */}
           <div className="reveal" style={{ transitionDelay: '0.4s' }}>
-            <button className="btn-primary">Full Overview</button>
+            <button className="btn-primary" onClick={() => setOverviewOpen(true)}>Full Overview</button>
           </div>
         </div>
       </div>
+
+      <OverviewModal isOpen={overviewOpen} onClose={() => setOverviewOpen(false)} />
     </section>
   );
 }
