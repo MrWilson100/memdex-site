@@ -37,7 +37,7 @@ const features = [
 
 export default function FeaturesGrid() {
   return (
-    <section className="relative py-28 lg:py-36">
+    <section className="relative py-28 lg:py-36 -mt-16 lg:-mt-24">
       {/* Background image */}
       <div className="absolute inset-0">
         <img

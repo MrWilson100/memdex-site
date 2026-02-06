@@ -78,11 +78,11 @@ export default function AppShowcase() {
 
       <div className="relative z-10 container mx-auto px-6">
         {/* DataWave background behind phone */}
-        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center z-0">
+        <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-screen z-0">
           <img
             src="/datawave-bg.png"
             alt=""
-            className="w-full max-w-[1400px] h-auto object-contain opacity-80"
+            className="w-full h-auto object-cover opacity-80"
           />
         </div>
 
