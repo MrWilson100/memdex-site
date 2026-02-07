@@ -145,7 +145,7 @@ export default function HeroSection() {
                 }}
               >
                 <h1
-                  className="text-metallic-shine font-[var(--font-memdex)] text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.1] tracking-tight"
+                  className="text-metallic-shine font-[var(--font-memdex)] text-[1.35rem] sm:text-[1.7rem] lg:text-[2rem] xl:text-[2.7rem] font-bold leading-[1.1] tracking-tight"
                   style={{
                     whiteSpace: 'nowrap',
                     letterSpacing: '0.02em',

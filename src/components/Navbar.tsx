@@ -52,7 +52,7 @@ export default function Navbar() {
           borderBottom: '1px solid rgba(74, 158, 255, 0.15)',
         }}
       >
-        <div className="flex items-center justify-between mx-auto max-w-7xl gap-10 sm:gap-16">
+        <div className="flex items-center justify-center sm:justify-between mx-auto max-w-7xl gap-4 sm:gap-16">
           {/* Logo + text - outside glass on left */}
           <a
             href="#home"
