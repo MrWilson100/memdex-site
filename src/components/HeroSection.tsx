@@ -36,7 +36,7 @@ export default function HeroSection() {
     : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '2.2s', button: '4.6s' };
 
   return (
-    <section className="relative min-h-[85vh] sm:min-h-screen pt-28 sm:pt-32 overflow-hidden">
+    <section className="relative min-h-[85vh] sm:min-h-screen pt-36 sm:pt-44 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
