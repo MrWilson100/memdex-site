@@ -349,10 +349,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero grid layout */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
 }
+
+/* Mobile: left top-left, right top-right, center spans bottom */
+.hero-column-left { order: 1; }
+.hero-column-right { order: 2; }
+.hero-column-center { order: 3; grid-column: 1 / -1; }
 
 @media (min-width: 1024px) {
   .hero-grid {
@@ -360,6 +365,10 @@ h1, h2, h3, h4, h5, h6 {
     gap: 2rem;
     align-items: start;
   }
+  .hero-column-left,
+  .hero-column-center,
+  .hero-column-right { order: unset; }
+  .hero-column-center { grid-column: auto; }
 }
 
 @media (min-width: 1280px) {
@@ -375,19 +384,21 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.5rem;
+  gap: 1rem;
+}
+
+.hero-column-left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero-column-right {
+  align-items: flex-end;
+  text-align: right;
 }
 
 @media (min-width: 1024px) {
-  .hero-column-left {
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .hero-column-right {
-    align-items: flex-end;
-    text-align: right;
-  }
+  .hero-column { gap: 1.5rem; }
 }
 
 /* Circuit line drawing animation */

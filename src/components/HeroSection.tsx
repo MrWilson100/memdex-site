@@ -6,8 +6,12 @@ import PieChartAnimated from "./hero/PieChartAnimated";
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1023px)");
+    setIsMobile(mq.matches);
+
     // Start animation sequence after a small delay
     const timer = setTimeout(() => setIsVisible(true), 200);
     return () => clearTimeout(timer);
@@ -24,6 +28,12 @@ export default function HeroSection() {
       return () => clearTimeout(timer);
     }
   }, [isVisible]);
+
+  // Mobile: left text → left graphic → right text → right graphic → h1 → logo → button
+  // Desktop: unchanged sequence
+  const d = isMobile
+    ? { leftText: '0s', leftGraphic: '0.5s', rightText: '1.0s', rightGraphic: '1.5s', h1: '2.0s', logo: '2.5s', button: '3.0s' }
+    : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '2.2s', button: '4.6s' };
 
   return (
     <section className="relative min-h-[85vh] sm:min-h-screen pt-28 sm:pt-32 overflow-hidden">
@@ -54,11 +64,11 @@ export default function HeroSection() {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 min-h-[calc(85vh-112px)] sm:min-h-[calc(100vh-128px)] flex items-center translate-x-0">
         <div className="hero-grid w-full py-8 lg:py-0">
 
-          {/* LEFT COLUMN - Leverage Our Technology */}
+          {/* LEFT COLUMN - Leverage Smart Technology */}
           <div className="hero-column hero-column-left pt-4 sm:pt-6 lg:pt-8">
             <h2
               className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: '0s', marginTop: '-1.5vh' }}
+              style={{ transitionDelay: d.leftText, marginTop: isMobile ? 0 : '-1.5vh' }}
             >
               Leverage Smart<br />
               <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)] block text-right">Technology</span>
@@ -66,15 +76,15 @@ export default function HeroSection() {
 
             <div
               className={`reveal-blur lg:self-start lg:-translate-x-6 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: '0.5s' }}
+              style={{ transitionDelay: d.leftGraphic }}
             >
               <TechGraphic />
             </div>
           </div>
 
           {/* CENTER COLUMN - Automate Your Portfolio + Logo */}
-          <div className="hero-column pt-4 sm:pt-6 lg:pt-8">
-            <div className="relative" style={{ marginTop: '-3vh' }}>
+          <div className="hero-column hero-column-center pt-4 sm:pt-6 lg:pt-8">
+            <div className="relative" style={{ marginTop: isMobile ? 0 : '-3vh' }}>
               {/* Left connecting line - from left column to center */}
               <div
                 className={`hidden lg:block absolute right-full h-[2px] bg-gradient-to-r from-[#4A9EFF]/30 to-[#5AC8E8] hero-line-left ${isVisible ? 'animate' : ''}`}
@@ -100,7 +110,7 @@ export default function HeroSection() {
               <h1
                 className={`reveal-blur-static font-[var(--font-memdex)] text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.1] tracking-tight ${isVisible ? 'in-view' : ''}`}
                 style={{
-                  transitionDelay: '1.6s',
+                  transitionDelay: d.h1,
                   background: 'linear-gradient(135deg, #D0D8E0 0%, #E8EEF5 30%, #FFFFFF 50%, #E0E8F0 70%, #C8D4E0 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
@@ -115,7 +125,7 @@ export default function HeroSection() {
 
             <div
               className={`reveal-blur ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: '2.2s', marginTop: '4vh' }}
+              style={{ transitionDelay: d.logo, marginTop: '4vh' }}
             >
               <div className="relative">
                 {/* Subtle glow overlay */}
@@ -132,7 +142,7 @@ export default function HeroSection() {
             {/* Button below logo */}
             <div
               className={`reveal mt-4 mb-16 sm:mb-20 lg:mb-24 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: '4.6s', transitionDuration: '1.8s', marginTop: '4vh' }}
+              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '4vh' }}
             >
               <button className="btn-primary">
                 The Whole Market, All at Once
@@ -144,7 +154,7 @@ export default function HeroSection() {
           <div className="hero-column hero-column-right pt-4 sm:pt-6 lg:pt-8">
             <h2
               className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow lg:text-left lg:self-end lg:translate-x-4 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: '3.4s', marginTop: '-1.5vh' }}
+              style={{ transitionDelay: d.rightText, marginTop: isMobile ? 0 : '-1.5vh' }}
             >
               Watch Memdex<br />
               <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)]">Work</span>
@@ -152,7 +162,7 @@ export default function HeroSection() {
 
             <div
               className={`reveal-blur flex flex-col items-center lg:items-end lg:translate-x-6 lg:translate-y-4 gap-4 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: '4.0s' }}
+              style={{ transitionDelay: d.rightGraphic }}
             >
               <PieChartAnimated />
             </div>
