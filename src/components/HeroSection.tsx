@@ -137,7 +137,7 @@ export default function HeroSection() {
 
             {/* Button below logo */}
             <div
-              className={`reveal mt-4 mb-44 sm:mb-52 lg:mb-52 ${isVisible ? 'in-view' : ''}`}
+              className={`reveal mt-4 mb-28 sm:mb-36 lg:mb-36 ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '4vh', order: 3 }}
             >
               <button className="btn-primary">
