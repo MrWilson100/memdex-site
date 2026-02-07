@@ -58,10 +58,10 @@ export default function HeroSection() {
           <div className="hero-column hero-column-left pt-4 sm:pt-6 lg:pt-8">
             <h2
               className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: '0s', marginTop: '-8vh' }}
+              style={{ transitionDelay: '0s', marginTop: '-1.5vh' }}
             >
-              Leverage Our<br />
-              <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)]">Technology</span>
+              Leverage Smart<br />
+              <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)] block text-right">Technology</span>
             </h2>
 
             <div
@@ -74,7 +74,7 @@ export default function HeroSection() {
 
           {/* CENTER COLUMN - Automate Your Portfolio + Logo */}
           <div className="hero-column pt-4 sm:pt-6 lg:pt-8">
-            <div className="relative" style={{ marginTop: '-8vh' }}>
+            <div className="relative" style={{ marginTop: '-3vh' }}>
               {/* Left connecting line - from left column to center */}
               <div
                 className={`hidden lg:block absolute right-full h-[2px] bg-gradient-to-r from-[#4A9EFF]/30 to-[#5AC8E8] hero-line-left ${isVisible ? 'animate' : ''}`}
@@ -90,7 +90,7 @@ export default function HeroSection() {
               <div
                 className={`hidden lg:block absolute left-full h-[2px] bg-gradient-to-r from-[#5AC8E8] to-[#4A9EFF]/30 hero-line-right ${isVisible ? 'animate' : ''}`}
                 style={{
-                  width: '140px',
+                  width: '160px',
                   top: '50%',
                   transform: 'translateY(-50%)',
                   marginLeft: '28px',
@@ -115,7 +115,7 @@ export default function HeroSection() {
 
             <div
               className={`reveal-blur ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: '2.2s' }}
+              style={{ transitionDelay: '2.2s', marginTop: '4vh' }}
             >
               <div className="relative">
                 {/* Subtle glow overlay */}
@@ -132,7 +132,7 @@ export default function HeroSection() {
             {/* Button below logo */}
             <div
               className={`reveal mt-4 mb-16 sm:mb-20 lg:mb-24 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: '4.6s', transitionDuration: '1.8s', marginTop: '6vh' }}
+              style={{ transitionDelay: '4.6s', transitionDuration: '1.8s', marginTop: '4vh' }}
             >
               <button className="btn-primary">
                 The Whole Market, All at Once
@@ -144,7 +144,7 @@ export default function HeroSection() {
           <div className="hero-column hero-column-right pt-4 sm:pt-6 lg:pt-8">
             <h2
               className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow lg:text-left lg:self-end lg:translate-x-4 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: '3.4s', marginTop: '-8vh' }}
+              style={{ transitionDelay: '3.4s', marginTop: '-1.5vh' }}
             >
               Watch Memdex<br />
               <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)]">Work</span>
