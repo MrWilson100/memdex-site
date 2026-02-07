@@ -350,26 +350,29 @@ h1, h2, h3, h4, h5, h6 {
 .text-metallic-shine {
   background: linear-gradient(
     100deg,
-    #A0AEC0 0%,
-    #CBD5E0 12%,
-    #E2E8F0 24%,
-    #FFFFFF 36%,
-    #FFFFFF 38%,
-    #E2E8F0 42%,
-    #CBD5E0 54%,
-    #A0AEC0 66%,
-    #CBD5E0 78%,
-    #FFFFFF 88%,
-    #FFFFFF 89%,
-    #E2E8F0 92%,
-    #A0AEC0 100%
+    #8899AA 0%,
+    #B0BEC5 10%,
+    #FFFFFF 20%,
+    #FFFFFF 22%,
+    #B0BEC5 28%,
+    #8899AA 40%,
+    #B0BEC5 52%,
+    #FFFFFF 60%,
+    #FFFFFF 62%,
+    #B0BEC5 68%,
+    #8899AA 80%,
+    #FFFFFF 92%,
+    #FFFFFF 93%,
+    #B0BEC5 96%,
+    #8899AA 100%
   );
-  background-size: 300% 100%;
+  background-size: 250% 100%;
   background-position: 100% 0;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: metallic-sweep 6s ease-in-out 3s infinite;
+  animation: metallic-sweep 4s ease-in-out 3s infinite;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.15));
 }
 
 @keyframes metallic-sweep {

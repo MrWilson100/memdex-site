@@ -32,8 +32,8 @@ export default function HeroSection() {
   // Mobile: left text → left graphic → right text → right graphic → h1 → logo → button
   // Desktop: unchanged sequence
   const d = isMobile
-    ? { leftText: '0s', leftGraphic: '0.5s', rightText: '1.0s', rightGraphic: '1.5s', h1: '2.0s', logo: '2.5s', button: '3.0s', tagline: '3.3s', datawave: '3.5s' }
-    : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '2.2s', button: '4.6s', tagline: '4.9s', datawave: '5.2s' };
+    ? { leftText: '0s', leftGraphic: '0.5s', rightText: '1.0s', rightGraphic: '1.5s', h1: '2.0s', logo: '2.0s', button: '3.0s', tagline: '3.3s', datawave: '3.5s' }
+    : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '1.6s', button: '4.6s', tagline: '4.9s', datawave: '5.2s' };
 
   return (
     <section id="home" className="relative min-h-[85vh] sm:min-h-screen pt-44 sm:pt-52 overflow-hidden">
@@ -108,6 +108,7 @@ export default function HeroSection() {
                   src="/memdex-logo.png"
                   alt="THE MEMDEX - Automated Portfolio"
                   className="relative w-[278px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
+                  style={{ top: '12px', scale: '1.05' }}
                 />
               </div>
             </div>
