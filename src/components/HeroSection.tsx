@@ -36,7 +36,7 @@ export default function HeroSection() {
     : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '1.6s', button: '4.6s', tagline: '4.9s', datawave: '5.2s' };
 
   return (
-    <section id="home" className="relative min-h-[85vh] sm:min-h-screen pt-44 sm:pt-52 overflow-hidden">
+    <section id="home" className="relative min-h-[85vh] sm:min-h-screen pt-20 sm:pt-52 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
@@ -63,7 +63,7 @@ export default function HeroSection() {
       {/* DataWave background - spans full width behind button area */}
       <div
         className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
-        style={{ animationDelay: d.datawave, bottom: isMobile ? '36%' : '210px' }}
+        style={{ animationDelay: d.datawave, bottom: isMobile ? '40%' : '210px' }}
       >
         <img
           src="/datawave-bg.png"
@@ -109,7 +109,7 @@ export default function HeroSection() {
                   src="/memdex-logo.png"
                   alt="THE MEMDEX - Automated Portfolio"
                   className="relative w-[278px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
-                  style={{ top: isMobile ? '-42px' : '-2px', scale: '1.10' }}
+                  style={{ top: isMobile ? '-46px' : '-2px', scale: '1.10' }}
                 />
               </div>
             </div>
@@ -172,7 +172,7 @@ export default function HeroSection() {
             {/* Button below tagline */}
             <div
               className={`reveal mb-20 sm:mb-36 lg:mb-36 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: isMobile ? '0vh' : '4vh', order: 4 }}
+              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: isMobile ? '2vh' : '4vh', order: 4 }}
             >
               <button className="btn-primary">
                 The Whole Market, All at Once
