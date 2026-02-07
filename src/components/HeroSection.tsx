@@ -109,7 +109,7 @@ export default function HeroSection() {
                   src="/memdex-logo.png"
                   alt="THE MEMDEX - Automated Portfolio"
                   className="relative w-[278px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
-                  style={{ top: '12px', scale: '1.05' }}
+                  style={{ top: '-2px', scale: '1.10' }}
                 />
               </div>
             </div>
@@ -121,7 +121,7 @@ export default function HeroSection() {
                 style={{
                   width: '100px',
                   top: '50%',
-                  transform: 'translateY(calc(-50% - 28px))',
+                  transform: 'translateY(calc(-50% - 34px))',
                   marginRight: '35px',
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
@@ -132,7 +132,7 @@ export default function HeroSection() {
                 style={{
                   width: '120px',
                   top: '50%',
-                  transform: 'translateY(calc(-50% - 28px))',
+                  transform: 'translateY(calc(-50% - 34px))',
                   marginLeft: '33px',
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
@@ -143,7 +143,7 @@ export default function HeroSection() {
                   transitionDelay: d.h1,
                   whiteSpace: 'nowrap',
                   letterSpacing: '0.02em',
-                  transform: 'translateY(-30px)',
+                  transform: 'translateY(-36px)',
                 }}
               >
                 Automate Your Portfolio
