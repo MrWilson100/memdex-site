@@ -32,8 +32,8 @@ export default function HeroSection() {
   // Mobile: left text → left graphic → right text → right graphic → h1 → logo → button
   // Desktop: unchanged sequence
   const d = isMobile
-    ? { leftText: '0s', leftGraphic: '0.5s', rightText: '1.0s', rightGraphic: '1.5s', h1: '2.0s', logo: '2.5s', button: '3.0s' }
-    : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '2.2s', button: '4.6s' };
+    ? { leftText: '0s', leftGraphic: '0.5s', rightText: '1.0s', rightGraphic: '1.5s', h1: '2.0s', logo: '2.5s', button: '3.0s', datawave: '3.5s' }
+    : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '2.2s', button: '4.6s', datawave: '5.2s' };
 
   return (
     <section className="relative min-h-[85vh] sm:min-h-screen pt-44 sm:pt-52 overflow-hidden">
@@ -58,6 +58,18 @@ export default function HeroSection() {
           className="w-full h-full object-fill contrast-110 saturate-105"
         />
         <div className="absolute inset-0 bg-[var(--background)]/40" />
+      </div>
+
+      {/* DataWave background - spans full width behind button area */}
+      <div
+        className={`absolute bottom-0 left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
+        style={{ animationDelay: d.datawave }}
+      >
+        <img
+          src="/datawave-bg.png"
+          alt=""
+          className="w-full h-auto object-cover"
+        />
       </div>
 
       {/* Main content - Three column grid */}

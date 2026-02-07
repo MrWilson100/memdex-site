@@ -508,6 +508,30 @@ h1, h2, h3, h4, h5, h6 {
   animation: fadeIn 1s var(--ease-cinematic) 1.5s forwards;
 }
 
+/* DataWave sweep-in from left */
+.datawave-reveal {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+}
+
+.datawave-reveal.animate {
+  animation: datawaveSweep 1.8s var(--ease-cinematic) forwards;
+}
+
+@keyframes datawaveSweep {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .reveal-blur {
