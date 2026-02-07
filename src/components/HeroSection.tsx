@@ -62,7 +62,7 @@ export default function HeroSection() {
 
       {/* DataWave background - spans full width behind button area */}
       <div
-        className={`absolute bottom-[115px] left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
+        className={`absolute bottom-[145px] left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
         style={{ animationDelay: d.datawave }}
       >
         <img
@@ -78,7 +78,7 @@ export default function HeroSection() {
         <div className="hero-grid w-full py-8 lg:py-0">
 
           {/* LEFT COLUMN - Leverage Smart Technology */}
-          <div className="hero-column hero-column-left pt-4 sm:pt-6 lg:pt-8">
+          <div className="hero-column hero-column-left pt-4 sm:pt-6 lg:pt-8" style={{ transform: 'translateY(-18px)' }}>
             <h2
               className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.leftText, marginTop: isMobile ? 0 : '-1.5vh' }}
@@ -114,14 +114,14 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="relative" style={{ marginTop: isMobile ? '4vh' : '-3vh', order: isMobile ? 2 : 1 }}>
+            <div className="relative" style={{ marginTop: isMobile ? '4vh' : '0vh', order: isMobile ? 2 : 1 }}>
               {/* Left connecting line - from left column to center */}
               <div
                 className={`hidden lg:block absolute right-full h-[2px] bg-gradient-to-r from-[#4A9EFF]/30 to-[#5AC8E8] hero-line-left ${isVisible ? 'animate' : ''}`}
                 style={{
                   width: '100px',
                   top: '50%',
-                  transform: 'translateY(-50%)',
+                  transform: 'translateY(calc(-50% - 28px))',
                   marginRight: '35px',
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
@@ -132,7 +132,7 @@ export default function HeroSection() {
                 style={{
                   width: '120px',
                   top: '50%',
-                  transform: 'translateY(-50%)',
+                  transform: 'translateY(calc(-50% - 28px))',
                   marginLeft: '33px',
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
@@ -143,6 +143,7 @@ export default function HeroSection() {
                   transitionDelay: d.h1,
                   whiteSpace: 'nowrap',
                   letterSpacing: '0.02em',
+                  transform: 'translateY(-30px)',
                 }}
               >
                 Automate Your Portfolio
@@ -155,7 +156,7 @@ export default function HeroSection() {
               style={{ transitionDelay: d.tagline, transitionDuration: '1.8s', marginTop: '4vh', order: 3 }}
             >
               <p className="text-sm sm:text-base lg:text-lg tracking-[0.2em] sm:tracking-[0.25em] text-[var(--silver-light)]/70 font-light leading-relaxed"
-                style={{ fontFamily: "var(--font-memdex)", transform: 'translateY(40px)' }}
+                style={{ fontFamily: "var(--font-memdex)", transform: 'translateY(34px)' }}
               >
                 AI-Assisted <span className="text-[var(--accent)]/50 mx-1">|</span> Decentralized<br />
                 Multi-Sector <span className="text-[var(--accent)]/50 mx-1">|</span> Cross-Chain
@@ -174,7 +175,7 @@ export default function HeroSection() {
           </div>
 
           {/* RIGHT COLUMN - Watch Memdex Work */}
-          <div className="hero-column hero-column-right pt-4 sm:pt-6 lg:pt-8">
+          <div className="hero-column hero-column-right pt-4 sm:pt-6 lg:pt-8" style={{ transform: 'translateY(-18px)' }}>
             <h2
               className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow lg:text-left lg:self-end lg:translate-x-4 ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.rightText, marginTop: isMobile ? 0 : '-1.5vh' }}

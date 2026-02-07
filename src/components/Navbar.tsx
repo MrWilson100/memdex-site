@@ -144,7 +144,7 @@ export default function Navbar() {
             </div>
 
             <button
-              className="btn-primary -translate-y-1 translate-x-2"
+              className="btn-primary -translate-y-1"
               style={{
                 padding: '8px 20px',
                 fontSize: '11px',
