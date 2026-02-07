@@ -36,7 +36,7 @@ export default function HeroSection() {
     : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '2.2s', button: '4.6s' };
 
   return (
-    <section className="relative min-h-[85vh] sm:min-h-screen pt-36 sm:pt-44 overflow-hidden">
+    <section className="relative min-h-[85vh] sm:min-h-screen pt-44 sm:pt-52 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
@@ -137,7 +137,7 @@ export default function HeroSection() {
 
             {/* Button below logo */}
             <div
-              className={`reveal mt-4 mb-16 sm:mb-20 lg:mb-24 ${isVisible ? 'in-view' : ''}`}
+              className={`reveal mt-4 mb-44 sm:mb-52 lg:mb-52 ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '4vh', order: 3 }}
             >
               <button className="btn-primary">
