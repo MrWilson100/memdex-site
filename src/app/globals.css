@@ -346,6 +346,37 @@ h1, h2, h3, h4, h5, h6 {
   filter: blur(0) drop-shadow(0 0 12px rgba(255,255,255,0.25));
 }
 
+/* Metallic shine text effect */
+.text-metallic-shine {
+  background: linear-gradient(
+    100deg,
+    #A0AEC0 0%,
+    #CBD5E0 12%,
+    #E2E8F0 24%,
+    #FFFFFF 36%,
+    #FFFFFF 38%,
+    #E2E8F0 42%,
+    #CBD5E0 54%,
+    #A0AEC0 66%,
+    #CBD5E0 78%,
+    #FFFFFF 88%,
+    #FFFFFF 89%,
+    #E2E8F0 92%,
+    #A0AEC0 100%
+  );
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: metallic-sweep 6s ease-in-out 3s infinite;
+}
+
+@keyframes metallic-sweep {
+  0%, 100% { background-position: 100% 0; }
+  50% { background-position: 0% 0; }
+}
+
 /* Hero grid layout */
 .hero-grid {
   display: grid;

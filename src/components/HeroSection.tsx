@@ -124,13 +124,9 @@ export default function HeroSection() {
                 }}
               />
               <h1
-                className={`reveal-blur-static font-[var(--font-memdex)] text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.1] tracking-tight ${isVisible ? 'in-view' : ''}`}
+                className={`reveal-blur-static text-metallic-shine font-[var(--font-memdex)] text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.1] tracking-tight ${isVisible ? 'in-view' : ''}`}
                 style={{
                   transitionDelay: d.h1,
-                  background: 'linear-gradient(135deg, #D0D8E0 0%, #E8EEF5 30%, #FFFFFF 50%, #E0E8F0 70%, #C8D4E0 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
                   whiteSpace: 'nowrap',
                   letterSpacing: '0.02em',
                 }}
