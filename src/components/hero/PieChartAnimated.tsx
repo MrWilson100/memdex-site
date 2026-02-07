@@ -96,7 +96,7 @@ export default function PieChartAnimated() {
   const circumference = 2 * Math.PI * radius;
 
   return (
-    <div className="relative w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44">
+    <div className="relative w-[7.35rem] h-[7.35rem] sm:w-36 sm:h-36 lg:w-44 lg:h-44">
       {/* Glow background */}
       <div className="absolute inset-0 bg-[#4A9EFF]/12 blur-[25px] rounded-full" />
 

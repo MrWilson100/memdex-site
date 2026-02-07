@@ -86,7 +86,7 @@ export default function HeroSection() {
           <div className="hero-column hero-column-center pt-4 sm:pt-6 lg:pt-8">
             <div
               className={`reveal-blur ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.logo, marginTop: isMobile ? 0 : '-3vh' }}
+              style={{ transitionDelay: d.logo, marginTop: isMobile ? 0 : '4vh', order: isMobile ? 1 : 2 }}
             >
               <div className="relative">
                 {/* Subtle glow overlay */}
@@ -95,12 +95,12 @@ export default function HeroSection() {
                 <img
                   src="/memdex-logo.png"
                   alt="THE MEMDEX - Automated Portfolio"
-                  className="relative w-[253px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
+                  className="relative w-[278px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
                 />
               </div>
             </div>
 
-            <div className="relative" style={{ marginTop: '4vh' }}>
+            <div className="relative" style={{ marginTop: isMobile ? '4vh' : '-3vh', order: isMobile ? 2 : 1 }}>
               {/* Left connecting line - from left column to center */}
               <div
                 className={`hidden lg:block absolute right-full h-[2px] bg-gradient-to-r from-[#4A9EFF]/30 to-[#5AC8E8] hero-line-left ${isVisible ? 'animate' : ''}`}
@@ -142,7 +142,7 @@ export default function HeroSection() {
             {/* Button below logo */}
             <div
               className={`reveal mt-4 mb-16 sm:mb-20 lg:mb-24 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '4vh' }}
+              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '4vh', order: 3 }}
             >
               <button className="btn-primary">
                 The Whole Market, All at Once
@@ -162,7 +162,7 @@ export default function HeroSection() {
 
             <div
               className={`reveal-blur flex flex-col items-center lg:items-end lg:translate-x-6 lg:translate-y-4 gap-4 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.rightGraphic }}
+              style={{ transitionDelay: d.rightGraphic, marginTop: isMobile ? '2vh' : 0 }}
             >
               <PieChartAnimated />
             </div>
