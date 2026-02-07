@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import CountUp from "./CountUp";
 import WordReveal from "./WordReveal";
+import ChallengeGraphic from "./ChallengeGraphic";
 
 export default function SolutionSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -88,23 +89,36 @@ export default function SolutionSection() {
           {/* The Challenge */}
           <div className="reveal-left mb-16">
             <h3 className="text-xl lg:text-2xl font-semibold text-[var(--accent)] mb-6 tracking-wide">The Challenge</h3>
-            <div className="space-y-5 text-[var(--silver-light)] text-base lg:text-lg leading-relaxed">
-              <p>
-                Anyone who has spent any meaningful time in the digital asset space is certainly aware
-                of how quickly the thrill of excitement can turn into a tumultuous, existential crisis
-                in a market that operates around the clock.
-              </p>
-              <p>
-                Digital asset markets move continuously, across every time zone, with no pause for rest
-                or reflection. Prices shift rapidly, information flows without interruption, and
-                sentiment can change multiple times in a single day. Over time, the constant need to
-                stay alert and responsive can take a real toll, leading to fatigue and emotional strain.
-              </p>
-              <p>
-                Participation often involves navigating a fragmented landscape of blockchains, wallets,
-                applications, and tools. Each asset carries its own behavior, risks, and evolving
-                narrative. Keeping track of even a small group of assets requires sustained attention.
-              </p>
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+              <div className="space-y-5 text-[var(--silver-light)] text-base lg:text-lg leading-relaxed lg:flex-1">
+                <p>
+                  Anyone who has spent any meaningful time in the digital asset space is certainly aware
+                  of how quickly the thrill of excitement can turn into a tumultuous, existential crisis
+                  in a market that operates around the clock.
+                </p>
+                <p>
+                  Digital asset markets move continuously, across every time zone, with no pause for rest
+                  or reflection. Prices shift rapidly, information flows without interruption, and
+                  sentiment can change multiple times in a single day. Over time, the constant need to
+                  stay alert and responsive can take a real toll, leading to fatigue and emotional strain.
+                </p>
+                <p>
+                  Participation often involves navigating a fragmented landscape of blockchains, wallets,
+                  applications, and tools. Each asset carries its own behavior, risks, and evolving
+                  narrative. Keeping track of even a small group of assets requires sustained attention.
+                </p>
+              </div>
+              <div className="lg:flex-shrink-0 self-center lg:self-start flex flex-col items-center gap-0 -mt-8 lg:-mt-14">
+                <img
+                  src="/phone-transparent.png"
+                  alt="MemDex mobile app"
+                  className="w-56 sm:w-72 lg:w-80 h-auto mx-auto scale-y-110"
+                  style={{ transform: 'scaleY(1.1)' }}
+                />
+                <div className="w-56 sm:w-72 lg:w-80">
+                  <ChallengeGraphic />
+                </div>
+              </div>
             </div>
           </div>
 
