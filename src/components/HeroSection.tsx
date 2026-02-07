@@ -63,13 +63,13 @@ export default function HeroSection() {
       {/* DataWave background - spans full width behind button area */}
       <div
         className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
-        style={{ animationDelay: d.datawave, bottom: isMobile ? '35%' : '210px' }}
+        style={{ animationDelay: d.datawave, bottom: isMobile ? '33%' : '210px' }}
       >
         <img
           src="/datawave-bg.png"
           alt=""
           className="w-full h-auto object-cover"
-          style={{ transform: 'scaleY(0.65) rotate(1.5deg)', transformOrigin: 'bottom' }}
+          style={{ transform: isMobile ? 'scaleY(0.75) rotate(1.5deg)' : 'scaleY(0.65) rotate(1.5deg)', transformOrigin: 'bottom' }}
         />
       </div>
 
@@ -110,7 +110,7 @@ export default function HeroSection() {
                 <img
                   src="/memdex-logo.png"
                   alt="THE MEMDEX - Automated Portfolio"
-                  className="relative w-[278px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
+                  className="relative w-[292px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
                   style={{ top: isMobile ? '-46px' : '-2px', scale: '1.10' }}
                 />
               </div>
@@ -143,7 +143,7 @@ export default function HeroSection() {
                 className={`hero-title-frame reveal-blur-static ${isVisible ? 'in-view' : ''}`}
                 style={{
                   transitionDelay: d.h1,
-                  transform: 'translateY(-36px)',
+                  transform: isMobile ? 'translateY(-20px)' : 'translateY(-36px)',
                 }}
               >
                 <h1
@@ -161,10 +161,10 @@ export default function HeroSection() {
             {/* Tagline below logo */}
             <div
               className={`reveal mt-4 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.tagline, transitionDuration: '1.8s', marginTop: isMobile ? '-5vh' : '4vh', order: 3 }}
+              style={{ transitionDelay: d.tagline, transitionDuration: '1.8s', marginTop: isMobile ? '-3vh' : '4vh', order: 3 }}
             >
               <p className="text-sm sm:text-base lg:text-lg tracking-[0.2em] sm:tracking-[0.25em] text-[var(--silver-light)]/70 font-light leading-relaxed"
-                style={{ fontFamily: "var(--font-memdex)", transform: isMobile ? 'translateY(0px)' : 'translateY(24px)' }}
+                style={{ fontFamily: "var(--font-memdex)", transform: isMobile ? 'translateY(6px)' : 'translateY(24px)' }}
               >
                 AI-Assisted <span className="text-[var(--accent)]/50 mx-1">|</span> Decentralized<br />
                 Multi-Sector <span className="text-[var(--accent)]/50 mx-1">|</span> Cross-Chain
@@ -176,7 +176,7 @@ export default function HeroSection() {
               className={`reveal mb-20 sm:mb-36 lg:mb-36 ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: isMobile ? '2vh' : '4vh', order: 4 }}
             >
-              <button className="btn-primary">
+              <button className="btn-primary mt-3 sm:mt-0">
                 The Whole Market, All at Once
               </button>
             </div>
