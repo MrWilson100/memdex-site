@@ -62,13 +62,14 @@ export default function HeroSection() {
 
       {/* DataWave background - spans full width behind button area */}
       <div
-        className={`absolute bottom-0 left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
+        className={`absolute bottom-[115px] left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
         style={{ animationDelay: d.datawave }}
       >
         <img
           src="/datawave-bg.png"
           alt=""
           className="w-full h-auto object-cover"
+          style={{ transform: 'scaleY(0.7)', transformOrigin: 'bottom' }}
         />
       </div>
 
