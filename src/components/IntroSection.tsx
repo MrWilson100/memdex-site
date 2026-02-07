@@ -7,7 +7,7 @@ export default function IntroSection() {
   const [overviewOpen, setOverviewOpen] = useState(false);
 
   return (
-    <section className="relative py-28 lg:py-36 overflow-hidden">
+    <section className="relative pt-16 pb-28 lg:pt-20 lg:pb-36 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
