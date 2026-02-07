@@ -108,7 +108,7 @@ export default function HeroSection() {
                   width: '100px',
                   top: '50%',
                   transform: 'translateY(-50%)',
-                  marginRight: '50px',
+                  marginRight: '35px',
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
               />
@@ -119,7 +119,7 @@ export default function HeroSection() {
                   width: '120px',
                   top: '50%',
                   transform: 'translateY(-50%)',
-                  marginLeft: '48px',
+                  marginLeft: '33px',
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
               />
