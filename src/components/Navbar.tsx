@@ -127,7 +127,11 @@ export default function Navbar() {
                       onClick={(e) => {
                         e.preventDefault();
                         setMenuOpen(false);
-                        document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
+                        const el = document.getElementById(item.id);
+                        if (el) {
+                          const y = el.getBoundingClientRect().top + window.scrollY - 100;
+                          window.scrollTo({ top: y, behavior: 'smooth' });
+                        }
                       }}
                     >
                       {item.label}
