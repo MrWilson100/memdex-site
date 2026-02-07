@@ -63,7 +63,7 @@ export default function HeroSection() {
       {/* DataWave background - spans full width behind button area */}
       <div
         className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
-        style={{ animationDelay: d.datawave, bottom: isMobile ? '35%' : '210px' }}
+        style={{ animationDelay: d.datawave, bottom: isMobile ? '36%' : '210px' }}
       >
         <img
           src="/datawave-bg.png"
