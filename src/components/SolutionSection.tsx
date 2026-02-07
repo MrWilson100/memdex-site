@@ -10,6 +10,7 @@ export default function SolutionSection() {
   const blob1Ref = useRef<HTMLDivElement>(null);
   const blob2Ref = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const phoneRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     if (window.matchMedia("(max-width: 639px)").matches) return;
@@ -28,6 +29,7 @@ export default function SolutionSection() {
             if (blob1Ref.current) blob1Ref.current.style.transform = `translateY(${offset * 120}px)`;
             if (blob2Ref.current) blob2Ref.current.style.transform = `translateY(${offset * -90}px)`;
             if (gridRef.current) gridRef.current.style.transform = `perspective(800px) rotateX(${offset * 4}deg) rotateY(${offset * 2}deg)`;
+            if (phoneRef.current) phoneRef.current.style.transform = `scaleY(1.1) translateY(${offset * -220}px)`;
           }
           ticking = false;
         });
@@ -110,10 +112,11 @@ export default function SolutionSection() {
               </div>
               <div className="lg:flex-shrink-0 self-center lg:self-start flex flex-col items-center gap-0 -mt-8 lg:-mt-14">
                 <img
+                  ref={phoneRef}
                   src="/phone-transparent.png"
                   alt="MemDex mobile app"
                   className="w-56 sm:w-72 lg:w-80 h-auto mx-auto scale-y-110"
-                  style={{ transform: 'scaleY(1.1)' }}
+                  style={{ transform: 'scaleY(1.1)', willChange: 'transform' }}
                 />
                 <div className="w-56 sm:w-72 lg:w-80">
                   <ChallengeGraphic />

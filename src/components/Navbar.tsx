@@ -2,10 +2,12 @@
 
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
+import LoginModal from "./LoginModal";
 
 export default function Navbar() {
   const widgetRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
 
   useEffect(() => {
     // Set custom attributes after mount so they're not stripped by React
@@ -43,17 +45,22 @@ export default function Navbar() {
       <div
         className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 pt-3 sm:pt-4"
         style={{
-          backgroundImage: 'linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(/nav-bar-top-bg.jpg)',
-          backgroundSize: 'cover, cover',
-          backgroundPosition: 'center, center',
-          backgroundRepeat: 'no-repeat, no-repeat',
           paddingBottom: '16px',
-          backgroundColor: '#040e1e',
+          backgroundColor: 'transparent',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          borderBottom: '1px solid rgba(74, 158, 255, 0.15)',
         }}
       >
         <div className="flex items-center justify-between mx-auto max-w-7xl gap-10 sm:gap-16">
-          {/* Logo - outside glass on left */}
-          <div className="flex-shrink-0">
+          {/* Logo + text - outside glass on left */}
+          <div className="flex-shrink-0 flex items-center gap-2 sm:gap-3">
+            <span
+              className="text-white font-bold text-sm sm:text-lg tracking-[0.15em] drop-shadow-[0_0_10px_rgba(74,158,255,0.3)]"
+              style={{ fontFamily: 'var(--font-memdex)' }}
+            >
+              MEMDEX
+            </span>
             <img
               src="/memdex-logo.png"
               alt="MEMDEX Logo"
@@ -84,54 +91,70 @@ export default function Navbar() {
             </div>
           </nav>
 
-          {/* Menu button - outside glass on right */}
-          <div className="flex-shrink-0 relative menu-container">
-            <button
-              className="grid-icon-btn"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              <img
-                src="/grid-icon.jpg"
-                alt="Menu"
-                className="grid-icon-default"
-              />
-              <img
-                src="/grid-icon-hover.png"
-                alt="Menu"
-                className="grid-icon-hover"
-              />
-            </button>
+          {/* Menu button + Login - outside glass on right */}
+          <div className="flex-shrink-0 flex items-center gap-3 sm:gap-4">
+            <div className="relative menu-container">
+              <button
+                className="grid-icon-btn"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
+                <img
+                  src="/grid-icon.jpg"
+                  alt="Menu"
+                  className="grid-icon-default"
+                />
+                <img
+                  src="/grid-icon-hover.png"
+                  alt="Menu"
+                  className="grid-icon-hover"
+                />
+              </button>
 
-            {/* Dropdown Menu */}
-            {menuOpen && (
-              <div className="menu-dropdown">
-                {[
-                  { label: "Home", id: "home" },
-                  { label: "Overview", id: "overview" },
-                  { label: "About", id: "about" },
-                  { label: "Features", id: "features" },
-                  { label: "How It Works", id: "how-it-works" },
-                ].map((item) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className="menu-item"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setMenuOpen(false);
-                      document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                ))}
-                <div className="menu-divider" />
-                <a href="#" className="menu-item">Connect Wallet</a>
-              </div>
-            )}
+              {/* Dropdown Menu */}
+              {menuOpen && (
+                <div className="menu-dropdown">
+                  {[
+                    { label: "Home", id: "home" },
+                    { label: "Overview", id: "overview" },
+                    { label: "About", id: "about" },
+                    { label: "Features", id: "features" },
+                    { label: "How It Works", id: "how-it-works" },
+                  ].map((item) => (
+                    <a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      className="menu-item"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setMenuOpen(false);
+                        document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                  <div className="menu-divider" />
+                  <a href="#" className="menu-item">Connect Wallet</a>
+                </div>
+              )}
+            </div>
+
+            <button
+              className="btn-primary -translate-y-1 translate-x-2"
+              style={{
+                padding: '8px 20px',
+                fontSize: '11px',
+                textTransform: 'none',
+              }}
+              onClick={() => setLoginOpen(true)}
+            >
+              Login <span className="ml-1">&rsaquo;</span>
+            </button>
           </div>
         </div>
       </div>
+
+      <LoginModal isOpen={loginOpen} onClose={() => setLoginOpen(false)} />
     </>
   );
 }
