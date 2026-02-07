@@ -44,7 +44,7 @@ export default function Navbar() {
       />
       {/* Navbar container with logo and menu outside glass */}
       <div
-        className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 pt-3 sm:pt-4"
+        className="fixed top-0 left-0 right-0 z-50 px-6 sm:px-4 pt-3 sm:pt-4"
         style={{
           paddingBottom: '16px',
           backgroundColor: 'transparent',
@@ -53,11 +53,62 @@ export default function Navbar() {
           borderBottom: '1px solid rgba(74, 158, 255, 0.15)',
         }}
       >
-        <div className="flex items-center justify-center sm:justify-between mx-auto max-w-7xl gap-4 sm:gap-16">
-          {/* Logo + text - outside glass on left */}
+        <div className="flex items-center mx-auto max-w-7xl gap-2 sm:gap-4">
+          {/* Menu button - first on mobile, after ticker on desktop */}
+          <div className="relative menu-container order-1 sm:order-3 flex-shrink-0">
+            <button
+              className="grid-icon-btn"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <img
+                src="/grid-icon.jpg"
+                alt="Menu"
+                className="grid-icon-default"
+              />
+              <img
+                src="/grid-icon-hover.png"
+                alt="Menu"
+                className="grid-icon-hover"
+              />
+            </button>
+
+            {/* Dropdown Menu */}
+            {menuOpen && (
+              <div className="menu-dropdown">
+                {[
+                  { label: "Home", id: "home" },
+                  { label: "Overview", id: "overview" },
+                  { label: "About", id: "about" },
+                  { label: "Features", id: "features" },
+                  { label: "How It Works", id: "how-it-works" },
+                ].map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="menu-item"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setMenuOpen(false);
+                      const el = document.getElementById(item.id);
+                      if (el) {
+                        const y = el.getBoundingClientRect().top + window.scrollY - 100;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                      }
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+                <div className="menu-divider" />
+                <a href="#" className="menu-item">Connect Wallet</a>
+              </div>
+            )}
+          </div>
+
+          {/* MEMDEX text - close to menu on mobile */}
           <a
             href="#home"
-            className="flex-shrink-0 flex items-center gap-2 sm:gap-3 cursor-pointer"
+            className="order-2 sm:order-1 flex-shrink-0 cursor-pointer"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -69,16 +120,11 @@ export default function Navbar() {
             >
               MEMDEX
             </span>
-            <img
-              src="/memdex-logo.png"
-              alt="MEMDEX Logo"
-              className="h-10 sm:h-14 w-auto drop-shadow-[0_0_10px_rgba(74,158,255,0.3)]"
-            />
           </a>
 
           {/* Glass slab with ticker - hidden on mobile */}
           <nav
-            className="relative hidden sm:block flex-1 rounded-full overflow-hidden"
+            className="relative hidden sm:block sm:order-2 flex-1 rounded-full overflow-hidden"
             style={{
               background: 'rgba(10, 20, 35, 0.55)',
               backdropFilter: 'blur(16px)',
@@ -99,70 +145,18 @@ export default function Navbar() {
             </div>
           </nav>
 
-          {/* Menu button + Login - outside glass on right */}
-          <div className="flex-shrink-0 flex items-center gap-6 sm:gap-4 ml-10 sm:ml-0">
-            <div className="relative menu-container">
-              <button
-                className="grid-icon-btn"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
-                <img
-                  src="/grid-icon.jpg"
-                  alt="Menu"
-                  className="grid-icon-default"
-                />
-                <img
-                  src="/grid-icon-hover.png"
-                  alt="Menu"
-                  className="grid-icon-hover"
-                />
-              </button>
-
-              {/* Dropdown Menu */}
-              {menuOpen && (
-                <div className="menu-dropdown">
-                  {[
-                    { label: "Home", id: "home" },
-                    { label: "Overview", id: "overview" },
-                    { label: "About", id: "about" },
-                    { label: "Features", id: "features" },
-                    { label: "How It Works", id: "how-it-works" },
-                  ].map((item) => (
-                    <a
-                      key={item.id}
-                      href={`#${item.id}`}
-                      className="menu-item"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setMenuOpen(false);
-                        const el = document.getElementById(item.id);
-                        if (el) {
-                          const y = el.getBoundingClientRect().top + window.scrollY - 100;
-                          window.scrollTo({ top: y, behavior: 'smooth' });
-                        }
-                      }}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                  <div className="menu-divider" />
-                  <a href="#" className="menu-item">Connect Wallet</a>
-                </div>
-              )}
-            </div>
-
-            <button
-              className="btn-primary -translate-y-1"
-              style={{
-                padding: '8px 20px',
-                fontSize: '11px',
-                textTransform: 'none',
-              }}
-              onClick={() => setLoginOpen(true)}
-            >
-              Login <span className="ml-1">&rsaquo;</span>
-            </button>
-          </div>
+          {/* Login button - last on both */}
+          <button
+            className="order-4 sm:order-4 btn-primary flex-shrink-0 ml-auto sm:ml-0"
+            style={{
+              padding: '5px 20px',
+              fontSize: '11px',
+              textTransform: 'none',
+            }}
+            onClick={() => setLoginOpen(true)}
+          >
+            Login <span className="ml-1">&rsaquo;</span>
+          </button>
         </div>
 
       </div>

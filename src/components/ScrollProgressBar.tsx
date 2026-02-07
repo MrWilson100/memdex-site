@@ -32,7 +32,7 @@ export default function ScrollProgressBar() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-[2px] z-[100] hidden sm:block pointer-events-none">
+    <div className="fixed top-0 left-0 right-0 h-[2px] z-[100] pointer-events-none">
       <div
         className="h-full bg-gradient-to-r from-[var(--accent)] via-[var(--accent-bright)] to-[#5AC8E8] origin-left transition-none"
         style={{

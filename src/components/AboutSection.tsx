@@ -8,7 +8,6 @@ export default function AboutSection() {
   const blob2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(max-width: 639px)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let ticking = false;
@@ -36,7 +35,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="relative pt-8 pb-14 lg:pt-10 lg:pb-20 -mt-16 lg:-mt-8 overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative pt-32 pb-14 lg:pt-10 lg:pb-20 -mt-16 lg:-mt-8 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img

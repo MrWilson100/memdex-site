@@ -42,11 +42,41 @@ export default function SolutionSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Mobile-only parallax for phone image
+  useEffect(() => {
+    if (!window.matchMedia("(max-width: 639px)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const section = sectionRef.current;
+          if (!section) { ticking = false; return; }
+          const rect = section.getBoundingClientRect();
+          const wh = window.innerHeight;
+          if (rect.bottom > 0 && rect.top < wh) {
+            const offset = ((wh - rect.top) / (wh + rect.height) - 0.5) * 2;
+            if (blob1Ref.current) blob1Ref.current.style.transform = `translateY(${offset * 80}px)`;
+            if (blob2Ref.current) blob2Ref.current.style.transform = `translateY(${offset * -60}px)`;
+            if (phoneRef.current) phoneRef.current.style.transform = `scaleY(1.1) translateY(${offset * -420}px)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
     {/* Grid bridge to connect with section above */}
     <div
-      className="relative hidden sm:block h-80 lg:h-96 -mb-80 lg:-mb-96 pointer-events-none z-0"
+      className="relative h-80 lg:h-96 -mb-80 lg:-mb-96 pointer-events-none z-0"
       style={{
         backgroundImage:
           "linear-gradient(rgba(74, 158, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(74, 158, 255, 0.04) 1px, transparent 1px)",
@@ -60,7 +90,7 @@ export default function SolutionSection() {
       {/* Perspective grid overlay */}
       <div
         ref={gridRef}
-        className="absolute inset-0 hidden sm:block pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
             "linear-gradient(rgba(74, 158, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(74, 158, 255, 0.04) 1px, transparent 1px)",

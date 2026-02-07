@@ -41,7 +41,6 @@ export default function FeaturesGrid() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    if (window.matchMedia("(max-width: 1023px)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let ticking = false;
@@ -79,7 +78,7 @@ export default function FeaturesGrid() {
   }, []);
 
   return (
-    <section id="features" className="relative py-28 lg:pt-20 lg:pb-16 mt-8 lg:mt-12">
+    <section id="features" className="relative pt-16 pb-28 lg:pt-20 lg:pb-16 mt-8 lg:mt-12">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
@@ -98,71 +97,66 @@ export default function FeaturesGrid() {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--background)] to-transparent z-[1]" />
 
       <div className="relative z-10 container mx-auto px-6">
-        {/* Mobile/tablet: original grid layout */}
-        <div className="reveal-stagger grid grid-cols-1 md:grid-cols-2 gap-6 lg:hidden">
-          {features.map((feature, index) => (
-            <div key={index} className="feature-card relative">
-              {/* Image area */}
-              <div className="h-52 overflow-hidden border-b border-[var(--accent)]/20 relative">
-                <img
-                  src={feature.image}
-                  alt={feature.title}
-                  className="w-full h-full object-cover object-[center_15%] transition-transform duration-700 hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-dark)]/50 to-transparent" />
-              </div>
-              <div className="p-6">
-                <p className="text-[var(--accent)] text-xs tracking-widest uppercase mb-3 font-medium">
-                  {feature.number}&nbsp;&nbsp;·&nbsp;&nbsp;{feature.category}
-                </p>
-                <h3 className="text-white text-xl font-semibold mb-3 tracking-tight">{feature.title}</h3>
-                <p className="text-[var(--silver-light)] text-sm leading-relaxed">{feature.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Desktop: sticky card stack */}
-        <div className="hidden lg:block">
+        {/* Sticky card stack - all screen sizes */}
+        <div>
           {features.map((feature, index) => (
             <div
               key={index}
               ref={(el) => { cardRefs.current[index] = el; }}
-              className={`sticky ${index < features.length - 1 ? "mb-[280px]" : ""}`}
+              className={`sticky ${index < features.length - 1 ? "mb-[200px] lg:mb-[280px]" : ""}`}
               style={{
-                top: `${100 + index * 40}px`,
+                top: `${70 + index * 25}px`,
                 zIndex: index + 1,
                 willChange: "transform, filter",
                 transformOrigin: "center top",
               }}
             >
               <div
-                className="feature-card flex h-[340px] overflow-hidden"
+                className="feature-card overflow-hidden"
                 style={{
                   background: "linear-gradient(180deg, rgba(10, 61, 122, 0.92) 0%, rgba(5, 25, 55, 0.96) 100%)",
                 }}
               >
-                {/* Image side */}
-                <div className="w-2/5 relative overflow-hidden">
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className="w-full h-full object-cover object-[center_15%]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[rgba(5,25,55,0.85)]" />
+                {/* Mobile: vertical layout */}
+                <div className="lg:hidden">
+                  <div className="h-44 overflow-hidden border-b border-[var(--accent)]/20 relative">
+                    <img
+                      src={feature.image}
+                      alt={feature.title}
+                      className="w-full h-full object-cover object-[center_15%]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-dark)]/50 to-transparent" />
+                  </div>
+                  <div className="p-5">
+                    <p className="text-[var(--accent)] text-xs tracking-widest uppercase mb-2 font-medium">
+                      {feature.number}&nbsp;&nbsp;·&nbsp;&nbsp;{feature.category}
+                    </p>
+                    <h3 className="text-white text-lg font-semibold mb-2 tracking-tight">{feature.title}</h3>
+                    <p className="text-[var(--silver-light)] text-sm leading-relaxed">{feature.description}</p>
+                  </div>
                 </div>
 
-                {/* Content side */}
-                <div className="w-3/5 p-12 flex flex-col justify-center">
-                  <p className="text-[var(--accent)] text-xs tracking-widest uppercase mb-4 font-medium">
-                    {feature.number}&nbsp;&nbsp;·&nbsp;&nbsp;{feature.category}
-                  </p>
-                  <h3 className="text-white text-3xl font-semibold mb-5 tracking-tight">
-                    {feature.title}
-                  </h3>
-                  <p className="text-[var(--silver-light)] text-lg leading-relaxed">
-                    {feature.description}
-                  </p>
+                {/* Desktop: horizontal layout */}
+                <div className="hidden lg:flex h-[340px]">
+                  <div className="w-2/5 relative overflow-hidden">
+                    <img
+                      src={feature.image}
+                      alt={feature.title}
+                      className="w-full h-full object-cover object-[center_15%]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[rgba(5,25,55,0.85)]" />
+                  </div>
+                  <div className="w-3/5 p-12 flex flex-col justify-center">
+                    <p className="text-[var(--accent)] text-xs tracking-widest uppercase mb-4 font-medium">
+                      {feature.number}&nbsp;&nbsp;·&nbsp;&nbsp;{feature.category}
+                    </p>
+                    <h3 className="text-white text-3xl font-semibold mb-5 tracking-tight">
+                      {feature.title}
+                    </h3>
+                    <p className="text-[var(--silver-light)] text-lg leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
