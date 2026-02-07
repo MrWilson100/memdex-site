@@ -6,6 +6,7 @@ import LoginModal from "./LoginModal";
 
 export default function Navbar() {
   const widgetRef = useRef<HTMLDivElement>(null);
+  const mobileWidgetRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
 
@@ -17,6 +18,13 @@ export default function Navbar() {
       widgetRef.current.setAttribute("lcw-marquee-1", "coins");
       widgetRef.current.setAttribute("lcw-marquee-2", "coins");
       widgetRef.current.setAttribute("lcw-marquee-items", "10");
+    }
+    if (mobileWidgetRef.current) {
+      mobileWidgetRef.current.setAttribute("lcw-base", "USD");
+      mobileWidgetRef.current.setAttribute("lcw-color-tx", "#ffffff");
+      mobileWidgetRef.current.setAttribute("lcw-marquee-1", "coins");
+      mobileWidgetRef.current.setAttribute("lcw-marquee-2", "coins");
+      mobileWidgetRef.current.setAttribute("lcw-marquee-items", "10");
     }
   }, []);
 
@@ -75,9 +83,9 @@ export default function Navbar() {
             />
           </a>
 
-          {/* Glass slab with ticker */}
+          {/* Glass slab with ticker - hidden on mobile */}
           <nav
-            className="relative flex-1 rounded-full overflow-hidden"
+            className="relative hidden sm:block flex-1 rounded-full overflow-hidden"
             style={{
               background: 'rgba(10, 20, 35, 0.55)',
               backdropFilter: 'blur(16px)',
@@ -161,6 +169,24 @@ export default function Navbar() {
             >
               Login <span className="ml-1">&rsaquo;</span>
             </button>
+          </div>
+        </div>
+
+        {/* Mobile ticker strip - below navbar */}
+        <div
+          className="sm:hidden mt-2 mx-auto rounded-full overflow-hidden"
+          style={{
+            background: 'rgba(10, 20, 35, 0.55)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid rgba(4, 137, 205, 0.35)',
+          }}
+        >
+          <div className="px-4 -my-1 overflow-hidden ticker-container">
+            <div
+              ref={mobileWidgetRef}
+              className="livecoinwatch-widget-5"
+            ></div>
           </div>
         </div>
       </div>
