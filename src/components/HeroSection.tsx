@@ -84,7 +84,23 @@ export default function HeroSection() {
 
           {/* CENTER COLUMN - Automate Your Portfolio + Logo */}
           <div className="hero-column hero-column-center pt-4 sm:pt-6 lg:pt-8">
-            <div className="relative" style={{ marginTop: isMobile ? 0 : '-3vh' }}>
+            <div
+              className={`reveal-blur ${isVisible ? 'in-view' : ''}`}
+              style={{ transitionDelay: d.logo, marginTop: isMobile ? 0 : '-3vh' }}
+            >
+              <div className="relative">
+                {/* Subtle glow overlay */}
+                <div className="absolute inset-0 bg-[#4A9EFF]/8 blur-[50px] sm:blur-[70px] rounded-full" />
+
+                <img
+                  src="/memdex-logo.png"
+                  alt="THE MEMDEX - Automated Portfolio"
+                  className="relative w-[253px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
+                />
+              </div>
+            </div>
+
+            <div className="relative" style={{ marginTop: '4vh' }}>
               {/* Left connecting line - from left column to center */}
               <div
                 className={`hidden lg:block absolute right-full h-[2px] bg-gradient-to-r from-[#4A9EFF]/30 to-[#5AC8E8] hero-line-left ${isVisible ? 'animate' : ''}`}
@@ -121,22 +137,6 @@ export default function HeroSection() {
               >
                 Automate Your Portfolio
               </h1>
-            </div>
-
-            <div
-              className={`reveal-blur ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.logo, marginTop: '4vh' }}
-            >
-              <div className="relative">
-                {/* Subtle glow overlay */}
-                <div className="absolute inset-0 bg-[#4A9EFF]/8 blur-[50px] sm:blur-[70px] rounded-full" />
-
-                <img
-                  src="/memdex-logo.png"
-                  alt="THE MEMDEX - Automated Portfolio"
-                  className="relative w-[253px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
-                />
-              </div>
             </div>
 
             {/* Button below logo */}
