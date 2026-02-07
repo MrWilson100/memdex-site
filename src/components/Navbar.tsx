@@ -107,7 +107,7 @@ export default function Navbar() {
           </nav>
 
           {/* Menu button + Login - outside glass on right */}
-          <div className="flex-shrink-0 flex items-center gap-3 sm:gap-4">
+          <div className="flex-shrink-0 flex items-center gap-6 sm:gap-4 ml-10 sm:ml-0">
             <div className="relative menu-container">
               <button
                 className="grid-icon-btn"

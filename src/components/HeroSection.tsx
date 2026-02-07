@@ -62,8 +62,8 @@ export default function HeroSection() {
 
       {/* DataWave background - spans full width behind button area */}
       <div
-        className={`absolute bottom-[210px] left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
-        style={{ animationDelay: d.datawave }}
+        className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
+        style={{ animationDelay: d.datawave, bottom: isMobile ? '36%' : '210px' }}
       >
         <img
           src="/datawave-bg.png"
@@ -78,7 +78,7 @@ export default function HeroSection() {
         <div className="hero-grid w-full py-8 lg:py-0">
 
           {/* LEFT COLUMN - Leverage Smart Technology */}
-          <div className="hero-column hero-column-left pt-4 sm:pt-6 lg:pt-8" style={{ transform: 'translateY(-2px)' }}>
+          <div className="hero-column hero-column-left pt-4 sm:pt-6 lg:pt-8" style={{ transform: isMobile ? 'translateX(24px) translateY(-2px)' : 'translateY(-2px)' }}>
             <h2
               className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.leftText, marginTop: isMobile ? 0 : '-1.5vh' }}
@@ -109,12 +109,12 @@ export default function HeroSection() {
                   src="/memdex-logo.png"
                   alt="THE MEMDEX - Automated Portfolio"
                   className="relative w-[278px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
-                  style={{ top: '-2px', scale: '1.10' }}
+                  style={{ top: isMobile ? '-42px' : '-2px', scale: '1.10' }}
                 />
               </div>
             </div>
 
-            <div className="relative" style={{ marginTop: isMobile ? '4vh' : '0vh', order: isMobile ? 2 : 1 }}>
+            <div className="relative" style={{ marginTop: isMobile ? '1vh' : '0vh', order: isMobile ? 2 : 1 }}>
               {/* Left connecting line - from left column to center */}
               <div
                 className={`hidden lg:block absolute right-full h-[2px] bg-gradient-to-r from-[#4A9EFF]/30 to-[#5AC8E8] hero-line-left ${isVisible ? 'animate' : ''}`}
@@ -159,10 +159,10 @@ export default function HeroSection() {
             {/* Tagline below logo */}
             <div
               className={`reveal mt-4 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.tagline, transitionDuration: '1.8s', marginTop: '4vh', order: 3 }}
+              style={{ transitionDelay: d.tagline, transitionDuration: '1.8s', marginTop: isMobile ? '-5vh' : '4vh', order: 3 }}
             >
               <p className="text-sm sm:text-base lg:text-lg tracking-[0.2em] sm:tracking-[0.25em] text-[var(--silver-light)]/70 font-light leading-relaxed"
-                style={{ fontFamily: "var(--font-memdex)", transform: 'translateY(24px)' }}
+                style={{ fontFamily: "var(--font-memdex)", transform: isMobile ? 'translateY(0px)' : 'translateY(24px)' }}
               >
                 AI-Assisted <span className="text-[var(--accent)]/50 mx-1">|</span> Decentralized<br />
                 Multi-Sector <span className="text-[var(--accent)]/50 mx-1">|</span> Cross-Chain
@@ -171,8 +171,8 @@ export default function HeroSection() {
 
             {/* Button below tagline */}
             <div
-              className={`reveal mb-28 sm:mb-36 lg:mb-36 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '4vh', order: 4 }}
+              className={`reveal mb-20 sm:mb-36 lg:mb-36 ${isVisible ? 'in-view' : ''}`}
+              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: isMobile ? '0vh' : '4vh', order: 4 }}
             >
               <button className="btn-primary">
                 The Whole Market, All at Once
@@ -181,13 +181,13 @@ export default function HeroSection() {
           </div>
 
           {/* RIGHT COLUMN - Watch Memdex Work */}
-          <div className="hero-column hero-column-right pt-4 sm:pt-6 lg:pt-8" style={{ transform: 'translateY(-2px)' }}>
+          <div className="hero-column hero-column-right pt-4 sm:pt-6 lg:pt-8" style={{ transform: isMobile ? 'translateX(-24px) translateY(-2px)' : 'translateY(-2px)' }}>
             <h2
               className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow lg:text-left lg:self-end lg:translate-x-4 ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.rightText, marginTop: isMobile ? 0 : '-1.5vh' }}
             >
               Watch Memdex<br />
-              <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)]">Work</span>
+              <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)] block text-left">Work</span>
             </h2>
 
             <div
