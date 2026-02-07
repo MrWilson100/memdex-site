@@ -105,10 +105,10 @@ export default function HeroSection() {
               <div
                 className={`hidden lg:block absolute right-full h-[2px] bg-gradient-to-r from-[#4A9EFF]/30 to-[#5AC8E8] hero-line-left ${isVisible ? 'animate' : ''}`}
                 style={{
-                  width: '140px',
+                  width: '100px',
                   top: '50%',
                   transform: 'translateY(-50%)',
-                  marginRight: '30px',
+                  marginRight: '50px',
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
               />
@@ -116,10 +116,10 @@ export default function HeroSection() {
               <div
                 className={`hidden lg:block absolute left-full h-[2px] bg-gradient-to-r from-[#5AC8E8] to-[#4A9EFF]/30 hero-line-right ${isVisible ? 'animate' : ''}`}
                 style={{
-                  width: '160px',
+                  width: '120px',
                   top: '50%',
                   transform: 'translateY(-50%)',
-                  marginLeft: '28px',
+                  marginLeft: '48px',
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
               />
