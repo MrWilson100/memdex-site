@@ -57,8 +57,11 @@ export default function Navbar() {
           {/* Menu button - first on mobile, after ticker on desktop */}
           <div className="relative menu-container order-1 sm:order-3 flex-shrink-0">
             <button
-              className="grid-icon-btn translate-y-[3px] sm:translate-y-0"
-              onClick={() => setMenuOpen(!menuOpen)}
+              className={`grid-icon-btn translate-y-[3px] sm:translate-y-0${menuOpen ? ' active' : ''}`}
+              onPointerUp={(e) => {
+                e.stopPropagation();
+                setMenuOpen(prev => !prev);
+              }}
             >
               <img
                 src="/grid-icon.jpg"

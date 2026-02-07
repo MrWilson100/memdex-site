@@ -561,7 +561,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .datawave-reveal.animate {
-  animation: datawaveSweep 1.8s var(--ease-cinematic) forwards;
+  animation:
+    datawaveSweep 1.8s var(--ease-cinematic) forwards,
+    datawave-breathe 5s ease-in-out 2s infinite;
 }
 
 @keyframes datawaveSweep {
@@ -797,6 +799,7 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
   overflow: hidden;
   cursor: pointer;
+  touch-action: manipulation;
   transition:
     border-color var(--duration-fast) var(--ease-smooth),
     background var(--duration-fast) var(--ease-smooth);
@@ -827,12 +830,14 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 10;
 }
 
-.grid-icon-btn:hover {
+.grid-icon-btn:hover,
+.grid-icon-btn.active {
   border-color: var(--silver);
   background: rgba(184, 197, 208, 0.05);
 }
 
-.grid-icon-btn:hover::before {
+.grid-icon-btn:hover::before,
+.grid-icon-btn.active::before {
   opacity: 1;
 }
 
@@ -855,11 +860,13 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
 }
 
-.grid-icon-btn:hover .grid-icon-default {
+.grid-icon-btn:hover .grid-icon-default,
+.grid-icon-btn.active .grid-icon-default {
   opacity: 0;
 }
 
-.grid-icon-btn:hover .grid-icon-hover {
+.grid-icon-btn:hover .grid-icon-hover,
+.grid-icon-btn.active .grid-icon-hover {
   opacity: 1;
 }
 
@@ -1007,6 +1014,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo-breathe {
   animation: breathe 3.5s ease-in-out infinite;
+}
+
+/* DataWave breathing */
+@keyframes datawave-breathe {
+  0%, 100% { opacity: 1; transform: translateY(0) scaleY(1); }
+  50% { opacity: 0.85; transform: translateY(-3px) scaleY(1.02); }
 }
 
 /* Pulse - for particles */
