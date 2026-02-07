@@ -55,7 +55,7 @@ export default function Navbar() {
       >
         <div className="flex items-center mx-auto max-w-7xl gap-2 sm:gap-4">
           {/* Menu button - first on mobile, after ticker on desktop */}
-          <div className="relative menu-container order-1 sm:order-3 flex-shrink-0">
+          <div className="relative menu-container order-1 sm:order-3 flex-shrink-0 translate-y-[5px] sm:translate-y-0">
             <button
               className="grid-icon-btn"
               onClick={() => setMenuOpen(!menuOpen)}
@@ -108,7 +108,7 @@ export default function Navbar() {
           {/* MEMDEX text - close to menu on mobile */}
           <a
             href="#home"
-            className="order-2 sm:order-1 flex-shrink-0 cursor-pointer"
+            className="order-2 sm:order-1 flex-shrink-0 cursor-pointer translate-y-0.5 sm:translate-y-0"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });

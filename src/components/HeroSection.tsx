@@ -36,7 +36,7 @@ export default function HeroSection() {
     : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '1.6s', button: '4.6s', tagline: '4.9s', datawave: '5.2s' };
 
   return (
-    <section id="home" className="relative min-h-[85vh] sm:min-h-screen pt-14 sm:pt-52 overflow-hidden">
+    <section id="home" className="relative min-h-[85vh] sm:min-h-screen pt-32 sm:pt-52 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
@@ -63,7 +63,7 @@ export default function HeroSection() {
       {/* DataWave background - spans full width behind button area */}
       <div
         className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
-        style={{ animationDelay: d.datawave, bottom: isMobile ? '40%' : '210px' }}
+        style={{ animationDelay: d.datawave, bottom: isMobile ? '35%' : '210px' }}
       >
         <img
           src="/datawave-bg.png"
@@ -77,8 +77,9 @@ export default function HeroSection() {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 min-h-[calc(85vh-112px)] sm:min-h-[calc(100vh-128px)] flex items-center translate-x-0">
         <div className="hero-grid w-full py-8 lg:py-0">
 
-          {/* LEFT COLUMN - Leverage Smart Technology */}
-          <div className="hero-column hero-column-left pt-4 sm:pt-6 lg:pt-8" style={{ transform: isMobile ? 'translateX(24px) translateY(-2px)' : 'translateY(-2px)' }}>
+          {/* LEFT COLUMN - Leverage Smart Technology (desktop only) */}
+          {!isMobile && (
+          <div className="hero-column hero-column-left pt-4 sm:pt-6 lg:pt-8" style={{ transform: 'translateY(-2px)' }}>
             <h2
               className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.leftText, marginTop: isMobile ? 0 : '-1.5vh' }}
@@ -94,6 +95,7 @@ export default function HeroSection() {
               <TechGraphic />
             </div>
           </div>
+          )}
 
           {/* CENTER COLUMN - Automate Your Portfolio + Logo */}
           <div className="hero-column hero-column-center pt-4 sm:pt-6 lg:pt-8">
@@ -180,8 +182,9 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN - Watch Memdex Work */}
-          <div className="hero-column hero-column-right pt-4 sm:pt-6 lg:pt-8" style={{ transform: isMobile ? 'translateX(-24px) translateY(-2px)' : 'translateY(-2px)' }}>
+          {/* RIGHT COLUMN - Watch Memdex Work (desktop only) */}
+          {!isMobile && (
+          <div className="hero-column hero-column-right pt-4 sm:pt-6 lg:pt-8" style={{ transform: 'translateY(-2px)' }}>
             <h2
               className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow lg:text-left lg:self-end lg:translate-x-4 ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.rightText, marginTop: isMobile ? 0 : '-1.5vh' }}
@@ -197,6 +200,7 @@ export default function HeroSection() {
               <PieChartAnimated />
             </div>
           </div>
+          )}
 
         </div>
       </div>
