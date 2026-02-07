@@ -54,7 +54,14 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between mx-auto max-w-7xl gap-10 sm:gap-16">
           {/* Logo + text - outside glass on left */}
-          <div className="flex-shrink-0 flex items-center gap-2 sm:gap-3">
+          <a
+            href="#home"
+            className="flex-shrink-0 flex items-center gap-2 sm:gap-3 cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
             <span
               className="text-white font-bold text-sm sm:text-lg tracking-[0.15em] drop-shadow-[0_0_10px_rgba(74,158,255,0.3)]"
               style={{ fontFamily: 'var(--font-memdex)' }}
@@ -66,7 +73,7 @@ export default function Navbar() {
               alt="MEMDEX Logo"
               className="h-10 sm:h-14 w-auto drop-shadow-[0_0_10px_rgba(74,158,255,0.3)]"
             />
-          </div>
+          </a>
 
           {/* Glass slab with ticker */}
           <nav

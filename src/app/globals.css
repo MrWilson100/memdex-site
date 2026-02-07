@@ -379,6 +379,50 @@ h1, h2, h3, h4, h5, h6 {
   50% { background-position: 0% 0; }
 }
 
+/* Hero title frame - tech border with scanning glow */
+.hero-title-frame {
+  position: relative;
+  display: inline-block;
+  padding: 14px 32px;
+  background: rgba(8, 18, 38, 0.45);
+  border: 1px solid rgba(74, 158, 255, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Subtle inner glow */
+.hero-title-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(90, 200, 232, 0.7), rgba(74, 158, 255, 0.5), transparent);
+  animation: frame-scan 4s ease-in-out 5s infinite;
+}
+
+.hero-title-frame::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -80%;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74, 158, 255, 0.5), rgba(90, 200, 232, 0.7), transparent);
+  animation: frame-scan-reverse 4s ease-in-out 7s infinite;
+}
+
+@keyframes frame-scan {
+  0% { left: -60%; }
+  100% { left: 100%; }
+}
+
+@keyframes frame-scan-reverse {
+  0% { right: -60%; }
+  100% { right: 100%; }
+}
+
 /* Hero grid layout */
 .hero-grid {
   display: grid;

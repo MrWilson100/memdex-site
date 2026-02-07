@@ -69,7 +69,7 @@ export default function HeroSection() {
           src="/datawave-bg.png"
           alt=""
           className="w-full h-auto object-cover"
-          style={{ transform: 'scaleY(0.65)', transformOrigin: 'bottom' }}
+          style={{ transform: 'scaleY(0.65) rotate(1.5deg)', transformOrigin: 'bottom' }}
         />
       </div>
 
@@ -78,7 +78,7 @@ export default function HeroSection() {
         <div className="hero-grid w-full py-8 lg:py-0">
 
           {/* LEFT COLUMN - Leverage Smart Technology */}
-          <div className="hero-column hero-column-left pt-4 sm:pt-6 lg:pt-8" style={{ transform: 'translateY(-18px)' }}>
+          <div className="hero-column hero-column-left pt-4 sm:pt-6 lg:pt-8" style={{ transform: 'translateY(-2px)' }}>
             <h2
               className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.leftText, marginTop: isMobile ? 0 : '-1.5vh' }}
@@ -121,7 +121,7 @@ export default function HeroSection() {
                 style={{
                   width: '100px',
                   top: '50%',
-                  transform: 'translateY(calc(-50% - 34px))',
+                  transform: 'translateY(calc(-50% - 38px))',
                   marginRight: '35px',
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
@@ -132,22 +132,28 @@ export default function HeroSection() {
                 style={{
                   width: '120px',
                   top: '50%',
-                  transform: 'translateY(calc(-50% - 34px))',
+                  transform: 'translateY(calc(-50% - 38px))',
                   marginLeft: '33px',
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
               />
-              <h1
-                className={`reveal-blur-static text-metallic-shine font-[var(--font-memdex)] text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.1] tracking-tight ${isVisible ? 'in-view' : ''}`}
+              <div
+                className={`hero-title-frame reveal-blur-static ${isVisible ? 'in-view' : ''}`}
                 style={{
                   transitionDelay: d.h1,
-                  whiteSpace: 'nowrap',
-                  letterSpacing: '0.02em',
                   transform: 'translateY(-36px)',
                 }}
               >
-                Automate Your Portfolio
-              </h1>
+                <h1
+                  className="text-metallic-shine font-[var(--font-memdex)] text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.1] tracking-tight"
+                  style={{
+                    whiteSpace: 'nowrap',
+                    letterSpacing: '0.02em',
+                  }}
+                >
+                  Automate Your Portfolio
+                </h1>
+              </div>
             </div>
 
             {/* Tagline below logo */}
@@ -156,7 +162,7 @@ export default function HeroSection() {
               style={{ transitionDelay: d.tagline, transitionDuration: '1.8s', marginTop: '4vh', order: 3 }}
             >
               <p className="text-sm sm:text-base lg:text-lg tracking-[0.2em] sm:tracking-[0.25em] text-[var(--silver-light)]/70 font-light leading-relaxed"
-                style={{ fontFamily: "var(--font-memdex)", transform: 'translateY(34px)' }}
+                style={{ fontFamily: "var(--font-memdex)", transform: 'translateY(24px)' }}
               >
                 AI-Assisted <span className="text-[var(--accent)]/50 mx-1">|</span> Decentralized<br />
                 Multi-Sector <span className="text-[var(--accent)]/50 mx-1">|</span> Cross-Chain
@@ -175,7 +181,7 @@ export default function HeroSection() {
           </div>
 
           {/* RIGHT COLUMN - Watch Memdex Work */}
-          <div className="hero-column hero-column-right pt-4 sm:pt-6 lg:pt-8" style={{ transform: 'translateY(-18px)' }}>
+          <div className="hero-column hero-column-right pt-4 sm:pt-6 lg:pt-8" style={{ transform: 'translateY(-2px)' }}>
             <h2
               className={`reveal-blur font-[var(--font-memdex)] text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight text-glow lg:text-left lg:self-end lg:translate-x-4 ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.rightText, marginTop: isMobile ? 0 : '-1.5vh' }}
