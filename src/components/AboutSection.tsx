@@ -36,7 +36,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative pt-8 pb-14 lg:pt-10 lg:pb-20 -mt-16 lg:-mt-8 overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative pt-8 pb-14 lg:pt-10 lg:pb-20 -mt-16 lg:-mt-8 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img

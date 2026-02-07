@@ -105,11 +105,26 @@ export default function Navbar() {
             {/* Dropdown Menu */}
             {menuOpen && (
               <div className="menu-dropdown">
-                <a href="#" className="menu-item">Home</a>
-                <a href="#" className="menu-item">About</a>
-                <a href="#" className="menu-item">Features</a>
-                <a href="#" className="menu-item">How It Works</a>
-                <a href="#" className="menu-item">Documentation</a>
+                {[
+                  { label: "Home", id: "home" },
+                  { label: "Overview", id: "overview" },
+                  { label: "About", id: "about" },
+                  { label: "Features", id: "features" },
+                  { label: "How It Works", id: "how-it-works" },
+                ].map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="menu-item"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setMenuOpen(false);
+                      document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                ))}
                 <div className="menu-divider" />
                 <a href="#" className="menu-item">Connect Wallet</a>
               </div>

@@ -32,11 +32,11 @@ export default function HeroSection() {
   // Mobile: left text → left graphic → right text → right graphic → h1 → logo → button
   // Desktop: unchanged sequence
   const d = isMobile
-    ? { leftText: '0s', leftGraphic: '0.5s', rightText: '1.0s', rightGraphic: '1.5s', h1: '2.0s', logo: '2.5s', button: '3.0s', datawave: '3.5s' }
-    : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '2.2s', button: '4.6s', datawave: '5.2s' };
+    ? { leftText: '0s', leftGraphic: '0.5s', rightText: '1.0s', rightGraphic: '1.5s', h1: '2.0s', logo: '2.5s', button: '3.0s', tagline: '3.3s', datawave: '3.5s' }
+    : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '2.2s', button: '4.6s', tagline: '4.9s', datawave: '5.2s' };
 
   return (
-    <section className="relative min-h-[85vh] sm:min-h-screen pt-44 sm:pt-52 overflow-hidden">
+    <section id="home" className="relative min-h-[85vh] sm:min-h-screen pt-44 sm:pt-52 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
@@ -147,10 +147,23 @@ export default function HeroSection() {
               </h1>
             </div>
 
-            {/* Button below logo */}
+            {/* Tagline below logo */}
             <div
-              className={`reveal mt-4 mb-28 sm:mb-36 lg:mb-36 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '4vh', order: 3 }}
+              className={`reveal mt-4 ${isVisible ? 'in-view' : ''}`}
+              style={{ transitionDelay: d.tagline, transitionDuration: '1.8s', marginTop: '4vh', order: 3 }}
+            >
+              <p className="text-sm sm:text-base lg:text-lg tracking-[0.2em] sm:tracking-[0.25em] text-[var(--silver-light)]/70 font-light leading-relaxed"
+                style={{ fontFamily: "var(--font-memdex)", transform: 'translateY(40px)' }}
+              >
+                AI-Assisted <span className="text-[var(--accent)]/50 mx-1">|</span> Decentralized<br />
+                Multi-Sector <span className="text-[var(--accent)]/50 mx-1">|</span> Cross-Chain
+              </p>
+            </div>
+
+            {/* Button below tagline */}
+            <div
+              className={`reveal mb-28 sm:mb-36 lg:mb-36 ${isVisible ? 'in-view' : ''}`}
+              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '4vh', order: 4 }}
             >
               <button className="btn-primary">
                 The Whole Market, All at Once
