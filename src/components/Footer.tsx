@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden">
       {/* Top section with links and subscription */}
-      <div className="relative z-10 py-12">
+      <div className="relative z-10 pt-28 pb-12 lg:pt-36 lg:pb-12">
         {/* Background image */}
         <div className="absolute inset-0">
           <img
@@ -140,11 +140,11 @@ export default function Footer() {
         </div>
 
         {/* Horizon glow */}
-        <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--silver)] to-transparent opacity-40 z-20" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-32 h-32 bg-white/20 blur-3xl z-20" />
+        <div className="absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--silver)] to-transparent opacity-40 z-20" />
+        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-32 h-32 bg-white/20 blur-3xl z-20" />
 
         {/* Title text - below the blue line */}
-        <div className="absolute top-[35%] left-0 right-0 text-center z-20 px-4">
+        <div className="absolute top-[72px] sm:top-[80px] left-0 right-0 text-center z-20 px-4">
           <p
             className="text-white/70 text-sm sm:text-lg lg:text-xl tracking-widest uppercase"
             style={{ fontFamily: "var(--font-memdex)" }}

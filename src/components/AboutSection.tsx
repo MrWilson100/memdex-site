@@ -37,7 +37,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="relative pt-32 pb-14 lg:pt-10 lg:pb-20 -mt-16 lg:-mt-8 overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative pt-32 pb-0 lg:pt-10 lg:pb-0 -mt-16 lg:-mt-8 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
@@ -58,7 +58,7 @@ export default function AboutSection() {
 
       <div className="relative z-10 container mx-auto px-6 pt-8">
         {/* Section header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-8 lg:mb-20">
           <h2
             className="reveal text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight text-glow"
             style={{ fontFamily: "var(--font-memdex)" }}
@@ -175,11 +175,18 @@ export default function AboutSection() {
           );
         })()}
 
-        {/* Transparency note */}
-        <div className="reveal mt-16 text-center" style={{ transitionDelay: '0.3s' }}>
-          <div className="inline-block p-8 bg-[var(--primary)]/30 border border-[var(--silver)]/20 rounded-sm max-w-3xl">
-            <h4 className="text-xl font-bold text-white mb-4">Transparency & Responsibility</h4>
-            <p className="text-[var(--silver-light)]">
+      </div>
+
+      {/* Transparency banner - full width */}
+      <div className="reveal relative z-10 mt-16" style={{ transitionDelay: '0.3s' }}>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[var(--accent)]/30 to-transparent" />
+        <div
+          className="py-10 px-6 text-center"
+          style={{ background: 'linear-gradient(180deg, rgba(74, 158, 255, 0.04) 0%, transparent 100%)' }}
+        >
+          <div className="max-w-3xl mx-auto">
+            <h4 className="text-lg font-semibold text-[var(--silver)] mb-3 tracking-wide uppercase" style={{ fontSize: '0.8rem', letterSpacing: '0.15em' }}>Transparency & Responsibility</h4>
+            <p className="text-[var(--silver-light)]/70 text-sm leading-relaxed">
               Transparency is a core principle of the MemDex platform. All performance reporting is subject
               to legal review and appropriate disclosures. Independent audits, clear communication, and
               responsible presentation of data are foundational to how MemDex operates.
