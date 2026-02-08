@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const blob1Ref = useRef<HTMLDivElement>(null);
   const blob2Ref = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeCard, setActiveCard] = useState(0);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -69,106 +71,109 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* Two-column layout */}
-        <div className="reveal-stagger grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left column - Portfolio Engine */}
-          <div className="feature-card p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-full bg-[var(--accent)]/20 flex items-center justify-center">
-                <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-white">The Portfolio Engine</h3>
-            </div>
-            <div className="space-y-4 text-[var(--silver-light)]">
-              <p>
-                At the core of MemDex is a custom algorithmic rebalancing engine. This engine evaluates
-                portfolio composition and executes rebalancing trades automatically based on predefined
-                rules and market conditions.
-              </p>
-              <p>
-                The goal is not to predict short-term price movements, but to manage exposure over time
-                in a consistent, systematic manner.
-              </p>
-              <p>
-                By removing human emotion from the decision-making process, MemDex is designed to avoid
-                the behavioral pitfalls that often affect individual market participants.
-              </p>
-            </div>
-          </div>
+        {/* Cards - horizontal swipe on mobile, 2x2 grid on desktop */}
+        {(() => {
+          const cards = [
+            {
+              icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />,
+              title: "The Portfolio Engine",
+              content: [
+                "At the core of MemDex is a custom algorithmic rebalancing engine. This engine evaluates portfolio composition and executes rebalancing trades automatically based on predefined rules and market conditions.",
+                "The goal is not to predict short-term price movements, but to manage exposure over time in a consistent, systematic manner.",
+                "By removing human emotion from the decision-making process, MemDex is designed to avoid the behavioral pitfalls that often affect individual market participants.",
+              ],
+            },
+            {
+              icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />,
+              title: "AI-Assisted Research",
+              content: [
+                "Supporting the core rebalancing engine is a custom AI research layer. This layer operates as a set of agential research teams that continuously monitor each asset in the portfolio.",
+                "Each asset is assigned a dedicated AI research team which continuously analyzes market data, on-chain activity, social sentiment, and relevant news.",
+                "The research output informs the algorithm\u2019s rebalancing decisions while preserving the integrity of the rules-based framework.",
+              ],
+            },
+            {
+              icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />,
+              title: "Built for 24/7 Markets",
+              content: [
+                "Digital asset markets operate globally and continuously. Managing exposure across 100 assets in such an environment is simply not practical for most individuals without automation.",
+                "MemDex is designed to handle this complexity automatically. The system operates around the clock, continuously monitoring and adjusting the portfolio so users do not need to react to every market movement.",
+              ],
+            },
+            {
+              icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />,
+              title: "Community & Ecosystem",
+              content: [
+                "Alongside the automated portfolio is the $MEMDEX community token. The token is included within the portfolio and serves as a core component of the broader ecosystem.",
+                "The platform incorporates a buyback and burn mechanism and is designed to support future community-focused features such as staking and additional utilities as the ecosystem evolves.",
+              ],
+            },
+          ];
 
-          {/* Right column - AI Research Layer */}
-          <div className="feature-card p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-full bg-[var(--accent)]/20 flex items-center justify-center">
-                <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                </svg>
+          const renderCard = (card: typeof cards[0], index: number) => (
+            <div key={index} className="feature-card p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-full bg-[var(--accent)]/20 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {card.icon}
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white">{card.title}</h3>
               </div>
-              <h3 className="text-2xl font-bold text-white">AI-Assisted Research</h3>
+              <div className="space-y-4 text-[var(--silver-light)]">
+                {card.content.map((p, i) => <p key={i}>{p}</p>)}
+              </div>
             </div>
-            <div className="space-y-4 text-[var(--silver-light)]">
-              <p>
-                Supporting the core rebalancing engine is a custom AI research layer. This layer operates
-                as a set of agential research teams that continuously monitor each asset in the portfolio.
-              </p>
-              <p>
-                Each asset is assigned a dedicated AI research team which continuously analyzes market data,
-                on-chain activity, social sentiment, and relevant news.
-              </p>
-              <p>
-                The research output informs the algorithm&apos;s rebalancing decisions while preserving the
-                integrity of the rules-based framework.
-              </p>
-            </div>
-          </div>
+          );
 
-          {/* Bottom left - 24/7 Market */}
-          <div className="feature-card p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-full bg-[var(--accent)]/20 flex items-center justify-center">
-                <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+          return (
+            <>
+              {/* Mobile: horizontal swipe carousel */}
+              <div className="lg:hidden reveal">
+                <div
+                  ref={scrollRef}
+                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 no-scrollbar"
+                  style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
+                  onScroll={() => {
+                    if (!scrollRef.current) return;
+                    const { scrollLeft, clientWidth } = scrollRef.current;
+                    setActiveCard(Math.round(scrollLeft / (clientWidth * 0.85)));
+                  }}
+                >
+                  {cards.map((card, i) => (
+                    <div key={i} className="snap-start flex-shrink-0" style={{ width: '85%' }}>
+                      {renderCard(card, i)}
+                    </div>
+                  ))}
+                </div>
+                {/* Dot indicators */}
+                <div className="flex justify-center gap-2 mt-4">
+                  {cards.map((_, i) => (
+                    <button
+                      key={i}
+                      className="w-2 h-2 rounded-full transition-all duration-300"
+                      style={{
+                        background: activeCard === i ? 'var(--accent)' : 'rgba(184, 197, 208, 0.3)',
+                        transform: activeCard === i ? 'scale(1.3)' : 'scale(1)',
+                        boxShadow: activeCard === i ? '0 0 8px rgba(74, 158, 255, 0.5)' : 'none',
+                      }}
+                      onClick={() => {
+                        if (!scrollRef.current) return;
+                        const cardWidth = scrollRef.current.clientWidth * 0.85;
+                        scrollRef.current.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-white">Built for 24/7 Markets</h3>
-            </div>
-            <div className="space-y-4 text-[var(--silver-light)]">
-              <p>
-                Digital asset markets operate globally and continuously. Managing exposure across 100 assets
-                in such an environment is simply not practical for most individuals without automation.
-              </p>
-              <p>
-                MemDex is designed to handle this complexity automatically. The system operates around the
-                clock, continuously monitoring and adjusting the portfolio so users do not need to react to
-                every market movement.
-              </p>
-            </div>
-          </div>
 
-          {/* Bottom right - Community */}
-          <div className="feature-card p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-full bg-[var(--accent)]/20 flex items-center justify-center">
-                <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
+              {/* Desktop: 2x2 grid */}
+              <div className="hidden lg:grid reveal-stagger grid-cols-2 gap-8">
+                {cards.map(renderCard)}
               </div>
-              <h3 className="text-2xl font-bold text-white">Community & Ecosystem</h3>
-            </div>
-            <div className="space-y-4 text-[var(--silver-light)]">
-              <p>
-                Alongside the automated portfolio is the $MEMDEX community token. The token is included
-                within the portfolio and serves as a core component of the broader ecosystem.
-              </p>
-              <p>
-                The platform incorporates a buyback and burn mechanism and is designed to support future
-                community-focused features such as staking and additional utilities as the ecosystem evolves.
-              </p>
-            </div>
-          </div>
-        </div>
+            </>
+          );
+        })()}
 
         {/* Transparency note */}
         <div className="reveal mt-16 text-center" style={{ transitionDelay: '0.3s' }}>
