@@ -6,7 +6,7 @@ export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const blob1Ref = useRef<HTMLDivElement>(null);
   const blob2Ref = useRef<HTMLDivElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const touchStartRef = useRef<number>(0);
   const [activeCard, setActiveCard] = useState(0);
 
   useEffect(() => {
@@ -110,44 +110,89 @@ export default function AboutSection() {
             },
           ];
 
-          const renderCard = (card: typeof cards[0], index: number) => (
+          const renderCard = (card: typeof cards[0], index: number, contentOpacity?: number) => (
             <div key={index} className="feature-card p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-[var(--accent)]/20 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    {card.icon}
-                  </svg>
+              <div style={typeof contentOpacity === 'number' ? { opacity: contentOpacity, transition: 'opacity 0.5s ease-out' } : undefined}>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-full bg-[var(--accent)]/20 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      {card.icon}
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">{card.title}</h3>
                 </div>
-                <h3 className="text-2xl font-bold text-white">{card.title}</h3>
-              </div>
-              <div className="space-y-4 text-[var(--silver-light)]">
-                {card.content.map((p, i) => <p key={i}>{p}</p>)}
+                <div className="space-y-4 text-[var(--silver-light)]">
+                  {card.content.map((p, i) => <p key={i}>{p}</p>)}
+                </div>
               </div>
             </div>
           );
 
           return (
             <>
-              {/* Mobile: horizontal swipe carousel */}
+              {/* Mobile: playing cards fan effect */}
               <div className="lg:hidden reveal">
                 <div
-                  ref={scrollRef}
-                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory pt-2 pb-4 -mx-6 px-6 no-scrollbar"
-                  style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
-                  onScroll={() => {
-                    if (!scrollRef.current) return;
-                    const { scrollLeft, clientWidth } = scrollRef.current;
-                    setActiveCard(Math.round(scrollLeft / (clientWidth * 0.85)));
+                  className="relative grid"
+                  style={{ gridTemplateColumns: '1fr' }}
+                  onTouchStart={(e) => {
+                    touchStartRef.current = e.touches[0].clientX;
+                  }}
+                  onTouchEnd={(e) => {
+                    const diff = touchStartRef.current - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > 50) {
+                      if (diff > 0 && activeCard < cards.length - 1) {
+                        setActiveCard(prev => prev + 1);
+                      } else if (diff < 0 && activeCard > 0) {
+                        setActiveCard(prev => prev - 1);
+                      }
+                    }
                   }}
                 >
-                  {cards.map((card, i) => (
-                    <div key={i} className="snap-start flex-shrink-0" style={{ width: '85%' }}>
-                      {renderCard(card, i)}
-                    </div>
-                  ))}
+                  {cards.map((card, i) => {
+                    const offset = i - activeCard;
+                    const isPast = offset < 0;
+                    const isActive = offset === 0;
+
+                    let transform: string;
+                    let opacity: number;
+                    let zIdx: number;
+
+                    if (isPast) {
+                      transform = 'translateX(-110%) rotate(-8deg)';
+                      opacity = 0;
+                      zIdx = 0;
+                    } else if (isActive) {
+                      transform = 'rotate(0deg)';
+                      opacity = 1;
+                      zIdx = cards.length;
+                    } else {
+                      transform = `rotate(${offset * 5}deg)`;
+                      opacity = 0.7 - offset * 0.15;
+                      zIdx = cards.length - offset;
+                    }
+
+                    return (
+                      <div
+                        key={i}
+                        className="transition-all duration-500 ease-out"
+                        style={{
+                          gridArea: '1 / 1',
+                          transform,
+                          transformOrigin: '50% 130%',
+                          zIndex: zIdx,
+                          opacity,
+                          pointerEvents: isActive ? 'auto' : 'none',
+                          filter: offset > 0 ? `brightness(${1 - offset * 0.08})` : 'none',
+                        }}
+                      >
+                        {renderCard(card, i, isActive ? undefined : 0.1)}
+                      </div>
+                    );
+                  })}
                 </div>
                 {/* Dot indicators */}
-                <div className="flex justify-center gap-2 mt-4">
+                <div className="flex justify-center gap-2 mt-6">
                   {cards.map((_, i) => (
                     <button
                       key={i}
@@ -157,11 +202,7 @@ export default function AboutSection() {
                         transform: activeCard === i ? 'scale(1.3)' : 'scale(1)',
                         boxShadow: activeCard === i ? '0 0 8px rgba(74, 158, 255, 0.5)' : 'none',
                       }}
-                      onClick={() => {
-                        if (!scrollRef.current) return;
-                        const cardWidth = scrollRef.current.clientWidth * 0.85;
-                        scrollRef.current.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
-                      }}
+                      onClick={() => setActiveCard(i)}
                     />
                   ))}
                 </div>
@@ -169,7 +210,7 @@ export default function AboutSection() {
 
               {/* Desktop: 2x2 grid */}
               <div className="hidden lg:grid reveal-stagger grid-cols-2 gap-8">
-                {cards.map(renderCard)}
+                {cards.map((card, i) => renderCard(card, i))}
               </div>
             </>
           );
@@ -178,7 +219,7 @@ export default function AboutSection() {
       </div>
 
       {/* Transparency banner - full width */}
-      <div className="reveal relative z-10 mt-16" style={{ transitionDelay: '0.3s' }}>
+      <div className="reveal relative z-10 mt-28 lg:mt-36" style={{ transitionDelay: '0.3s' }}>
         <div className="w-full h-px bg-gradient-to-r from-transparent via-[var(--accent)]/30 to-transparent" />
         <div
           className="py-10 px-6 text-center"
