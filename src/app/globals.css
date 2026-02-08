@@ -1023,7 +1023,7 @@ h1, h2, h3, h4, h5, h6 {
 /* DataWave breathing */
 @keyframes datawave-breathe {
   0%, 100% { opacity: 1; transform: translateY(0) scaleY(1); }
-  50% { opacity: 0.85; transform: translateY(-3px) scaleY(1.02); }
+  50% { opacity: 0.65; transform: translateY(-10px) scaleY(1.08); }
 }
 
 /* Pulse - for particles */
