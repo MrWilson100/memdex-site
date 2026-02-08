@@ -132,7 +132,7 @@ export default function AboutSection() {
               <div className="lg:hidden reveal">
                 <div
                   ref={scrollRef}
-                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 no-scrollbar"
+                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory pt-2 pb-4 -mx-6 px-6 no-scrollbar"
                   style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
                   onScroll={() => {
                     if (!scrollRef.current) return;
