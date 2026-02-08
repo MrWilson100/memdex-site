@@ -20,6 +20,18 @@ export default function HeroSection() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Close pill tooltip when tapping outside
+  useEffect(() => {
+    if (!activePill) return;
+    const handleTap = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement).closest('.pill-tooltip-group')) {
+        setActivePill(null);
+      }
+    };
+    document.addEventListener('click', handleTap);
+    return () => document.removeEventListener('click', handleTap);
+  }, [activePill]);
+
   // Cleanup will-change after animations complete
   useEffect(() => {
     if (isVisible) {
@@ -172,13 +184,13 @@ export default function HeroSection() {
                 {([
                   { label: "Algorithmic Management", desc: "Rules-based rebalancing engine that automatically adjusts portfolio allocation based on market conditions." },
                   { label: "AI Research", desc: "Dedicated AI research teams continuously monitor each asset using market data, on-chain activity, and sentiment analysis." },
-                  { label: "Multi-Sector", desc: "Diversified exposure across major crypto sectors including DeFi, infrastructure, gaming, AI, and more." },
+                  { label: "Multi-Sector", desc: "Diversified exposure across major crypto sectors including Blue Chips, Memecoins, RWA's, Gaming, AI, and more." },
                   { label: "Cross-Chain", desc: "Portfolio spans multiple blockchains, capturing opportunities across the entire digital asset ecosystem." },
                   { label: "100 Assets", desc: "Broad market coverage with 100 curated digital assets, continuously evaluated and rebalanced." },
                 ] as const).map((item) => (
                   <span
                     key={item.label}
-                    className="relative group px-2.5 py-1 sm:px-3 sm:py-1 text-[0.55rem] sm:text-[0.65rem] lg:text-xs tracking-[0.15em] text-[var(--silver-light)]/70 font-light border border-[var(--silver-light)]/15 rounded-full bg-white/[0.03] cursor-default"
+                    className="pill-tooltip-group relative group px-2.5 py-1 sm:px-3 sm:py-1 text-[0.55rem] sm:text-[0.65rem] lg:text-xs tracking-[0.15em] text-[var(--silver-light)]/70 font-light border border-[var(--silver-light)]/15 rounded-full bg-white/[0.03] cursor-default"
                     onClick={() => setActivePill(activePill === item.label ? null : item.label)}
                   >
                     {item.label}
