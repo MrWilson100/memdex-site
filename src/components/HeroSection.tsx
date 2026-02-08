@@ -9,6 +9,7 @@ export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [overviewOpen, setOverviewOpen] = useState(false);
+  const [activePill, setActivePill] = useState<string | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 1023px)");
@@ -178,9 +179,10 @@ export default function HeroSection() {
                   <span
                     key={item.label}
                     className="relative group px-2.5 py-1 sm:px-3 sm:py-1 text-[0.55rem] sm:text-[0.65rem] lg:text-xs tracking-[0.15em] text-[var(--silver-light)]/70 font-light border border-[var(--silver-light)]/15 rounded-full bg-white/[0.03] cursor-default"
+                    onClick={() => setActivePill(activePill === item.label ? null : item.label)}
                   >
                     {item.label}
-                    <span className="pointer-events-none lg:pointer-events-auto absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 px-3 py-2 rounded-lg text-[0.65rem] leading-relaxed tracking-normal text-[var(--silver-light)] bg-[var(--background-deep)]/95 border border-[var(--accent)]/20 shadow-lg shadow-black/30 backdrop-blur-md opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200 z-50"
+                    <span className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 px-3 py-2 rounded-lg text-[0.65rem] leading-relaxed tracking-normal text-[var(--silver-light)] bg-[var(--background-deep)]/95 border border-[var(--accent)]/20 shadow-lg shadow-black/30 backdrop-blur-md transition-opacity duration-200 z-50 ${activePill === item.label ? 'opacity-100' : 'opacity-0 pointer-events-none'} lg:opacity-0 lg:group-hover:opacity-100 lg:pointer-events-auto`}
                       style={{ fontFamily: 'inherit' }}
                     >
                       {item.desc}
