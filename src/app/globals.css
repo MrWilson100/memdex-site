@@ -834,13 +834,21 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 10;
 }
 
-.grid-icon-btn:hover,
 .grid-icon-btn.active {
   border-color: var(--silver);
   background: rgba(184, 197, 208, 0.05);
 }
 
-.grid-icon-btn:hover::before,
+@media (hover: hover) {
+  .grid-icon-btn:hover {
+    border-color: var(--silver);
+    background: rgba(184, 197, 208, 0.05);
+  }
+  .grid-icon-btn:hover::before {
+    opacity: 1;
+  }
+}
+
 .grid-icon-btn.active::before {
   opacity: 1;
 }
@@ -864,14 +872,21 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
 }
 
-.grid-icon-btn:hover .grid-icon-default,
 .grid-icon-btn.active .grid-icon-default {
   opacity: 0;
 }
 
-.grid-icon-btn:hover .grid-icon-hover,
 .grid-icon-btn.active .grid-icon-hover {
   opacity: 1;
+}
+
+@media (hover: hover) {
+  .grid-icon-btn:hover .grid-icon-default {
+    opacity: 0;
+  }
+  .grid-icon-btn:hover .grid-icon-hover {
+    opacity: 1;
+  }
 }
 
 /* ========================================
@@ -880,7 +895,7 @@ h1, h2, h3, h4, h5, h6 {
 .menu-dropdown {
   position: absolute;
   top: calc(100% + 8px);
-  right: 0;
+  left: 0;
   min-width: 200px;
   background: var(--background-deep);
   border: 1px solid rgba(184, 197, 208, 0.15);
