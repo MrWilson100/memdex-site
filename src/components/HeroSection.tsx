@@ -164,7 +164,7 @@ export default function HeroSection() {
               style={{ transitionDelay: d.tagline, transitionDuration: '1.8s', marginTop: isMobile ? '-3vh' : '4vh', order: 3 }}
             >
               <p className="text-sm sm:text-base lg:text-lg tracking-[0.2em] sm:tracking-[0.25em] text-[var(--silver-light)]/70 font-light leading-relaxed"
-                style={{ fontFamily: "var(--font-memdex)", transform: isMobile ? 'translateY(6px)' : 'translateY(24px)' }}
+                style={{ fontFamily: "var(--font-memdex)", transform: isMobile ? 'translateY(9px)' : 'translateY(24px)' }}
               >
                 AI-Assisted <span className="text-[var(--accent)]/50 mx-1">|</span> Decentralized<br />
                 Multi-Sector <span className="text-[var(--accent)]/50 mx-1">|</span> Cross-Chain
