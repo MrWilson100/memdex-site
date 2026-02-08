@@ -168,12 +168,23 @@ export default function HeroSection() {
               <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2"
                 style={{ fontFamily: "var(--font-memdex)", transform: isMobile ? 'translateY(9px)' : 'translateY(24px)' }}
               >
-                {["Algorithmic Management", "AI Research", "Multi-Sector", "Cross-Chain", "100 Assets"].map((item) => (
+                {([
+                  { label: "Algorithmic Management", desc: "Rules-based rebalancing engine that automatically adjusts portfolio allocation based on market conditions." },
+                  { label: "AI Research", desc: "Dedicated AI research teams continuously monitor each asset using market data, on-chain activity, and sentiment analysis." },
+                  { label: "Multi-Sector", desc: "Diversified exposure across major crypto sectors including DeFi, infrastructure, gaming, AI, and more." },
+                  { label: "Cross-Chain", desc: "Portfolio spans multiple blockchains, capturing opportunities across the entire digital asset ecosystem." },
+                  { label: "100 Assets", desc: "Broad market coverage with 100 curated digital assets, continuously evaluated and rebalanced." },
+                ] as const).map((item) => (
                   <span
-                    key={item}
-                    className="px-2.5 py-1 sm:px-3 sm:py-1 text-[0.55rem] sm:text-[0.65rem] lg:text-xs tracking-[0.15em] text-[var(--silver-light)]/70 font-light border border-[var(--silver-light)]/15 rounded-full bg-white/[0.03]"
+                    key={item.label}
+                    className="relative group px-2.5 py-1 sm:px-3 sm:py-1 text-[0.55rem] sm:text-[0.65rem] lg:text-xs tracking-[0.15em] text-[var(--silver-light)]/70 font-light border border-[var(--silver-light)]/15 rounded-full bg-white/[0.03] cursor-default"
                   >
-                    {item}
+                    {item.label}
+                    <span className="pointer-events-none lg:pointer-events-auto absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 px-3 py-2 rounded-lg text-[0.65rem] leading-relaxed tracking-normal text-[var(--silver-light)] bg-[var(--background-deep)]/95 border border-[var(--accent)]/20 shadow-lg shadow-black/30 backdrop-blur-md opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200 z-50"
+                      style={{ fontFamily: 'inherit' }}
+                    >
+                      {item.desc}
+                    </span>
                   </span>
                 ))}
               </div>
