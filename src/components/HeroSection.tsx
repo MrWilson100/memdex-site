@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import TechGraphic from "./hero/TechGraphic";
 import PieChartAnimated from "./hero/PieChartAnimated";
+import OverviewModal from "./OverviewModal";
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [overviewOpen, setOverviewOpen] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 1023px)");
@@ -147,13 +149,13 @@ export default function HeroSection() {
                 }}
               >
                 <h1
-                  className="text-metallic-shine font-[var(--font-memdex)] text-[1.35rem] sm:text-[1.7rem] lg:text-[2rem] xl:text-[2.7rem] font-bold leading-[1.1] tracking-tight"
+                  className="text-metallic-shine font-[var(--font-memdex)] text-[1.05rem] sm:text-[1.35rem] lg:text-[1.6rem] xl:text-[2.15rem] font-bold leading-[1.1] tracking-tight"
                   style={{
                     whiteSpace: 'nowrap',
                     letterSpacing: '0.02em',
                   }}
                 >
-                  Automate Your Portfolio
+                  The Whole Market, All at Once
                 </h1>
               </div>
             </div>
@@ -163,12 +165,18 @@ export default function HeroSection() {
               className={`reveal mt-4 ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.tagline, transitionDuration: '1.8s', marginTop: isMobile ? '-3vh' : '4vh', order: 3 }}
             >
-              <p className="text-sm sm:text-base lg:text-lg tracking-[0.2em] sm:tracking-[0.25em] text-[var(--silver-light)]/70 font-light leading-relaxed"
+              <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2"
                 style={{ fontFamily: "var(--font-memdex)", transform: isMobile ? 'translateY(9px)' : 'translateY(24px)' }}
               >
-                AI-Assisted <span className="text-[var(--accent)]/50 mx-1">|</span> Decentralized<br />
-                Multi-Sector <span className="text-[var(--accent)]/50 mx-1">|</span> Cross-Chain
-              </p>
+                {["Algorithmic Management", "AI Research", "Multi-Sector", "Cross-Chain", "100 Assets"].map((item) => (
+                  <span
+                    key={item}
+                    className="px-2.5 py-1 sm:px-3 sm:py-1 text-[0.55rem] sm:text-[0.65rem] lg:text-xs tracking-[0.15em] text-[var(--silver-light)]/70 font-light border border-[var(--silver-light)]/15 rounded-full bg-white/[0.03]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Button below tagline */}
@@ -176,8 +184,8 @@ export default function HeroSection() {
               className={`reveal mb-20 sm:mb-36 lg:mb-36 ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: isMobile ? '2vh' : '4vh', order: 4 }}
             >
-              <button className="btn-primary mt-3 sm:mt-0">
-                The Whole Market, All at Once
+              <button className="btn-primary mt-3 sm:mt-0" onClick={() => setOverviewOpen(true)}>
+                Full Overview
               </button>
             </div>
           </div>
@@ -207,6 +215,8 @@ export default function HeroSection() {
 
       {/* Glowing divider line */}
       <div className="absolute bottom-0 left-0 right-0 divider-glow" />
+
+      <OverviewModal isOpen={overviewOpen} onClose={() => setOverviewOpen(false)} />
     </section>
   );
 }

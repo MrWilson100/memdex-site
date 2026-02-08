@@ -121,7 +121,7 @@ export default function Navbar() {
               className="text-white font-bold text-sm sm:text-lg tracking-[0.15em] drop-shadow-[0_0_10px_rgba(74,158,255,0.3)]"
               style={{ fontFamily: 'var(--font-memdex)' }}
             >
-              MEMDEX
+              MemDex
             </span>
           </a>
 
