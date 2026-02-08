@@ -36,7 +36,7 @@ export default function HeroSection() {
     : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '1.6s', button: '4.6s', tagline: '4.9s', datawave: '5.2s' };
 
   return (
-    <section id="home" className="relative min-h-[85vh] sm:min-h-screen pt-32 sm:pt-52 overflow-hidden">
+    <section id="home" className="relative min-h-[85vh] sm:min-h-screen pt-32 sm:pt-44 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
@@ -63,13 +63,13 @@ export default function HeroSection() {
       {/* DataWave background - spans full width behind button area */}
       <div
         className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
-        style={{ animationDelay: d.datawave, bottom: isMobile ? '36%' : '210px' }}
+        style={{ animationDelay: d.datawave, bottom: isMobile ? '36%' : '275px' }}
       >
         <img
           src="/datawave-bg.png"
           alt=""
           className="w-full h-auto object-cover"
-          style={{ transform: isMobile ? 'scaleY(0.50) rotate(1.5deg)' : 'scaleY(0.65) rotate(1.5deg)', transformOrigin: 'bottom' }}
+          style={{ transform: isMobile ? 'scaleY(0.50) rotate(1.5deg)' : 'scaleY(0.55) rotate(1.5deg)', transformOrigin: 'bottom' }}
         />
       </div>
 
@@ -101,7 +101,7 @@ export default function HeroSection() {
           <div className="hero-column hero-column-center pt-4 sm:pt-6 lg:pt-8">
             <div
               className={`reveal-blur ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.logo, marginTop: isMobile ? 0 : '4vh', order: isMobile ? 1 : 2 }}
+              style={{ transitionDelay: d.logo, marginTop: isMobile ? 0 : '0vh', order: isMobile ? 1 : 2 }}
             >
               <div className="relative">
                 {/* Subtle glow overlay */}

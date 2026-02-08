@@ -55,9 +55,9 @@ export default function Navbar() {
       >
         <div className="flex items-center mx-auto max-w-7xl gap-2 sm:gap-4">
           {/* Menu button - first on mobile, after ticker on desktop */}
-          <div className="relative menu-container order-1 sm:order-3 flex-shrink-0">
+          <div className="relative menu-container order-1 flex-shrink-0">
             <button
-              className={`grid-icon-btn translate-y-[3px] sm:translate-y-0${menuOpen ? ' active' : ''}`}
+              className={`grid-icon-btn translate-y-[3px] sm:translate-y-[2px]${menuOpen ? ' active' : ''}`}
               onPointerUp={(e) => {
                 e.stopPropagation();
                 setMenuOpen(prev => !prev);
@@ -111,7 +111,7 @@ export default function Navbar() {
           {/* MEMDEX text - close to menu on mobile */}
           <a
             href="#home"
-            className="order-2 sm:order-1 flex-shrink-0 cursor-pointer translate-y-0.5 sm:translate-y-0"
+            className="order-2 flex-shrink-0 cursor-pointer translate-y-0.5 sm:translate-y-0 translate-x-1"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -127,7 +127,7 @@ export default function Navbar() {
 
           {/* Glass slab with ticker - hidden on mobile */}
           <nav
-            className="relative hidden sm:block sm:order-2 flex-1 rounded-full overflow-hidden"
+            className="relative hidden sm:block order-3 flex-1 max-w-[60%] mx-auto rounded-full overflow-hidden"
             style={{
               background: 'rgba(10, 20, 35, 0.55)',
               backdropFilter: 'blur(16px)',
@@ -150,7 +150,7 @@ export default function Navbar() {
 
           {/* Login button - last on both */}
           <button
-            className="order-4 sm:order-4 btn-primary flex-shrink-0 ml-auto sm:ml-0"
+            className="order-4 btn-primary flex-shrink-0 ml-auto"
             style={{
               padding: '5px 20px',
               fontSize: '11px',
