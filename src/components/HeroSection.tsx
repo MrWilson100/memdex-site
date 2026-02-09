@@ -180,7 +180,7 @@ export default function HeroSection() {
 
       {/* DataWave background - position auto-synced to headline */}
       <div
-        className={`absolute left-0 right-0 z-[1] datawave-reveal [--dw-offset:calc(-50%_-_10px)] sm:[--dw-offset:calc(-50%_-_5px)] ${isVisible ? 'animate' : ''}`}
+        className={`absolute left-0 right-0 z-[1] datawave-reveal [--dw-offset:calc(-50%_-_7px)] sm:[--dw-offset:calc(-50%_-_2px)] ${isVisible ? 'animate' : ''}`}
         style={{ animationDelay: d.datawave, top: datawaveTop != null ? `${datawaveTop}px` : '50%', transform: 'translateY(var(--dw-offset, -50%))' }}
       >
         <img
@@ -267,7 +267,7 @@ export default function HeroSection() {
               */}
               <div
                 ref={headlineRef}
-                className={`relative z-[1] hero-title-frame reveal-blur-static translate-y-[-2px] sm:-translate-y-[63px] ${isVisible ? 'in-view' : ''}`}
+                className={`relative z-[1] hero-title-frame reveal-blur-static translate-y-[1px] sm:-translate-y-[58px] ${isVisible ? 'in-view' : ''}`}
                 style={{
                   transitionDelay: d.h1,
                 }}
