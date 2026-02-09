@@ -81,7 +81,7 @@ export default function Navbar() {
                 {[
                   { label: "Home", id: "home" },
                   { label: "Overview", id: "overview" },
-                  { label: "About", id: "about" },
+                  { label: "Solution", id: "solution" },
                   { label: "Features", id: "features" },
                   { label: "How It Works", id: "how-it-works" },
                 ].map((item) => (

@@ -83,7 +83,7 @@ export default function SolutionSection() {
         backgroundSize: "60px 60px",
       }}
     />
-    <section id="how-it-works" ref={sectionRef} className="relative pt-28 pb-24 lg:pt-36 lg:pb-32 -mt-4 lg:-mt-8 overflow-hidden">
+    <section id="solution" ref={sectionRef} className="relative pt-28 pb-24 lg:pt-36 lg:pb-32 -mt-4 lg:-mt-8 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)] via-[var(--primary-dark)] to-[var(--background-deep)]" />
 
@@ -108,10 +108,10 @@ export default function SolutionSection() {
         {/* Section header */}
         <div className="text-center mb-20">
           <WordReveal
-            text="The MemDex Solution"
+            text="The Problem MemDex Solves"
             className="text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight text-glow"
             style={{ fontFamily: "var(--font-memdex)" }}
-            highlights={{ "MemDex": "text-[var(--accent-bright)]" }}
+            highlights={{ "Problem": "text-[var(--accent-bright)]" }}
             wordDelay={0.15}
           />
           <div className="reveal w-32 h-0.5 mx-auto bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent" style={{ transitionDelay: '0.1s', boxShadow: '0 0 15px rgba(74, 158, 255, 0.4)' }} />

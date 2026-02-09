@@ -13,10 +13,21 @@ export default function HeroSection() {
   const [overviewOpen, setOverviewOpen] = useState(false);
   const [activePill, setActivePill] = useState<string | null>(null);
   const [glassPos, setGlassPos] = useState<{ left: number; top: number; width: number; height: number } | null>(null);
+  const [electricPulse, setElectricPulse] = useState(false);
   const [datawaveTop, setDatawaveTop] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLDivElement>(null);
   const pillContainerRef = useRef<HTMLDivElement>(null);
+  const pulseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const triggerElectricPulse = useCallback(() => {
+    if (pulseTimer.current) return; // prevent re-trigger while animating
+    setElectricPulse(true);
+    pulseTimer.current = setTimeout(() => {
+      setElectricPulse(false);
+      pulseTimer.current = null;
+    }, 1200);
+  }, []);
   const pillRefs = useRef<Map<string, HTMLSpanElement>>(new Map());
 
   const setPillRef = useCallback((label: string, el: HTMLSpanElement | null) => {
@@ -169,16 +180,23 @@ export default function HeroSection() {
 
       {/* DataWave background - position auto-synced to headline */}
       <div
-        className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
+        className={`absolute left-0 right-0 z-[1] datawave-reveal ${isVisible ? 'animate' : ''}`}
         style={{ animationDelay: d.datawave, top: datawaveTop != null ? `${datawaveTop}px` : '50%', transform: 'translateY(-50%)' }}
       >
         <img
           src="/datawave-bg.png"
           alt=""
-          className="w-full h-auto object-cover [transform:scaleY(0.45)_rotate(1.5deg)] lg:[transform:scaleY(0.34)_rotate(1.5deg)]"
+          className={`w-full h-auto object-cover [transform:scaleY(0.45)_rotate(1.5deg)] lg:[transform:scaleY(0.34)_rotate(1.5deg)] ${electricPulse ? 'datawave-electric' : ''}`}
           style={{ transformOrigin: 'center' }}
         />
       </div>
+
+      {/* Invisible click zone for datawave electric pulse - above main content */}
+      <div
+        className="absolute left-0 right-0 z-[15] cursor-pointer"
+        style={{ top: datawaveTop != null ? `${datawaveTop - 40}px` : 'calc(50% - 40px)', height: '80px' }}
+        onClick={triggerElectricPulse}
+      />
 
       {/* Main content - centered column */}
       <div className="relative z-10 w-full min-h-[calc(100vh-112px)] sm:min-h-[calc(110vh-128px)] flex items-center justify-center">
@@ -299,6 +317,8 @@ export default function HeroSection() {
                     ref={(el) => setPillRef(item.label, el)}
                     className={`pill-tooltip-group relative z-[1] group px-5 py-2.5 sm:px-5 sm:py-2 text-[13px] sm:text-sm lg:text-base tracking-wide border rounded-md cursor-default transition-all duration-300 ${activePill === item.label ? 'text-white border-[var(--accent)]/70 bg-[var(--primary-dark)]/85 pill-scan' : 'text-white border-[var(--accent)]/40 bg-[var(--primary-dark)]/70 hover:border-[var(--accent)]/70 hover:bg-[var(--primary-dark)]/85'}`}
                     onClick={() => setActivePill(activePill === item.label ? null : item.label)}
+                    onMouseEnter={() => { if (window.matchMedia('(hover: hover)').matches) setActivePill(item.label); }}
+                    onMouseLeave={() => { if (window.matchMedia('(hover: hover)').matches) setActivePill(null); }}
                   >
                     <span className="pill-scan-beams" />
                     {item.label}

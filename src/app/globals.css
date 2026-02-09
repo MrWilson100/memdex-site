@@ -650,6 +650,26 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* DataWave electric pulse - triggered on click */
+.datawave-electric {
+  animation: electricFlicker 1.2s ease-out forwards;
+}
+
+@keyframes electricFlicker {
+  0%   { filter: brightness(1) drop-shadow(0 0 0px transparent); }
+  5%   { filter: brightness(1.8) drop-shadow(0 0 20px rgba(90,200,232,0.6)); }
+  10%  { filter: brightness(1.1) drop-shadow(0 0 5px rgba(90,200,232,0.2)); }
+  15%  { filter: brightness(2.0) drop-shadow(0 0 30px rgba(0,193,222,0.8)); }
+  20%  { filter: brightness(1.2) drop-shadow(0 0 8px rgba(90,200,232,0.3)); }
+  28%  { filter: brightness(1.6) drop-shadow(0 0 18px rgba(74,158,255,0.5)); }
+  35%  { filter: brightness(1.1) drop-shadow(0 0 4px rgba(90,200,232,0.15)); }
+  45%  { filter: brightness(1.4) drop-shadow(0 0 12px rgba(0,193,222,0.4)); }
+  55%  { filter: brightness(1.15) drop-shadow(0 0 6px rgba(90,200,232,0.2)); }
+  70%  { filter: brightness(1.25) drop-shadow(0 0 10px rgba(74,158,255,0.3)); }
+  85%  { filter: brightness(1.05) drop-shadow(0 0 3px rgba(90,200,232,0.1)); }
+  100% { filter: brightness(1) drop-shadow(0 0 0px transparent); }
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .reveal-blur {

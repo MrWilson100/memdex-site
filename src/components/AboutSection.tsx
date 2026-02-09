@@ -37,7 +37,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="relative pt-32 pb-0 lg:pt-10 lg:pb-0 -mt-16 lg:-mt-8 overflow-hidden">
+    <section id="how-it-works" ref={sectionRef} className="relative pt-32 pb-0 lg:pt-10 lg:pb-0 -mt-16 lg:-mt-8 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
@@ -216,24 +216,6 @@ export default function AboutSection() {
           );
         })()}
 
-      </div>
-
-      {/* Transparency banner - full width */}
-      <div className="reveal relative z-10 mt-28 lg:mt-36" style={{ transitionDelay: '0.3s' }}>
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-[var(--accent)]/30 to-transparent" />
-        <div
-          className="py-10 px-6 text-center"
-          style={{ background: 'linear-gradient(180deg, rgba(74, 158, 255, 0.04) 0%, transparent 100%)' }}
-        >
-          <div className="max-w-3xl mx-auto">
-            <h4 className="text-lg font-semibold text-[var(--silver)] mb-3 tracking-wide uppercase" style={{ fontSize: '0.8rem', letterSpacing: '0.15em' }}>Transparency & Responsibility</h4>
-            <p className="text-[var(--silver-light)]/70 text-sm leading-relaxed">
-              Transparency is a core principle of the MemDex platform. All performance reporting is subject
-              to legal review and appropriate disclosures. Independent audits, clear communication, and
-              responsible presentation of data are foundational to how MemDex operates.
-            </p>
-          </div>
-        </div>
       </div>
 
       {/* Bottom divider */}
