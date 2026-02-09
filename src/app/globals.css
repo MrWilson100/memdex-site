@@ -1123,8 +1123,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* DataWave breathing - scale + subtle float */
 @keyframes datawave-breathe {
-  0%, 100% { transform: translateY(-50%) scale(1); }
-  50% { transform: translateY(calc(-50% - 4px)) scale(1.06); }
+  0%, 100% { transform: translateY(var(--dw-offset, -50%)) scale(1); }
+  50% { transform: translateY(calc(var(--dw-offset, -50%) - 4px)) scale(1.06); }
 }
 
 /* Pulse - for particles */

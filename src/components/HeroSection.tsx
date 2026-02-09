@@ -138,7 +138,7 @@ export default function HeroSection() {
 
       {/* Tech Leverage Graphic - top left */}
       <div
-        className={`absolute top-[22%] left-[7%] lg:left-[13%] lg:top-[20%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur hidden sm:block ${isVisible ? 'in-view' : ''}`}
+        className={`absolute top-[25%] left-[7%] lg:left-[13%] lg:top-[23%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur hidden sm:block ${isVisible ? 'in-view' : ''}`}
         style={{ transitionDelay: d.sideGraphic }}
       >
         <div className="opacity-35 lg:opacity-55">
@@ -146,20 +146,20 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* "Leverage Smart Technology" text - left side */}
-      <div className="absolute top-[33%] lg:top-[37%] left-[13%] lg:left-[19%] z-[2] pointer-events-none hidden sm:block">
+      {/* "Harness Intelligent Technology" text - left side */}
+      <div className="absolute top-[35%] lg:top-[39%] left-[7%] lg:left-[13%] z-[2] pointer-events-none hidden sm:block">
         <h2
           className={`reveal-blur font-[var(--font-memdex)] text-[13px] lg:text-xl xl:text-2xl font-bold text-white tracking-tight text-glow opacity-35 lg:opacity-55 text-right ${isVisible ? 'in-view' : ''}`}
           style={{ transitionDelay: d.sideText }}
         >
-          Intelligent<br />
+          Harness Intelligent<br />
           <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)] block text-right">Technology</span>
         </h2>
       </div>
 
       {/* AI Trading Graphic - top right */}
       <div
-        className={`absolute top-[22%] right-[4%] lg:right-[13%] lg:top-[20%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur hidden sm:block ${isVisible ? 'in-view' : ''}`}
+        className={`absolute top-[25%] right-[3%] lg:right-[12%] lg:top-[23%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur hidden sm:block ${isVisible ? 'in-view' : ''}`}
         style={{ transitionDelay: d.sideGraphic }}
       >
         <div className="opacity-35 lg:opacity-55">
@@ -167,26 +167,26 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* "Watch Memdex Work" text - right side */}
-      <div className="absolute top-[33%] lg:top-[37%] right-[2%] lg:right-[13%] w-[105px] lg:w-[180px] xl:w-[220px] z-[2] pointer-events-none hidden sm:block">
+      {/* "Experience True Automation" text - right side */}
+      <div className="absolute top-[35%] lg:top-[39%] right-[0%] lg:right-[11%] w-[105px] lg:w-[180px] xl:w-[220px] z-[2] pointer-events-none hidden sm:block">
         <h2
           className={`reveal-blur font-[var(--font-memdex)] text-[13px] lg:text-xl xl:text-2xl font-bold text-white tracking-tight text-glow opacity-35 lg:opacity-55 ${isVisible ? 'in-view' : ''}`}
           style={{ transitionDelay: d.sideText }}
         >
-          True<br />
+          Experience True<br />
           <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)] block text-left">Automation</span>
         </h2>
       </div>
 
       {/* DataWave background - position auto-synced to headline */}
       <div
-        className={`absolute left-0 right-0 z-[1] datawave-reveal ${isVisible ? 'animate' : ''}`}
-        style={{ animationDelay: d.datawave, top: datawaveTop != null ? `${datawaveTop}px` : '50%', transform: 'translateY(-50%)' }}
+        className={`absolute left-0 right-0 z-[1] datawave-reveal [--dw-offset:calc(-50%_-_10px)] sm:[--dw-offset:calc(-50%_-_5px)] ${isVisible ? 'animate' : ''}`}
+        style={{ animationDelay: d.datawave, top: datawaveTop != null ? `${datawaveTop}px` : '50%', transform: 'translateY(var(--dw-offset, -50%))' }}
       >
         <img
           src="/datawave-bg.png"
           alt=""
-          className={`w-full h-auto object-cover [transform:scaleY(0.45)_rotate(1.5deg)] lg:[transform:scaleY(0.34)_rotate(1.5deg)] ${electricPulse ? 'datawave-electric' : ''}`}
+          className={`w-full h-auto object-cover [transform:scaleY(0.55)_rotate(1.5deg)] lg:[transform:scaleY(0.32)_rotate(1.5deg)] ${electricPulse ? 'datawave-electric' : ''}`}
           style={{ transformOrigin: 'center' }}
         />
       </div>

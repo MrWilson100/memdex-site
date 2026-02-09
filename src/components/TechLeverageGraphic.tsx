@@ -257,8 +257,13 @@ export default function TechLeverageGraphic() {
     };
 
     let frame = 0;
+    let tick = 0;
 
     const draw = () => {
+      tick++;
+      // Skip 1 out of every 10 frames to run at ~90% speed (10% slower)
+      if (tick % 10 === 0) { animId = requestAnimationFrame(draw); return; }
+
       const w = W();
       const h = H();
       ctx.clearRect(0, 0, w, h);
