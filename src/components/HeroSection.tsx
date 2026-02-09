@@ -1,20 +1,47 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import TechGraphic from "./hero/TechGraphic";
-import PieChartAnimated from "./hero/PieChartAnimated";
+import { useEffect, useState, useRef, useCallback } from "react";
+// Kept for future use:
+// import TechGraphic from "./hero/TechGraphic";
+// import PieChartAnimated from "./hero/PieChartAnimated";
 import OverviewModal from "./OverviewModal";
+import AITradingGraphic from "./AITradingGraphic";
+import TechLeverageGraphic from "./TechLeverageGraphic";
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const [overviewOpen, setOverviewOpen] = useState(false);
   const [activePill, setActivePill] = useState<string | null>(null);
+  const [glassPos, setGlassPos] = useState<{ left: number; top: number; width: number; height: number } | null>(null);
+  const pillContainerRef = useRef<HTMLDivElement>(null);
+  const pillRefs = useRef<Map<string, HTMLSpanElement>>(new Map());
+
+  const setPillRef = useCallback((label: string, el: HTMLSpanElement | null) => {
+    if (el) pillRefs.current.set(label, el);
+    else pillRefs.current.delete(label);
+  }, []);
+
+  // Update glass pane position when active pill changes
+  useEffect(() => {
+    if (!activePill || !pillContainerRef.current) {
+      setGlassPos(null);
+      return;
+    }
+    const pillEl = pillRefs.current.get(activePill);
+    const container = pillContainerRef.current;
+    if (!pillEl || !container) { setGlassPos(null); return; }
+
+    const containerRect = container.getBoundingClientRect();
+    const pillRect = pillEl.getBoundingClientRect();
+    setGlassPos({
+      left: pillRect.left - containerRect.left,
+      top: pillRect.top - containerRect.top,
+      width: pillRect.width,
+      height: pillRect.height,
+    });
+  }, [activePill]);
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 1023px)");
-    setIsMobile(mq.matches);
-
     // Start animation sequence after a small delay
     const timer = setTimeout(() => setIsVisible(true), 200);
     return () => clearTimeout(timer);
@@ -44,14 +71,11 @@ export default function HeroSection() {
     }
   }, [isVisible]);
 
-  // Mobile: left text → left graphic → right text → right graphic → h1 → logo → button
-  // Desktop: unchanged sequence
-  const d = isMobile
-    ? { leftText: '0s', leftGraphic: '0.5s', rightText: '1.0s', rightGraphic: '1.5s', h1: '2.0s', logo: '2.0s', button: '3.0s', tagline: '3.3s', datawave: '3.5s' }
-    : { leftText: '0s', leftGraphic: '0.5s', rightText: '3.4s', rightGraphic: '4.0s', h1: '1.6s', logo: '1.6s', button: '4.6s', tagline: '4.9s', datawave: '5.2s' };
+  // Animation sequence: h1 + logo → button → tagline → datawave
+  const d = { h1: '0s', logo: '0s', button: '1.0s', tagline: '1.3s', datawave: '1.5s', sideGraphic: '1.5s', sideText: '1.8s' };
 
   return (
-    <section id="home" className="relative min-h-[85vh] sm:min-h-screen pt-32 sm:pt-44 overflow-hidden">
+    <section id="home" className="relative min-h-screen sm:min-h-[110vh] pt-32 sm:pt-44 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
@@ -75,24 +99,66 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[var(--background)]/40" />
       </div>
 
-      {/* DataWave background - spans full width behind button area */}
+      {/* Tech Leverage Graphic - top left */}
       <div
-        className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
-        style={{ animationDelay: d.datawave, bottom: isMobile ? '36%' : '275px' }}
+        className={`absolute top-[17%] left-[7%] lg:left-[13%] lg:top-[20%] z-[2] w-[95px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur ${isVisible ? 'in-view' : ''}`}
+        style={{ transitionDelay: d.sideGraphic }}
+      >
+        <div style={{ opacity: 0.55 }}>
+          <TechLeverageGraphic />
+        </div>
+      </div>
+
+      {/* "Leverage Smart Technology" text - left side */}
+      <div className="absolute top-[28%] lg:top-[36%] left-[7%] lg:left-[13%] z-[2] pointer-events-none">
+        <h2
+          className={`reveal-blur font-[var(--font-memdex)] text-[10px] lg:text-lg xl:text-xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
+          style={{ transitionDelay: d.sideText, opacity: 0.55 }}
+        >
+          Leverage Smart<br />
+          <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)] block text-right">Technology</span>
+        </h2>
+      </div>
+
+      {/* AI Trading Graphic - top right */}
+      <div
+        className={`absolute top-[17%] right-[7%] lg:right-[13%] lg:top-[20%] z-[2] w-[95px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur ${isVisible ? 'in-view' : ''}`}
+        style={{ transitionDelay: d.sideGraphic }}
+      >
+        <div style={{ opacity: 0.55 }}>
+          <AITradingGraphic />
+        </div>
+      </div>
+
+      {/* "Watch Memdex Work" text - right side */}
+      <div className="absolute top-[28%] lg:top-[36%] right-[7%] lg:right-[13%] z-[2] pointer-events-none">
+        <h2
+          className={`reveal-blur font-[var(--font-memdex)] text-[10px] lg:text-lg xl:text-xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
+          style={{ transitionDelay: d.sideText, opacity: 0.55 }}
+        >
+          Enjoy a Hands-Off<br />
+          <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)] block text-left">Experience</span>
+        </h2>
+      </div>
+
+      {/* DataWave background - behind the h1 title, position synced via JS */}
+      <div
+        className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal top-[57%] lg:top-[58%] ${isVisible ? 'animate' : ''}`}
+        style={{ animationDelay: d.datawave, transform: 'translateY(-50%)' }}
       >
         <img
           src="/datawave-bg.png"
           alt=""
-          className="w-full h-auto object-cover"
-          style={{ transform: isMobile ? 'scaleY(0.50) rotate(1.5deg)' : 'scaleY(0.55) rotate(1.5deg)', transformOrigin: 'bottom' }}
+          className="w-full h-auto object-cover [transform:scaleY(0.45)_rotate(1.5deg)] lg:[transform:scaleY(0.22)_rotate(1.5deg)]"
+          style={{ transformOrigin: 'center' }}
         />
       </div>
 
-      {/* Main content - Three column grid */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 min-h-[calc(85vh-112px)] sm:min-h-[calc(100vh-128px)] flex items-center translate-x-0">
-        <div className="hero-grid w-full py-8 lg:py-0">
+      {/* Main content - centered column */}
+      <div className="relative z-10 w-full min-h-[calc(100vh-112px)] sm:min-h-[calc(110vh-128px)] flex items-center justify-center">
+        <div className="flex flex-col items-center text-center w-full py-8 lg:py-0 gap-4">
 
-          {/* LEFT COLUMN - Leverage Smart Technology (desktop only) */}
+          {/* LEFT COLUMN - Leverage Smart Technology (hidden for now, kept for future use)
           {!isMobile && (
           <div className="hero-column hero-column-left pt-4 sm:pt-6 lg:pt-8" style={{ transform: 'translateY(-2px)' }}>
             <h2
@@ -111,28 +177,29 @@ export default function HeroSection() {
             </div>
           </div>
           )}
+          */}
 
           {/* CENTER COLUMN - Automate Your Portfolio + Logo */}
-          <div className="hero-column hero-column-center pt-4 sm:pt-6 lg:pt-8">
+          <div className="flex flex-col items-center text-center w-full pt-4 sm:pt-6 lg:pt-8 gap-4">
             <div
-              className={`reveal-blur ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.logo, marginTop: isMobile ? 0 : '0vh', order: isMobile ? 1 : 2 }}
+              className={`reveal-blur w-full ${isVisible ? 'in-view' : ''}`}
+              style={{ transitionDelay: d.logo, marginTop: '-3vh', order: 1 }}
             >
-              <div className="relative">
+              <div className="relative w-full flex justify-center">
                 {/* Subtle glow overlay */}
                 <div className="absolute inset-0 bg-[#4A9EFF]/8 blur-[50px] sm:blur-[70px] rounded-full" />
 
                 <img
                   src="/memdex-logo.png"
                   alt="THE MEMDEX - Automated Portfolio"
-                  className="relative w-[292px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)]"
-                  style={{ top: isMobile ? '-46px' : '-2px', scale: '1.10' }}
+                  className="relative w-[292px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)] translate-y-4 sm:-translate-y-14"
+                  style={{ scale: '0.84' }}
                 />
               </div>
             </div>
 
-            <div className="relative" style={{ marginTop: isMobile ? '1vh' : '0vh', order: isMobile ? 2 : 1 }}>
-              {/* Left connecting line - from left column to center */}
+            <div className="relative" style={{ marginTop: '1vh', order: 2 }}>
+              {/* Connecting lines (hidden for now, kept for future use)
               <div
                 className={`hidden lg:block absolute right-full h-[2px] bg-gradient-to-r from-[#4A9EFF]/30 to-[#5AC8E8] hero-line-left ${isVisible ? 'animate' : ''}`}
                 style={{
@@ -143,7 +210,6 @@ export default function HeroSection() {
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
               />
-              {/* Right connecting line - from center to right column */}
               <div
                 className={`hidden lg:block absolute left-full h-[2px] bg-gradient-to-r from-[#5AC8E8] to-[#4A9EFF]/30 hero-line-right ${isVisible ? 'animate' : ''}`}
                 style={{
@@ -154,15 +220,15 @@ export default function HeroSection() {
                   boxShadow: '0 0 10px rgba(90,200,232,0.6)',
                 }}
               />
+              */}
               <div
-                className={`hero-title-frame reveal-blur-static ${isVisible ? 'in-view' : ''}`}
+                className={`relative z-[1] hero-title-frame reveal-blur-static translate-y-[2px] sm:-translate-y-[65px] ${isVisible ? 'in-view' : ''}`}
                 style={{
                   transitionDelay: d.h1,
-                  transform: isMobile ? 'translateY(-20px)' : 'translateY(-36px)',
                 }}
               >
                 <h1
-                  className="text-metallic-shine font-[var(--font-memdex)] text-[1.05rem] sm:text-[1.35rem] lg:text-[1.6rem] xl:text-[2.15rem] font-bold leading-[1.1] tracking-tight"
+                  className="text-metallic-shine font-[var(--font-memdex)] text-[0.95rem] sm:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.85rem] font-bold leading-[1.1] tracking-tight"
                   style={{
                     whiteSpace: 'nowrap',
                     letterSpacing: '0.02em',
@@ -175,12 +241,31 @@ export default function HeroSection() {
 
             {/* Tagline below logo */}
             <div
-              className={`reveal mt-4 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.tagline, transitionDuration: '1.8s', marginTop: isMobile ? '-3vh' : '4vh', order: 3 }}
+              className={`reveal mt-4 relative z-[2] translate-y-[16px] sm:-translate-y-[42px] ${isVisible ? 'in-view' : ''}`}
+              style={{ transitionDelay: d.tagline, transitionDuration: '1.8s', marginTop: '-3vh', order: 3 }}
             >
-              <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2"
-                style={{ fontFamily: "var(--font-memdex)", transform: isMobile ? 'translateY(9px)' : 'translateY(24px)' }}
+              <div
+                ref={pillContainerRef}
+                className="relative flex flex-wrap justify-center gap-1.5 sm:gap-2"
+                style={{ fontFamily: "var(--font-memdex)", transform: 'translateY(9px)' }}
               >
+                {/* Sliding glass pane */}
+                <span
+                  className="absolute rounded-full pointer-events-none z-0"
+                  style={{
+                    left: glassPos?.left ?? 0,
+                    top: glassPos?.top ?? 0,
+                    width: glassPos?.width ?? 0,
+                    height: glassPos?.height ?? 0,
+                    opacity: glassPos ? 1 : 0,
+                    background: 'linear-gradient(135deg, rgba(90,200,232,0.12), rgba(74,158,255,0.08))',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(90,200,232,0.25)',
+                    boxShadow: '0 0 20px rgba(90,200,232,0.15), inset 0 1px 0 rgba(255,255,255,0.08)',
+                    transition: 'left 0.4s cubic-bezier(0.4, 0, 0.2, 1), top 0.4s cubic-bezier(0.4, 0, 0.2, 1), width 0.4s cubic-bezier(0.4, 0, 0.2, 1), height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease',
+                  }}
+                />
                 {([
                   { label: "Algorithmic Management", desc: "Rules-based rebalancing engine that automatically adjusts portfolio allocation based on market conditions." },
                   { label: "AI Research", desc: "Dedicated AI research teams continuously monitor each asset using market data, on-chain activity, and sentiment analysis." },
@@ -190,11 +275,13 @@ export default function HeroSection() {
                 ] as const).map((item) => (
                   <span
                     key={item.label}
-                    className="pill-tooltip-group relative group px-2.5 py-1 sm:px-3 sm:py-1 text-[0.55rem] sm:text-[0.65rem] lg:text-xs tracking-[0.15em] text-[var(--silver-light)]/70 font-light border border-[var(--silver-light)]/15 rounded-full bg-white/[0.03] cursor-default"
+                    ref={(el) => setPillRef(item.label, el)}
+                    className={`pill-tooltip-group relative z-[1] group px-3 py-1.5 sm:px-4 sm:py-1.5 text-xs sm:text-xs lg:text-sm tracking-[0.15em] font-light border rounded-full cursor-default transition-colors duration-300 ${activePill === item.label ? 'text-white/90 border-[rgba(90,200,232,0.3)] bg-transparent pill-scan' : 'text-[var(--silver-light)]/70 border-[var(--silver-light)]/15 bg-white/[0.03]'}`}
                     onClick={() => setActivePill(activePill === item.label ? null : item.label)}
                   >
+                    <span className="pill-scan-beams" />
                     {item.label}
-                    <span className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 px-3 py-2 rounded-lg text-[0.65rem] leading-relaxed tracking-normal text-[var(--silver-light)] bg-[var(--background-deep)]/95 border border-[var(--accent)]/20 shadow-lg shadow-black/30 backdrop-blur-md transition-opacity duration-200 z-50 ${activePill === item.label ? 'opacity-100' : 'opacity-0 pointer-events-none'} lg:opacity-0 lg:group-hover:opacity-100 lg:pointer-events-auto`}
+                    <span className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 px-4 py-3 rounded-lg text-base leading-relaxed tracking-normal text-[var(--silver-light)] bg-[var(--background-deep)]/95 border border-[var(--accent)]/20 shadow-lg shadow-black/30 backdrop-blur-md transition-opacity duration-200 z-50 ${activePill === item.label ? 'opacity-100' : 'opacity-0 pointer-events-none'} lg:opacity-0 lg:pointer-events-none lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto`}
                       style={{ fontFamily: 'inherit' }}
                     >
                       {item.desc}
@@ -207,7 +294,7 @@ export default function HeroSection() {
             {/* Button below tagline */}
             <div
               className={`reveal mb-20 sm:mb-36 lg:mb-36 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: isMobile ? '2vh' : '4vh', order: 4 }}
+              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '2vh', order: 4, transform: 'translateY(20px)' }}
             >
               <button className="btn-primary mt-3 sm:mt-0" onClick={() => setOverviewOpen(true)}>
                 Full Overview
@@ -215,7 +302,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN - Watch Memdex Work (desktop only) */}
+          {/* RIGHT COLUMN - Watch Memdex Work (hidden for now, kept for future use)
           {!isMobile && (
           <div className="hero-column hero-column-right pt-4 sm:pt-6 lg:pt-8" style={{ transform: 'translateY(-2px)' }}>
             <h2
@@ -234,6 +321,7 @@ export default function HeroSection() {
             </div>
           </div>
           )}
+          */}
 
         </div>
       </div>
