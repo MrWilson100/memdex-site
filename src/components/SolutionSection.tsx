@@ -83,7 +83,7 @@ export default function SolutionSection() {
         backgroundSize: "60px 60px",
       }}
     />
-    <section id="how-it-works" ref={sectionRef} className="relative pt-8 pb-24 lg:pt-10 lg:pb-32 -mt-4 lg:-mt-8 overflow-hidden">
+    <section id="how-it-works" ref={sectionRef} className="relative pt-28 pb-24 lg:pt-36 lg:pb-32 -mt-4 lg:-mt-8 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)] via-[var(--primary-dark)] to-[var(--background-deep)]" />
 

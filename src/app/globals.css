@@ -427,17 +427,82 @@ h1, h2, h3, h4, h5, h6 {
   100% { right: 100%; }
 }
 
-/* Hero grid layout */
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  align-items: start;
+/* Pill spring bounce on tap */
+.pill-tooltip-group {
+  transition: scale 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.pill-tooltip-group:active {
+  scale: 0.88;
 }
 
-/* Mobile: center column spans full width */
+/* Pill scan beam wrapper - clips beams without clipping tooltips */
+.pill-scan-beams {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Mobile: show beams when parent pill is active */
+.pill-scan .pill-scan-beams::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(90, 200, 232, 0.7), rgba(74, 158, 255, 0.5), transparent);
+  animation: frame-scan 4s ease-in-out 0.5s infinite;
+}
+.pill-scan .pill-scan-beams::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -80%;
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74, 158, 255, 0.5), rgba(90, 200, 232, 0.7), transparent);
+  animation: frame-scan-reverse 4s ease-in-out 2.5s infinite;
+}
+
+/* Desktop: show beams on hover */
+@media (min-width: 1024px) {
+  .pill-tooltip-group:hover .pill-scan-beams::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(90, 200, 232, 0.7), rgba(74, 158, 255, 0.5), transparent);
+    animation: frame-scan 4s ease-in-out 0.5s infinite;
+  }
+  .pill-tooltip-group:hover .pill-scan-beams::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -80%;
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(74, 158, 255, 0.5), rgba(90, 200, 232, 0.7), transparent);
+    animation: frame-scan-reverse 4s ease-in-out 2.5s infinite;
+  }
+}
+
+/* Hero grid layout - single column centered */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: start;
+  justify-items: center;
+}
+
+/* Center column spans full width */
 .hero-column-center { grid-column: 1 / -1; }
 
+/* Three-column layout preserved for future use
 @media (min-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr 1.2fr 1fr;
@@ -458,6 +523,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 3rem;
   }
 }
+*/
 
 /* Hero column styling */
 .hero-column {
@@ -1035,10 +1101,10 @@ h1, h2, h3, h4, h5, h6 {
   animation: breathe 3.5s ease-in-out infinite;
 }
 
-/* DataWave breathing */
+/* DataWave breathing - scale + subtle float */
 @keyframes datawave-breathe {
-  0%, 100% { opacity: 1; transform: translateY(0) scaleY(1); }
-  50% { opacity: 0.65; transform: translateY(-10px) scaleY(1.08); }
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(calc(-50% - 4px)) scale(1.06); }
 }
 
 /* Pulse - for particles */

@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import IntroSection from "@/components/IntroSection";
-import AppShowcase from "@/components/AppShowcase";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import NEARSection from "@/components/NEARSection";
 import SolutionSection from "@/components/SolutionSection";
@@ -16,7 +15,6 @@ export default function Home() {
       <HeroSection />
       <IntroSection />
       <NEARSection />
-      <AppShowcase />
       <SolutionSection />
       <FeaturesGrid />
       <AboutSection />

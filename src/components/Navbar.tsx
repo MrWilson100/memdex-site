@@ -57,7 +57,7 @@ export default function Navbar() {
           {/* Menu button - first on mobile, after ticker on desktop */}
           <div className="relative menu-container order-1 flex-shrink-0">
             <button
-              className={`grid-icon-btn translate-y-[3px] sm:translate-y-[2px]${menuOpen ? ' active' : ''}`}
+              className={`grid-icon-btn translate-y-[5px] sm:translate-y-[2px]${menuOpen ? ' active' : ''}`}
               onPointerUp={(e) => {
                 e.stopPropagation();
                 setMenuOpen(prev => !prev);
@@ -129,18 +129,18 @@ export default function Navbar() {
           <nav
             className="relative hidden sm:block order-3 flex-1 max-w-[60%] mx-auto rounded-full overflow-hidden"
             style={{
-              background: 'rgba(10, 20, 35, 0.55)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-              border: '1px solid rgba(4, 137, 205, 0.35)',
-              boxShadow: '0 12px 30px rgba(0, 0, 0, 0.45), 0 0 20px rgba(74, 158, 255, 0.1)',
+              background: 'rgba(10, 20, 35, 0.4)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(74, 158, 255, 0.12)',
+              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.25)',
             }}
           >
             {/* Top edge highlight */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(74,158,255,0.5)] to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(74,158,255,0.25)] to-transparent" />
 
             {/* LiveCoinWatch Crypto Ticker */}
-            <div className="px-4 sm:px-6 -my-1 overflow-hidden ticker-container">
+            <div className="px-6 sm:px-8 -my-1 overflow-hidden ticker-container">
               <div
                 ref={widgetRef}
                 className="livecoinwatch-widget-5"
@@ -150,7 +150,7 @@ export default function Navbar() {
 
           {/* Login button - last on both */}
           <button
-            className="order-4 btn-primary flex-shrink-0 ml-auto"
+            className="order-4 btn-primary flex-shrink-0 ml-auto translate-y-0.5"
             style={{
               padding: '5px 20px',
               fontSize: '11px',
