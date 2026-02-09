@@ -28,16 +28,13 @@ export default function HeroSection() {
       return;
     }
     const pillEl = pillRefs.current.get(activePill);
-    const container = pillContainerRef.current;
-    if (!pillEl || !container) { setGlassPos(null); return; }
+    if (!pillEl) { setGlassPos(null); return; }
 
-    const containerRect = container.getBoundingClientRect();
-    const pillRect = pillEl.getBoundingClientRect();
     setGlassPos({
-      left: pillRect.left - containerRect.left,
-      top: pillRect.top - containerRect.top,
-      width: pillRect.width,
-      height: pillRect.height,
+      left: pillEl.offsetLeft,
+      top: pillEl.offsetTop,
+      width: pillEl.offsetWidth,
+      height: pillEl.offsetHeight,
     });
   }, [activePill]);
 
@@ -143,7 +140,7 @@ export default function HeroSection() {
 
       {/* DataWave background - behind the h1 title, position synced via JS */}
       <div
-        className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal top-[57%] lg:top-[58%] ${isVisible ? 'animate' : ''}`}
+        className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal top-[56%] lg:top-[57%] ${isVisible ? 'animate' : ''}`}
         style={{ animationDelay: d.datawave, transform: 'translateY(-50%)' }}
       >
         <img
@@ -192,7 +189,7 @@ export default function HeroSection() {
                 <img
                   src="/memdex-logo.png"
                   alt="THE MEMDEX - Automated Portfolio"
-                  className="relative w-[292px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)] translate-y-4 sm:-translate-y-14"
+                  className="relative w-[292px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)] translate-y-2 sm:-translate-y-[63px]"
                   style={{ scale: '0.84' }}
                 />
               </div>
@@ -222,7 +219,7 @@ export default function HeroSection() {
               />
               */}
               <div
-                className={`relative z-[1] hero-title-frame reveal-blur-static translate-y-[2px] sm:-translate-y-[65px] ${isVisible ? 'in-view' : ''}`}
+                className={`relative z-[1] hero-title-frame reveal-blur-static translate-y-[-2px] sm:-translate-y-[75px] ${isVisible ? 'in-view' : ''}`}
                 style={{
                   transitionDelay: d.h1,
                 }}
@@ -247,7 +244,7 @@ export default function HeroSection() {
               <div
                 ref={pillContainerRef}
                 className="relative flex flex-wrap justify-center gap-1.5 sm:gap-2"
-                style={{ fontFamily: "var(--font-memdex)", transform: 'translateY(9px)' }}
+                style={{ fontFamily: "var(--font-memdex)", transform: 'translateY(12px)' }}
               >
                 {/* Sliding glass pane */}
                 <span
@@ -294,7 +291,7 @@ export default function HeroSection() {
             {/* Button below tagline */}
             <div
               className={`reveal mb-20 sm:mb-36 lg:mb-36 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '2vh', order: 4, transform: 'translateY(20px)' }}
+              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '2vh', order: 4, transform: 'translateY(26px)' }}
             >
               <button className="btn-primary mt-3 sm:mt-0" onClick={() => setOverviewOpen(true)}>
                 Full Overview

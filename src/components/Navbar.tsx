@@ -44,9 +44,9 @@ export default function Navbar() {
       />
       {/* Navbar container with logo and menu outside glass */}
       <div
-        className="fixed top-0 left-0 right-0 z-50 px-6 sm:px-4 pt-3 sm:pt-4"
+        className="fixed top-0 left-0 right-0 z-50 px-6 sm:px-4 pt-4 sm:pt-5"
         style={{
-          paddingBottom: '16px',
+          paddingBottom: '20px',
           backgroundColor: 'transparent',
           backdropFilter: 'blur(12px)',
           WebkitBackdropFilter: 'blur(12px)',
@@ -118,7 +118,7 @@ export default function Navbar() {
             }}
           >
             <span
-              className="text-white font-bold text-sm sm:text-lg tracking-[0.15em] drop-shadow-[0_0_10px_rgba(74,158,255,0.3)]"
+              className="text-white font-bold text-base sm:text-xl tracking-[0.15em] drop-shadow-[0_0_10px_rgba(74,158,255,0.3)]"
               style={{ fontFamily: 'var(--font-memdex)' }}
             >
               MemDex
@@ -140,7 +140,7 @@ export default function Navbar() {
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(74,158,255,0.25)] to-transparent" />
 
             {/* LiveCoinWatch Crypto Ticker */}
-            <div className="px-6 sm:px-8 -my-1 overflow-hidden ticker-container">
+            <div className="px-8 sm:px-10 overflow-hidden ticker-container">
               <div
                 ref={widgetRef}
                 className="livecoinwatch-widget-5"
@@ -152,8 +152,8 @@ export default function Navbar() {
           <button
             className="order-4 btn-primary flex-shrink-0 ml-auto translate-y-0.5"
             style={{
-              padding: '5px 20px',
-              fontSize: '11px',
+              padding: '7px 24px',
+              fontSize: '13px',
               textTransform: 'none',
             }}
             onClick={() => setLoginOpen(true)}
