@@ -98,7 +98,7 @@ export default function HeroSection() {
 
       {/* Tech Leverage Graphic - top left */}
       <div
-        className={`absolute top-[22%] left-[7%] lg:left-[13%] lg:top-[20%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur ${isVisible ? 'in-view' : ''}`}
+        className={`absolute top-[22%] left-[7%] lg:left-[13%] lg:top-[20%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur hidden sm:block ${isVisible ? 'in-view' : ''}`}
         style={{ transitionDelay: d.sideGraphic }}
       >
         <div className="opacity-35 lg:opacity-55">
@@ -107,7 +107,7 @@ export default function HeroSection() {
       </div>
 
       {/* "Leverage Smart Technology" text - left side */}
-      <div className="absolute top-[33%] lg:top-[37%] left-[13%] lg:left-[13%] z-[2] pointer-events-none">
+      <div className="absolute top-[33%] lg:top-[37%] left-[13%] lg:left-[13%] z-[2] pointer-events-none hidden sm:block">
         <h2
           className={`reveal-blur font-[var(--font-memdex)] text-[13px] lg:text-xl xl:text-2xl font-bold text-white tracking-tight text-glow opacity-35 lg:opacity-55 text-right ${isVisible ? 'in-view' : ''}`}
           style={{ transitionDelay: d.sideText }}
@@ -119,7 +119,7 @@ export default function HeroSection() {
 
       {/* AI Trading Graphic - top right */}
       <div
-        className={`absolute top-[22%] right-[4%] lg:right-[13%] lg:top-[20%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur ${isVisible ? 'in-view' : ''}`}
+        className={`absolute top-[22%] right-[4%] lg:right-[13%] lg:top-[20%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur hidden sm:block ${isVisible ? 'in-view' : ''}`}
         style={{ transitionDelay: d.sideGraphic }}
       >
         <div className="opacity-35 lg:opacity-55">
@@ -128,7 +128,7 @@ export default function HeroSection() {
       </div>
 
       {/* "Watch Memdex Work" text - right side */}
-      <div className="absolute top-[33%] lg:top-[37%] right-[2%] lg:right-[13%] w-[105px] lg:w-[180px] xl:w-[220px] z-[2] pointer-events-none">
+      <div className="absolute top-[33%] lg:top-[37%] right-[2%] lg:right-[13%] w-[105px] lg:w-[180px] xl:w-[220px] z-[2] pointer-events-none hidden sm:block">
         <h2
           className={`reveal-blur font-[var(--font-memdex)] text-[13px] lg:text-xl xl:text-2xl font-bold text-white tracking-tight text-glow opacity-35 lg:opacity-55 ${isVisible ? 'in-view' : ''}`}
           style={{ transitionDelay: d.sideText }}

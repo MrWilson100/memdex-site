@@ -152,8 +152,8 @@ export default function Navbar() {
           <button
             className="order-4 btn-primary flex-shrink-0 ml-auto translate-y-0.5"
             style={{
-              padding: '7px 24px',
-              fontSize: '13px',
+              padding: '5px 16px',
+              fontSize: '11.5px',
               textTransform: 'none',
             }}
             onClick={() => setLoginOpen(true)}
