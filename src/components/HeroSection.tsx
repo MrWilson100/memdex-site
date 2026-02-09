@@ -71,8 +71,16 @@ export default function HeroSection() {
   // Animation sequence: h1 + logo → button → tagline → datawave
   const d = { h1: '0s', logo: '0s', button: '1.0s', tagline: '1.3s', datawave: '1.5s', sideGraphic: '1.5s', sideText: '1.8s' };
 
+  const pillItems = [
+    { label: "Algorithmic Management", desc: "Rules-based rebalancing engine that automatically adjusts portfolio allocation based on market conditions." },
+    { label: "AI Research", desc: "Dedicated AI research teams continuously monitor each asset using market data, on-chain activity, and sentiment analysis." },
+    { label: "Multi-Sector", desc: "Diversified exposure across major crypto sectors including Blue Chips, Memecoins, RWA's, Gaming, AI, and more." },
+    { label: "Cross-Chain", desc: "Portfolio spans multiple blockchains, capturing opportunities across the entire digital asset ecosystem." },
+    { label: "100 Assets", desc: "Broad market coverage with 100 curated digital assets, continuously evaluated and rebalanced." },
+  ] as const;
+
   return (
-    <section id="home" className="relative min-h-screen sm:min-h-[110vh] pt-32 sm:pt-44 overflow-hidden">
+    <section id="home" className="relative min-h-screen sm:min-h-[110vh] pt-24 sm:pt-36 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
@@ -263,13 +271,7 @@ export default function HeroSection() {
                     transition: 'left 0.4s cubic-bezier(0.4, 0, 0.2, 1), top 0.4s cubic-bezier(0.4, 0, 0.2, 1), width 0.4s cubic-bezier(0.4, 0, 0.2, 1), height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease',
                   }}
                 />
-                {([
-                  { label: "Algorithmic Management", desc: "Rules-based rebalancing engine that automatically adjusts portfolio allocation based on market conditions." },
-                  { label: "AI Research", desc: "Dedicated AI research teams continuously monitor each asset using market data, on-chain activity, and sentiment analysis." },
-                  { label: "Multi-Sector", desc: "Diversified exposure across major crypto sectors including Blue Chips, Memecoins, RWA's, Gaming, AI, and more." },
-                  { label: "Cross-Chain", desc: "Portfolio spans multiple blockchains, capturing opportunities across the entire digital asset ecosystem." },
-                  { label: "100 Assets", desc: "Broad market coverage with 100 curated digital assets, continuously evaluated and rebalanced." },
-                ] as const).map((item) => (
+                {pillItems.map((item) => (
                   <span
                     key={item.label}
                     ref={(el) => setPillRef(item.label, el)}
@@ -285,6 +287,7 @@ export default function HeroSection() {
                     </span>
                   </span>
                 ))}
+
               </div>
             </div>
 
