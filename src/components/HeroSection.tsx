@@ -98,43 +98,43 @@ export default function HeroSection() {
 
       {/* Tech Leverage Graphic - top left */}
       <div
-        className={`absolute top-[19%] left-[7%] lg:left-[13%] lg:top-[20%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur ${isVisible ? 'in-view' : ''}`}
+        className={`absolute top-[22%] left-[7%] lg:left-[13%] lg:top-[20%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur ${isVisible ? 'in-view' : ''}`}
         style={{ transitionDelay: d.sideGraphic }}
       >
-        <div style={{ opacity: 0.55 }}>
+        <div className="opacity-35 lg:opacity-55">
           <TechLeverageGraphic />
         </div>
       </div>
 
       {/* "Leverage Smart Technology" text - left side */}
-      <div className="absolute top-[30%] lg:top-[37%] left-[7%] lg:left-[13%] z-[2] pointer-events-none">
+      <div className="absolute top-[33%] lg:top-[37%] left-[13%] lg:left-[13%] z-[2] pointer-events-none">
         <h2
-          className={`reveal-blur font-[var(--font-memdex)] text-[13px] lg:text-xl xl:text-2xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
-          style={{ transitionDelay: d.sideText, opacity: 0.55 }}
+          className={`reveal-blur font-[var(--font-memdex)] text-[13px] lg:text-xl xl:text-2xl font-bold text-white tracking-tight text-glow opacity-35 lg:opacity-55 text-right ${isVisible ? 'in-view' : ''}`}
+          style={{ transitionDelay: d.sideText }}
         >
-          Leverage Smart<br />
+          Intelligent<br />
           <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)] block text-right">Technology</span>
         </h2>
       </div>
 
       {/* AI Trading Graphic - top right */}
       <div
-        className={`absolute top-[19%] right-[4%] lg:right-[13%] lg:top-[20%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur ${isVisible ? 'in-view' : ''}`}
+        className={`absolute top-[22%] right-[4%] lg:right-[13%] lg:top-[20%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur ${isVisible ? 'in-view' : ''}`}
         style={{ transitionDelay: d.sideGraphic }}
       >
-        <div style={{ opacity: 0.55 }}>
+        <div className="opacity-35 lg:opacity-55">
           <AITradingGraphic />
         </div>
       </div>
 
       {/* "Watch Memdex Work" text - right side */}
-      <div className="absolute top-[30%] lg:top-[37%] right-[4%] lg:right-[13%] z-[2] pointer-events-none">
+      <div className="absolute top-[33%] lg:top-[37%] right-[2%] lg:right-[13%] w-[105px] lg:w-[180px] xl:w-[220px] z-[2] pointer-events-none">
         <h2
-          className={`reveal-blur font-[var(--font-memdex)] text-[13px] lg:text-xl xl:text-2xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
-          style={{ transitionDelay: d.sideText, opacity: 0.55 }}
+          className={`reveal-blur font-[var(--font-memdex)] text-[13px] lg:text-xl xl:text-2xl font-bold text-white tracking-tight text-glow opacity-35 lg:opacity-55 ${isVisible ? 'in-view' : ''}`}
+          style={{ transitionDelay: d.sideText }}
         >
-          Enjoy a Hands-Off<br />
-          <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)] block text-left">Experience</span>
+          True<br />
+          <span className="text-[#5AC8E8] drop-shadow-[0_0_8px_rgba(90,200,232,0.4)] block text-left">Automation</span>
         </h2>
       </div>
 
@@ -248,7 +248,7 @@ export default function HeroSection() {
               >
                 {/* Sliding glass pane */}
                 <span
-                  className="absolute rounded-full pointer-events-none z-0"
+                  className="absolute rounded-md pointer-events-none z-0"
                   style={{
                     left: glassPos?.left ?? 0,
                     top: glassPos?.top ?? 0,
@@ -273,7 +273,7 @@ export default function HeroSection() {
                   <span
                     key={item.label}
                     ref={(el) => setPillRef(item.label, el)}
-                    className={`pill-tooltip-group relative z-[1] group px-3 py-1.5 sm:px-4 sm:py-1.5 text-[13px] sm:text-xs lg:text-sm tracking-[0.15em] font-light border rounded-full cursor-default transition-colors duration-300 ${activePill === item.label ? 'text-white/90 border-[rgba(90,200,232,0.3)] bg-transparent pill-scan' : 'text-[var(--silver-light)]/70 border-[var(--silver-light)]/15 bg-white/[0.03]'}`}
+                    className={`pill-tooltip-group relative z-[1] group px-5 py-2.5 sm:px-4 sm:py-1.5 text-[13px] sm:text-xs lg:text-sm tracking-wide border rounded-md cursor-default transition-all duration-300 ${activePill === item.label ? 'text-white border-[var(--accent)]/70 bg-[var(--primary-dark)]/85 pill-scan' : 'text-white border-[var(--accent)]/40 bg-[var(--primary-dark)]/70 hover:border-[var(--accent)]/70 hover:bg-[var(--primary-dark)]/85'}`}
                     onClick={() => setActivePill(activePill === item.label ? null : item.label)}
                   >
                     <span className="pill-scan-beams" />
