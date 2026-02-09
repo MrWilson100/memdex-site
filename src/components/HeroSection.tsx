@@ -72,15 +72,15 @@ export default function HeroSection() {
   const d = { h1: '0s', logo: '0s', button: '1.0s', tagline: '1.3s', datawave: '1.5s', sideGraphic: '1.5s', sideText: '1.8s' };
 
   const pillItems = [
-    { label: "Algorithmic Management", desc: "Rules-based rebalancing engine that automatically adjusts portfolio allocation based on market conditions." },
-    { label: "AI Research", desc: "Dedicated AI research teams continuously monitor each asset using market data, on-chain activity, and sentiment analysis." },
-    { label: "Multi-Sector", desc: "Diversified exposure across major crypto sectors including Blue Chips, Memecoins, RWA's, Gaming, AI, and more." },
-    { label: "Cross-Chain", desc: "Portfolio spans multiple blockchains, capturing opportunities across the entire digital asset ecosystem." },
-    { label: "100 Assets", desc: "Broad market coverage with 100 curated digital assets, continuously evaluated and rebalanced." },
-  ] as const;
+    { label: "Algorithmic Management", desc: "Rules-based rebalancing engine that automatically adjusts portfolio allocation based on market conditions.", tooltipPos: "left-0 sm:left-1/2 sm:-translate-x-1/2" },
+    { label: "AI Research", desc: "Dedicated AI research teams continuously monitor each asset using market data, on-chain activity, and sentiment analysis.", tooltipPos: "right-0 left-auto sm:right-auto sm:left-1/2 sm:-translate-x-1/2" },
+    { label: "Multi-Sector", desc: "Diversified exposure across major crypto sectors including Blue Chips, Memecoins, RWA's, Gaming, AI, and more.", tooltipPos: "left-0 sm:left-1/2 sm:-translate-x-1/2" },
+    { label: "Cross-Chain", desc: "Portfolio spans multiple blockchains, capturing opportunities across the entire digital asset ecosystem.", tooltipPos: "right-0 left-auto sm:right-auto sm:left-1/2 sm:-translate-x-1/2" },
+    { label: "100 Assets", desc: "Broad market coverage with 100 curated digital assets, continuously evaluated and rebalanced.", tooltipPos: "right-0 left-auto sm:right-auto sm:left-1/2 sm:-translate-x-1/2" },
+  ];
 
   return (
-    <section id="home" className="relative min-h-screen sm:min-h-[110vh] pt-24 sm:pt-36 overflow-hidden">
+    <section id="home" className="relative min-h-screen sm:min-h-[140vh] pt-24 sm:pt-60 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
@@ -197,8 +197,8 @@ export default function HeroSection() {
                 <img
                   src="/memdex-logo.png"
                   alt="THE MEMDEX - Automated Portfolio"
-                  className="relative w-[337px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)] -translate-y-1 sm:-translate-y-[51px]"
-                  style={{ scale: '0.84' }}
+                  className="relative w-[337px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)] -translate-y-1 sm:-translate-y-[65px]"
+                  style={{ scale: '0.95' }}
                 />
               </div>
             </div>
@@ -246,13 +246,13 @@ export default function HeroSection() {
 
             {/* Tagline below logo */}
             <div
-              className={`reveal mt-4 relative z-[2] translate-y-[20px] sm:-translate-y-[30px] ${isVisible ? 'in-view' : ''}`}
+              className={`reveal mt-4 relative z-[2] translate-y-[5px] sm:-translate-y-[30px] ${isVisible ? 'in-view' : ''}`}
               style={{ transitionDelay: d.tagline, transitionDuration: '1.8s', marginTop: '-3vh', order: 3 }}
             >
               <div
                 ref={pillContainerRef}
                 className="relative flex flex-wrap justify-center gap-1.5 sm:gap-2"
-                style={{ fontFamily: "var(--font-memdex)", transform: 'translateY(15px)' }}
+                style={{ fontFamily: "var(--font-memdex)", transform: 'translateY(40px)' }}
               >
                 {/* Sliding glass pane */}
                 <span
@@ -275,12 +275,12 @@ export default function HeroSection() {
                   <span
                     key={item.label}
                     ref={(el) => setPillRef(item.label, el)}
-                    className={`pill-tooltip-group relative z-[1] group px-5 py-2.5 sm:px-4 sm:py-1.5 text-[13px] sm:text-xs lg:text-sm tracking-wide border rounded-md cursor-default transition-all duration-300 ${activePill === item.label ? 'text-white border-[var(--accent)]/70 bg-[var(--primary-dark)]/85 pill-scan' : 'text-white border-[var(--accent)]/40 bg-[var(--primary-dark)]/70 hover:border-[var(--accent)]/70 hover:bg-[var(--primary-dark)]/85'}`}
+                    className={`pill-tooltip-group relative z-[1] group px-5 py-2.5 sm:px-5 sm:py-2 text-[13px] sm:text-sm lg:text-base tracking-wide border rounded-md cursor-default transition-all duration-300 ${activePill === item.label ? 'text-white border-[var(--accent)]/70 bg-[var(--primary-dark)]/85 pill-scan' : 'text-white border-[var(--accent)]/40 bg-[var(--primary-dark)]/70 hover:border-[var(--accent)]/70 hover:bg-[var(--primary-dark)]/85'}`}
                     onClick={() => setActivePill(activePill === item.label ? null : item.label)}
                   >
                     <span className="pill-scan-beams" />
                     {item.label}
-                    <span className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 px-4 py-3 rounded-lg text-base leading-relaxed tracking-normal text-[var(--silver-light)] bg-[var(--background-deep)]/95 border border-[var(--accent)]/20 shadow-lg shadow-black/30 backdrop-blur-md transition-opacity duration-200 z-50 ${activePill === item.label ? 'opacity-100' : 'opacity-0 pointer-events-none'} lg:opacity-0 lg:pointer-events-none lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto`}
+                    <span className={`absolute bottom-full ${item.tooltipPos} mb-2 w-72 px-4 py-3 rounded-lg text-base leading-relaxed tracking-normal text-[var(--silver-light)] bg-[var(--background-deep)]/95 border border-[var(--accent)]/20 shadow-lg shadow-black/30 backdrop-blur-md transition-opacity duration-200 z-50 ${activePill === item.label ? 'opacity-100' : 'opacity-0 pointer-events-none'} lg:opacity-0 lg:pointer-events-none lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto`}
                       style={{ fontFamily: 'inherit' }}
                     >
                       {item.desc}
@@ -294,7 +294,7 @@ export default function HeroSection() {
             {/* Button below tagline */}
             <div
               className={`reveal mb-20 sm:mb-36 lg:mb-36 ${isVisible ? 'in-view' : ''}`}
-              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '2vh', order: 4, transform: 'translateY(30px)' }}
+              style={{ transitionDelay: d.button, transitionDuration: '1.8s', marginTop: '2vh', order: 4, transform: 'translateY(50px)' }}
             >
               <button className="btn-primary mt-5 sm:mt-0" onClick={() => setOverviewOpen(true)}>
                 Full Overview
