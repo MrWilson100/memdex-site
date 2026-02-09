@@ -13,6 +13,9 @@ export default function HeroSection() {
   const [overviewOpen, setOverviewOpen] = useState(false);
   const [activePill, setActivePill] = useState<string | null>(null);
   const [glassPos, setGlassPos] = useState<{ left: number; top: number; width: number; height: number } | null>(null);
+  const [datawaveTop, setDatawaveTop] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const headlineRef = useRef<HTMLDivElement>(null);
   const pillContainerRef = useRef<HTMLDivElement>(null);
   const pillRefs = useRef<Map<string, HTMLSpanElement>>(new Map());
 
@@ -68,6 +71,24 @@ export default function HeroSection() {
     }
   }, [isVisible]);
 
+  // Keep DataWave vertically synced to the headline
+  useEffect(() => {
+    const sync = () => {
+      if (headlineRef.current && sectionRef.current) {
+        const hRect = headlineRef.current.getBoundingClientRect();
+        const sRect = sectionRef.current.getBoundingClientRect();
+        setDatawaveTop(hRect.top + hRect.height / 2 - sRect.top);
+      }
+    };
+    sync();
+    const observer = new ResizeObserver(sync);
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    if (headlineRef.current) observer.observe(headlineRef.current);
+    // Re-sync after reveal animations settle
+    const timers = [setTimeout(sync, 500), setTimeout(sync, 2000), setTimeout(sync, 4000)];
+    return () => { observer.disconnect(); timers.forEach(clearTimeout); };
+  }, [isVisible]);
+
   // Animation sequence: h1 + logo → button → tagline → datawave
   const d = { h1: '0s', logo: '0s', button: '1.0s', tagline: '1.3s', datawave: '1.5s', sideGraphic: '1.5s', sideText: '1.8s' };
 
@@ -80,7 +101,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen sm:min-h-[140vh] pt-24 sm:pt-60 overflow-hidden">
+    <section ref={sectionRef} id="home" className="relative min-h-screen sm:min-h-[140vh] pt-24 sm:pt-60 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 gradient-hero" />
 
@@ -146,15 +167,15 @@ export default function HeroSection() {
         </h2>
       </div>
 
-      {/* DataWave background - behind the h1 title, position synced via JS */}
+      {/* DataWave background - position auto-synced to headline */}
       <div
-        className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal top-[52%] lg:top-[55%] ${isVisible ? 'animate' : ''}`}
-        style={{ animationDelay: d.datawave, transform: 'translateY(-50%)' }}
+        className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal ${isVisible ? 'animate' : ''}`}
+        style={{ animationDelay: d.datawave, top: datawaveTop != null ? `${datawaveTop}px` : '50%', transform: 'translateY(-50%)' }}
       >
         <img
           src="/datawave-bg.png"
           alt=""
-          className="w-full h-auto object-cover [transform:scaleY(0.45)_rotate(1.5deg)] lg:[transform:scaleY(0.22)_rotate(1.5deg)]"
+          className="w-full h-auto object-cover [transform:scaleY(0.45)_rotate(1.5deg)] lg:[transform:scaleY(0.34)_rotate(1.5deg)]"
           style={{ transformOrigin: 'center' }}
         />
       </div>
@@ -227,6 +248,7 @@ export default function HeroSection() {
               />
               */}
               <div
+                ref={headlineRef}
                 className={`relative z-[1] hero-title-frame reveal-blur-static translate-y-[-2px] sm:-translate-y-[63px] ${isVisible ? 'in-view' : ''}`}
                 style={{
                   transitionDelay: d.h1,
