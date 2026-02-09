@@ -136,7 +136,7 @@ export default function HeroSection() {
       </div>
 
       {/* "Leverage Smart Technology" text - left side */}
-      <div className="absolute top-[33%] lg:top-[37%] left-[13%] lg:left-[13%] z-[2] pointer-events-none hidden sm:block">
+      <div className="absolute top-[33%] lg:top-[37%] left-[13%] lg:left-[19%] z-[2] pointer-events-none hidden sm:block">
         <h2
           className={`reveal-blur font-[var(--font-memdex)] text-[13px] lg:text-xl xl:text-2xl font-bold text-white tracking-tight text-glow opacity-35 lg:opacity-55 text-right ${isVisible ? 'in-view' : ''}`}
           style={{ transitionDelay: d.sideText }}
