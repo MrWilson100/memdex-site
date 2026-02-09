@@ -148,7 +148,7 @@ export default function HeroSection() {
 
       {/* DataWave background - behind the h1 title, position synced via JS */}
       <div
-        className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal top-[55%] lg:top-[58%] ${isVisible ? 'animate' : ''}`}
+        className={`absolute left-0 right-0 z-[1] pointer-events-none datawave-reveal top-[53%] lg:top-[55%] ${isVisible ? 'animate' : ''}`}
         style={{ animationDelay: d.datawave, transform: 'translateY(-50%)' }}
       >
         <img
