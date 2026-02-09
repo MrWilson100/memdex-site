@@ -98,7 +98,7 @@ export default function HeroSection() {
 
       {/* Tech Leverage Graphic - top left */}
       <div
-        className={`absolute top-[17%] left-[7%] lg:left-[13%] lg:top-[20%] z-[2] w-[95px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur ${isVisible ? 'in-view' : ''}`}
+        className={`absolute top-[19%] left-[7%] lg:left-[13%] lg:top-[20%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur ${isVisible ? 'in-view' : ''}`}
         style={{ transitionDelay: d.sideGraphic }}
       >
         <div style={{ opacity: 0.55 }}>
@@ -107,9 +107,9 @@ export default function HeroSection() {
       </div>
 
       {/* "Leverage Smart Technology" text - left side */}
-      <div className="absolute top-[28%] lg:top-[36%] left-[7%] lg:left-[13%] z-[2] pointer-events-none">
+      <div className="absolute top-[30%] lg:top-[37%] left-[7%] lg:left-[13%] z-[2] pointer-events-none">
         <h2
-          className={`reveal-blur font-[var(--font-memdex)] text-[10px] lg:text-lg xl:text-xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
+          className={`reveal-blur font-[var(--font-memdex)] text-[13px] lg:text-xl xl:text-2xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
           style={{ transitionDelay: d.sideText, opacity: 0.55 }}
         >
           Leverage Smart<br />
@@ -119,7 +119,7 @@ export default function HeroSection() {
 
       {/* AI Trading Graphic - top right */}
       <div
-        className={`absolute top-[17%] right-[7%] lg:right-[13%] lg:top-[20%] z-[2] w-[95px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur ${isVisible ? 'in-view' : ''}`}
+        className={`absolute top-[19%] right-[4%] lg:right-[13%] lg:top-[20%] z-[2] w-[105px] lg:w-[180px] xl:w-[220px] pointer-events-none reveal-blur ${isVisible ? 'in-view' : ''}`}
         style={{ transitionDelay: d.sideGraphic }}
       >
         <div style={{ opacity: 0.55 }}>
@@ -128,9 +128,9 @@ export default function HeroSection() {
       </div>
 
       {/* "Watch Memdex Work" text - right side */}
-      <div className="absolute top-[28%] lg:top-[36%] right-[7%] lg:right-[13%] z-[2] pointer-events-none">
+      <div className="absolute top-[30%] lg:top-[37%] right-[4%] lg:right-[13%] z-[2] pointer-events-none">
         <h2
-          className={`reveal-blur font-[var(--font-memdex)] text-[10px] lg:text-lg xl:text-xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
+          className={`reveal-blur font-[var(--font-memdex)] text-[13px] lg:text-xl xl:text-2xl font-bold text-white tracking-tight text-glow ${isVisible ? 'in-view' : ''}`}
           style={{ transitionDelay: d.sideText, opacity: 0.55 }}
         >
           Enjoy a Hands-Off<br />
@@ -189,7 +189,7 @@ export default function HeroSection() {
                 <img
                   src="/memdex-logo.png"
                   alt="THE MEMDEX - Automated Portfolio"
-                  className="relative w-[321px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)] -translate-y-1 sm:-translate-y-[51px]"
+                  className="relative w-[337px] sm:w-[330px] md:w-[407px] lg:w-[484px] h-auto logo-breathe drop-shadow-[0_0_25px_rgba(74,158,255,0.2)] -translate-y-1 sm:-translate-y-[51px]"
                   style={{ scale: '0.84' }}
                 />
               </div>
@@ -225,7 +225,7 @@ export default function HeroSection() {
                 }}
               >
                 <h1
-                  className="text-metallic-shine font-[var(--font-memdex)] text-[0.95rem] sm:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.85rem] font-bold leading-[1.1] tracking-tight"
+                  className="text-metallic-shine font-[var(--font-memdex)] text-[1.05rem] sm:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.85rem] font-bold leading-[1.1] tracking-tight"
                   style={{
                     whiteSpace: 'nowrap',
                     letterSpacing: '0.02em',
@@ -273,7 +273,7 @@ export default function HeroSection() {
                   <span
                     key={item.label}
                     ref={(el) => setPillRef(item.label, el)}
-                    className={`pill-tooltip-group relative z-[1] group px-3 py-1.5 sm:px-4 sm:py-1.5 text-xs sm:text-xs lg:text-sm tracking-[0.15em] font-light border rounded-full cursor-default transition-colors duration-300 ${activePill === item.label ? 'text-white/90 border-[rgba(90,200,232,0.3)] bg-transparent pill-scan' : 'text-[var(--silver-light)]/70 border-[var(--silver-light)]/15 bg-white/[0.03]'}`}
+                    className={`pill-tooltip-group relative z-[1] group px-3 py-1.5 sm:px-4 sm:py-1.5 text-[13px] sm:text-xs lg:text-sm tracking-[0.15em] font-light border rounded-full cursor-default transition-colors duration-300 ${activePill === item.label ? 'text-white/90 border-[rgba(90,200,232,0.3)] bg-transparent pill-scan' : 'text-[var(--silver-light)]/70 border-[var(--silver-light)]/15 bg-white/[0.03]'}`}
                     onClick={() => setActivePill(activePill === item.label ? null : item.label)}
                   >
                     <span className="pill-scan-beams" />
